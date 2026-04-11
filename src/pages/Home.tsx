@@ -1,6 +1,32 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FadeUpSection, StaggerContainer, StaggerItem } from '../components/SuperEffects'
+import { FadeUpSection, StaggerContainer, StaggerItem, CountUp, TextReveal, Marquee } from '../components/SuperEffects'
+
+const projects = [
+  { name: 'LexConfig', type: 'Site vitrine', year: '2024', color: '#D4C5A0' },
+  { name: 'Cabinet DSA', type: 'Identité digitale', year: '2024', color: '#B8C4C0' },
+  { name: 'Avocats Associés', type: 'Site corporate', year: '2023', color: '#C9BBA8' },
+  { name: 'LexInnov', type: 'Landing page', year: '2023', color: '#A8B8C9' },
+]
+
+const testimonials = [
+  {
+    quote: "Arthur a parfaitement compris les contraintes de notre profession. Le résultat est à la hauteur de notre exigence.",
+    author: 'Maître Sophie Renard',
+    title: 'Avocate au Barreau de Paris',
+  },
+  {
+    quote: "Un vrai professionnel qui parle notre langage. Notre site reflète enfin l'image que nous voulons donner à notre cabinet.",
+    author: 'Cabinet Dupont & Associés',
+    title: 'Barreau de Lyon',
+  },
+]
+
+const barreaux = [
+  'Barreau de Paris', 'Barreau de Lyon', 'Barreau de Bordeaux',
+  'Barreau de Lille', 'Barreau de Nantes', 'Barreau de Marseille',
+  'Barreau de Toulouse', 'Barreau de Strasbourg',
+]
 
 export default function Home() {
   return (
@@ -15,28 +41,41 @@ export default function Home() {
       <section className="pt-16">
         <div className="max-w-content mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 min-h-[calc(100vh-64px)] items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
-            >
-              <span className="section-label mb-6 block">
+            <div>
+              <motion.span
+                className="section-label mb-6 block"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+              >
                 Créateur de sites pour avocats
-              </span>
-              <h1 className="font-serif text-hero-mobile md:text-h1 lg:text-hero text-primary mb-6 leading-[1.1]">
-                Des sites qui{' '}
-                <em className="text-bronze">honorent</em>{' '}
-                votre profession
-              </h1>
-              <p className="text-body text-secondary max-w-[420px] mb-10 leading-relaxed">
+              </motion.span>
+              <TextReveal
+                className="font-serif text-hero-mobile md:text-h1 lg:text-hero text-primary mb-6 leading-[1.1]"
+                delay={0.2}
+                stagger={0.05}
+              >
+                Des sites qui honorent votre profession
+              </TextReveal>
+              <motion.p
+                className="text-body text-secondary max-w-[420px] mb-10 leading-relaxed"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
                 Juriste de formation, je conçois des expériences web sur-mesure
                 pour les cabinets d'avocats exigeants. Design éditorial, exécution
                 technique, conformité CNB.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              </motion.p>
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-bronze text-white font-semibold text-sm rounded-sm transition-colors duration-200 hover:bg-bronze-hover"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-bronze text-white font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-bronze-hover hover:shadow-lg hover:shadow-bronze/20 hover:-translate-y-0.5"
                 >
                   Démarrer un projet
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,17 +84,17 @@ export default function Home() {
                 </Link>
                 <Link
                   to="/realisations"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-rule-strong text-primary font-medium text-sm rounded-sm transition-colors duration-200 hover:border-primary"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-rule-strong text-primary font-medium text-sm rounded-sm transition-all duration-200 hover:border-primary hover:bg-surface"
                 >
                   Voir les réalisations
                 </Link>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
 
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
               className="hidden md:flex items-center justify-center"
             >
               <div className="aspect-[4/5] w-full bg-surface rounded-md relative overflow-hidden">
@@ -75,29 +114,47 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Stats row */}
+        {/* Stats row — animated counters */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
+          transition={{ duration: 0.4, delay: 0.5, ease: 'easeOut' }}
           className="border-t border-rule mt-0"
         >
           <div className="max-w-content mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-3 divide-x divide-rule">
-              {[
-                { value: '15+', label: 'Sites livrés' },
-                { value: '100%', label: 'Sur-mesure' },
-                { value: 'Juriste', label: 'Profil unique' },
-              ].map((stat) => (
-                <div key={stat.label} className="py-8 text-center">
-                  <div className="font-serif text-h3 md:text-h2 text-primary">{stat.value}</div>
-                  <div className="font-mono text-label uppercase text-muted mt-1">{stat.label}</div>
+              <div className="py-8 text-center">
+                <div className="font-serif text-h3 md:text-h2 text-primary">
+                  <CountUp value={15} suffix="+" />
                 </div>
-              ))}
+                <div className="font-mono text-label uppercase text-muted mt-1">Sites livrés</div>
+              </div>
+              <div className="py-8 text-center">
+                <div className="font-serif text-h3 md:text-h2 text-primary">
+                  <CountUp value={100} suffix="%" />
+                </div>
+                <div className="font-mono text-label uppercase text-muted mt-1">Sur-mesure</div>
+              </div>
+              <div className="py-8 text-center">
+                <div className="font-serif text-h3 md:text-h2 text-primary italic">Juriste</div>
+                <div className="font-mono text-label uppercase text-muted mt-1">Profil unique</div>
+              </div>
             </div>
           </div>
         </motion.div>
       </section>
+
+      {/* Trust marquee */}
+      <div className="border-t border-rule py-5 bg-surface">
+        <Marquee speed={25} className="text-muted">
+          {barreaux.map((b) => (
+            <span key={b} className="font-mono text-xs uppercase tracking-widest whitespace-nowrap flex items-center gap-3">
+              {b}
+              <span className="w-1 h-1 rounded-full bg-bronze inline-block" />
+            </span>
+          ))}
+        </Marquee>
+      </div>
 
       {/* Why Jurist Section */}
       <FadeUpSection className="py-24 px-6 lg:px-8 border-t border-rule">
@@ -133,7 +190,7 @@ export default function Home() {
         </div>
       </FadeUpSection>
 
-      {/* Featured Work */}
+      {/* Featured Work — hover effects */}
       <section className="py-24 px-6 lg:px-8 border-t border-rule">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
@@ -155,25 +212,24 @@ export default function Home() {
           </FadeUpSection>
 
           <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.08}>
-            {[
-              { name: 'LexConfig', type: 'Site vitrine', year: '2024' },
-              { name: 'Cabinet DSA', type: 'Identité digitale', year: '2024' },
-              { name: 'Avocats Associés', type: 'Site corporate', year: '2023' },
-              { name: 'LexInnov', type: 'Landing page', year: '2023' },
-            ].map((project) => (
+            {projects.map((project) => (
               <StaggerItem key={project.name}>
                 <Link
                   to="/realisations"
-                  className="group block card-hover bg-surface rounded-md overflow-hidden"
+                  className="group block rounded-md overflow-hidden"
                 >
-                  <div className="aspect-[16/10] bg-surface-hover relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-serif text-3xl text-muted group-hover:text-primary transition-colors duration-200">
+                  <div
+                    className="aspect-[16/10] relative overflow-hidden"
+                    style={{ backgroundColor: project.color }}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+                      <span className="font-serif text-3xl text-white/70 group-hover:text-white transition-colors duration-300 drop-shadow-sm">
                         {project.name}
                       </span>
                     </div>
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
                   </div>
-                  <div className="p-5 flex items-center justify-between border-t border-rule">
+                  <div className="p-5 bg-surface flex items-center justify-between border-t border-rule">
                     <div>
                       <h3 className="font-serif text-lg text-primary mb-0.5 group-hover:text-bronze transition-colors duration-200">
                         {project.name}
@@ -182,7 +238,14 @@ export default function Home() {
                         {project.type}
                       </p>
                     </div>
-                    <span className="font-mono text-sm text-muted">{project.year}</span>
+                    <motion.span
+                      className="font-mono text-sm text-muted group-hover:text-primary transition-colors"
+                    >
+                      {project.year}
+                      <svg className="w-3.5 h-3.5 inline-block ml-2 opacity-0 group-hover:opacity-100 transition-all duration-200 -translate-x-1 group-hover:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </motion.span>
                   </div>
                 </Link>
               </StaggerItem>
@@ -191,21 +254,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 px-6 lg:px-8 bg-surface border-t border-rule">
-        <div className="max-w-content mx-auto text-center">
+      {/* Testimonials */}
+      <section className="py-24 px-6 lg:px-8 border-t border-rule bg-surface">
+        <div className="max-w-content mx-auto">
           <FadeUpSection>
-            <span className="section-label mb-6 block">Prochain projet</span>
-            <h2 className="font-serif text-h2 md:text-h1 text-primary mb-6 leading-tight">
+            <span className="section-label mb-4 block text-center">Témoignages</span>
+            <h2 className="font-serif text-h2 text-primary mb-16 text-center">
+              Ce qu'en disent nos clients
+            </h2>
+          </FadeUpSection>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((t, i) => (
+              <FadeUpSection key={t.author} delay={i * 0.1}>
+                <div className="p-8 bg-page rounded-md border border-rule relative">
+                  <svg className="w-8 h-8 text-bronze/30 mb-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <blockquote className="text-body text-primary leading-relaxed mb-6 italic">
+                    "{t.quote}"
+                  </blockquote>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-bronze/10 flex items-center justify-center">
+                      <span className="font-serif text-sm text-bronze">{t.author.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-primary">{t.author}</div>
+                      <div className="font-mono text-label text-muted">{t.title}</div>
+                    </div>
+                  </div>
+                </div>
+              </FadeUpSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Dark CTA Section — inverted, agency-style */}
+      <section className="py-32 px-6 lg:px-8 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <svg className="w-full h-full" viewBox="0 0 1200 600">
+            <defs>
+              <pattern id="cta-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cta-grid)" />
+          </svg>
+        </div>
+        <div className="max-w-content mx-auto text-center relative z-10">
+          <FadeUpSection>
+            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-bronze mb-6 block">
+              Prochain projet
+            </span>
+            <h2 className="font-serif text-h2 md:text-h1 lg:text-hero text-page mb-6 leading-tight">
               Prêt à démarquer<br />votre cabinet ?
             </h2>
-            <p className="text-body text-secondary max-w-xl mx-auto mb-10">
+            <p className="text-body text-page/60 max-w-xl mx-auto mb-10">
               Discutons de votre projet. Première consultation gratuite,
               sans engagement.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-page font-semibold text-base rounded-sm transition-opacity duration-200 hover:opacity-85"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-semibold text-base rounded-sm transition-all duration-200 hover:bg-bronze-hover hover:shadow-lg hover:shadow-bronze/30 hover:-translate-y-0.5"
             >
               Prendre rendez-vous
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
