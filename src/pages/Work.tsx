@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { FadeUpSection } from '../components/SuperEffects'
 
 const projects = [
   { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024' },
@@ -9,46 +11,22 @@ const projects = [
   { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023' },
 ]
 
-const filters = ['Tous', 'Contentieux', 'Affaires', 'Famille', 'Immobilier', 'Social', 'Pénal']
-
 export default function Work() {
   return (
-    <div className="min-h-screen pt-24 pb-16 px-6 bg-paper-50">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-bg">
+      <div className="max-w-content mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
           className="mb-12"
         >
-          <h1 className="font-display text-4xl md:text-5xl font-medium text-navy-900 mb-4">
-            Réalisations
-          </h1>
-          <p className="text-navy-700 max-w-2xl">
+          <span className="section-label mb-4 block">Portfolio</span>
+          <h1 className="font-serif text-h1 text-text-primary mb-4">Réalisations</h1>
+          <p className="text-body text-text-secondary max-w-2xl">
             Chaque site est conçu sur mesure, en fonction de l'identité du cabinet,
             de sa clientèle et de ses objectifs.
           </p>
-        </motion.div>
-
-        {/* Filters */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap gap-2 mb-12"
-        >
-          {filters.map((filter, index) => (
-            <button
-              key={filter}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                index === 0
-                  ? 'bg-navy-900 text-paper-50'
-                  : 'bg-paper-100 text-navy-700 hover:bg-navy-700/10'
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
         </motion.div>
 
         {/* Grid */}
@@ -56,47 +34,43 @@ export default function Work() {
           {projects.map((project, index) => (
             <motion.div
               key={project.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-[4/3] bg-navy-800 rounded-lg overflow-hidden cursor-pointer"
+              transition={{ duration: 0.4, delay: index * 0.06, ease: 'easeOut' }}
+              className="group card-hover bg-surface rounded-md overflow-hidden cursor-pointer"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/20 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-navy-900/70">
-                <span className="px-6 py-3 bg-gold-500 text-navy-900 font-medium rounded">
-                  Voir la maquette
-                </span>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-gold-500 uppercase tracking-wider">{project.domain}</span>
-                  <span className="text-xs text-paper-100/40">·</span>
-                  <span className="text-xs text-paper-100/40">{project.year}</span>
+              <div className="aspect-[4/3] bg-surface-hover relative overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-serif text-2xl text-text-tertiary group-hover:text-text-primary transition-colors duration-200">
+                    {project.name}
+                  </span>
                 </div>
-                <h3 className="font-display text-lg text-paper-50">{project.name}</h3>
-                <p className="text-sm text-paper-100/60">{project.bar}</p>
+              </div>
+              <div className="p-5 border-t border-border">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-mono text-label uppercase text-accent">{project.domain}</span>
+                  <span className="text-text-tertiary">·</span>
+                  <span className="font-mono text-label uppercase text-text-tertiary">{project.year}</span>
+                </div>
+                <h3 className="font-serif text-lg text-text-primary">{project.name}</h3>
+                <p className="text-sm text-text-secondary mt-1">{project.bar}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Empty state placeholder */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 p-8 border border-dashed border-navy-700/30 rounded-lg text-center"
-        >
-          <p className="text-navy-700">
+        {/* CTA */}
+        <FadeUpSection className="mt-16 p-8 border border-border rounded-md text-center" delay={0.2}>
+          <p className="text-text-secondary">
             Votre domaine n'est pas dans la liste ?
           </p>
-          <p className="text-navy-700 mt-2">
+          <p className="text-text-secondary mt-2">
             Je réalise des sites pour tous types de cabinets.{' '}
-            <a href="/contact" className="text-gold-500 hover:underline">
+            <Link to="/contact" className="text-accent hover:text-accent-hover transition-colors">
               Discutons-en
-            </a>
+            </Link>
           </p>
-        </motion.div>
+        </FadeUpSection>
       </div>
     </div>
   )

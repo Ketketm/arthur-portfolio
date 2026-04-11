@@ -1,6 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import { GrainOverlay, CustomCursor, ScrollProgress, AmbientGlows } from './components/SuperEffects'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Work from './pages/Work'
@@ -11,20 +10,11 @@ import Contact from './pages/Contact'
 
 function App() {
   const location = useLocation()
-  const isHome = location.pathname === '/'
 
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary">
-      {/* Global Effects */}
-      <GrainOverlay />
-      <CustomCursor />
-      <ScrollProgress />
-      {!isHome && <AmbientGlows />}
+    <div className="min-h-screen bg-bg text-text-primary">
+      <Navbar />
       
-      {/* Navigation */}
-      {!isHome && <Navbar />}
-      
-      {/* Routes */}
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
