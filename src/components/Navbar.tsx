@@ -27,7 +27,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'glass-nav border-b border-rule-strong'
+            ? 'glass-nav border-b border-rule shadow-sm'
             : 'bg-transparent'
         }`}
       >
@@ -69,7 +69,7 @@ export default function Navbar() {
             <div className="hidden md:block">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-page text-sm font-semibold rounded-sm transition-opacity duration-200 hover:opacity-85"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-page text-sm font-semibold rounded-sm transition-all duration-200 hover:opacity-90 hover:shadow-md hover:-translate-y-px"
               >
                 Prendre rendez-vous
               </Link>
