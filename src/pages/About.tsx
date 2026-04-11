@@ -27,7 +27,13 @@ const timeline = [
 
 export default function About() {
   return (
-    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page">
+    <motion.div
+      className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+    >
       <div className="max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -110,6 +116,6 @@ export default function About() {
           </Link>
         </FadeUpSection>
       </div>
-    </div>
+    </motion.div>
   )
 }

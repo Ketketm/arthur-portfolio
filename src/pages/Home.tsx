@@ -4,7 +4,13 @@ import { FadeUpSection, StaggerContainer, StaggerItem } from '../components/Supe
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-page">
+    <motion.div
+      className="min-h-screen bg-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+    >
       {/* Hero Section — asymmetric editorial */}
       <section className="pt-16">
         <div className="max-w-content mx-auto px-6 lg:px-8">
@@ -209,6 +215,6 @@ export default function Home() {
           </FadeUpSection>
         </div>
       </section>
-    </div>
+    </motion.div>
   )
 }
