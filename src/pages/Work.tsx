@@ -48,7 +48,7 @@ export default function Work() {
               </div>
               <div className="p-5 border-t border-rule">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-mono text-label uppercase text-accent">{project.domain}</span>
+                  <span className="font-mono text-label uppercase text-bronze">{project.domain}</span>
                   <span className="text-muted">·</span>
                   <span className="font-mono text-label uppercase text-muted">{project.year}</span>
                 </div>
@@ -66,7 +66,7 @@ export default function Work() {
           </p>
           <p className="text-secondary mt-2">
             Je réalise des sites pour tous types de cabinets.{' '}
-            <Link to="/contact" className="text-accent hover:text-accent-hover transition-colors">
+            <Link to="/contact" className="text-bronze hover:text-bronze-hover transition-colors">
               Discutons-en
             </Link>
           </p>

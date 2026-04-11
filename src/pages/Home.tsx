@@ -19,7 +19,7 @@ export default function Home() {
               </span>
               <h1 className="font-serif text-hero-mobile md:text-h1 lg:text-hero text-primary mb-6 leading-[1.1]">
                 Des sites qui{' '}
-                <em className="text-accent">honorent</em>{' '}
+                <em className="text-bronze">honorent</em>{' '}
                 votre profession
               </h1>
               <p className="text-body text-secondary max-w-[420px] mb-10 leading-relaxed">
@@ -30,7 +30,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-white font-semibold text-sm rounded-sm transition-colors duration-200 hover:bg-accent-hover"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-bronze text-white font-semibold text-sm rounded-sm transition-colors duration-200 hover:bg-bronze-hover"
                 >
                   Démarrer un projet
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,7 +169,7 @@ export default function Home() {
                   </div>
                   <div className="p-5 flex items-center justify-between border-t border-rule">
                     <div>
-                      <h3 className="font-serif text-lg text-primary mb-0.5 group-hover:text-accent transition-colors duration-200">
+                      <h3 className="font-serif text-lg text-primary mb-0.5 group-hover:text-bronze transition-colors duration-200">
                         {project.name}
                       </h3>
                       <p className="font-mono text-label uppercase text-muted">

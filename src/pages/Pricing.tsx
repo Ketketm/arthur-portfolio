@@ -61,7 +61,7 @@ export default function Pricing() {
           className="max-w-2xl mx-auto mb-20"
         >
           <div className="bg-surface border border-rule rounded-md p-8 md:p-12">
-            <div className="font-mono text-label uppercase text-accent bg-accent-light inline-block px-3 py-1.5 rounded-sm mb-6">
+            <div className="font-mono text-label uppercase text-bronze bg-bronze-light inline-block px-3 py-1.5 rounded-sm mb-6">
               Offre de lancement
             </div>
 
@@ -73,7 +73,7 @@ export default function Pricing() {
             <ul className="space-y-0 mb-8">
               {included.map((item) => (
                 <li key={item} className="flex items-center gap-3 py-3 border-b border-rule text-sm text-primary">
-                  <span className="text-accent font-semibold text-xs">✓</span>
+                  <span className="text-bronze font-semibold text-xs">✓</span>
                   {item}
                 </li>
               ))}

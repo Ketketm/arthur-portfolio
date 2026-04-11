@@ -12,9 +12,9 @@
   --text-primary: #1A1A1A;
   --text-secondary: #6B6B6B;
   --text-tertiary: #999999;
-  --accent: #8B6914;
-  --accent-hover: #A37D1C;
-  --accent-light: rgba(139, 105, 20, 0.08);
+  --bronze: #8B6914;
+  --bronze-hover: #A37D1C;
+  --bronze-light: rgba(139, 105, 20, 0.08);
   --border: rgba(26, 26, 26, 0.08);
   --border-strong: rgba(26, 26, 26, 0.15);
 }
@@ -108,13 +108,13 @@ body {
 
 /* Selection color */
 ::selection {
-  background: var(--accent);
+  background: var(--bronze);
   color: #fff;
 }
 
 /* Focus styles */
 :focus-visible {
-  outline: 1px solid var(--accent);
+  outline: 1px solid var(--bronze);
   outline-offset: 2px;
 }
 
@@ -124,5 +124,5 @@ body {
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--bronze);
 }

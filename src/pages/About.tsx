@@ -62,7 +62,7 @@ export default function About() {
         </motion.div>
 
         {/* Philosophy */}
-        <FadeUpSection className="mb-16 p-8 bg-surface rounded-md border-l-2 border-accent" delay={0.1}>
+        <FadeUpSection className="mb-16 p-8 bg-surface rounded-md border-l-2 border-bronze" delay={0.1}>
           <blockquote className="font-serif text-h3 md:text-h2 text-primary italic leading-relaxed">
             "Les avocats méritent des outils numériques à la hauteur de leur profession.
             Pas des templates génériques. Pas des agences qui ne comprennent pas le métier."
@@ -85,7 +85,7 @@ export default function About() {
                 className="flex gap-6 py-6 border-b border-rule last:border-0"
               >
                 <div className="flex-shrink-0 w-16 pt-1">
-                  <span className="font-mono text-sm font-medium text-accent">{item.year}</span>
+                  <span className="font-mono text-sm font-medium text-bronze">{item.year}</span>
                 </div>
                 <div className="flex-1">
                   <h3 className="font-serif text-xl text-primary mb-2">{item.title}</h3>
@@ -101,7 +101,7 @@ export default function About() {
           <p className="text-secondary mb-4">Vous voulez en savoir plus ? Discutons.</p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 text-accent hover:text-accent-hover font-medium transition-colors"
+            className="inline-flex items-center gap-2 text-bronze hover:text-bronze-hover font-medium transition-colors"
           >
             Me contacter
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -60,13 +60,13 @@ export default function Process() {
               className="relative pl-16 pb-12 border-l border-rule last:pb-0"
             >
               <div className="absolute left-0 -translate-x-1/2 w-8 h-8 bg-page border border-rule-strong rounded-full flex items-center justify-center">
-                <span className="font-mono text-xs font-medium text-accent">{step.number}</span>
+                <span className="font-mono text-xs font-medium text-bronze">{step.number}</span>
               </div>
 
-              <div className="font-mono text-label uppercase text-accent mb-3">{step.duration}</div>
+              <div className="font-mono text-label uppercase text-bronze mb-3">{step.duration}</div>
               <h3 className="font-serif text-h3 text-primary mb-3">{step.title}</h3>
               <p className="text-body text-secondary leading-relaxed mb-4">{step.description}</p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-light rounded-sm">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-bronze-light rounded-sm">
                 <span className="text-sm font-medium text-primary">{step.deliverable}</span>
               </div>
             </motion.div>
