@@ -14,7 +14,7 @@ export default {
         },
         primary: '#1A1A1A',
         secondary: '#6B6B6B',
-        muted: '#999999',
+        muted: '#737373',
         bronze: {
           DEFAULT: '#8B6914',
           hover: '#A37D1C',
