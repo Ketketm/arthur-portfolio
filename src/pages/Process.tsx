@@ -34,7 +34,7 @@ const trustSignals = [
 
 export default function Process() {
   return (
-    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-bg">
+    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page">
       <div className="max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -43,8 +43,8 @@ export default function Process() {
           className="text-center mb-16"
         >
           <span className="section-label mb-4 block">Processus</span>
-          <h1 className="font-serif text-h1 text-text-primary mb-4">La méthode</h1>
-          <p className="text-body text-text-secondary max-w-2xl mx-auto">
+          <h1 className="font-serif text-h1 text-primary mb-4">La méthode</h1>
+          <p className="text-body text-secondary max-w-2xl mx-auto">
             Un processus simple, transparent, conçu pour les avocats qui n'ont pas le temps de gérer des projets techniques.
           </p>
         </motion.div>
@@ -57,29 +57,29 @@ export default function Process() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeOut' }}
-              className="relative pl-16 pb-12 border-l border-border last:pb-0"
+              className="relative pl-16 pb-12 border-l border-rule last:pb-0"
             >
-              <div className="absolute left-0 -translate-x-1/2 w-8 h-8 bg-bg border border-border-strong rounded-full flex items-center justify-center">
+              <div className="absolute left-0 -translate-x-1/2 w-8 h-8 bg-page border border-rule-strong rounded-full flex items-center justify-center">
                 <span className="font-mono text-xs font-medium text-accent">{step.number}</span>
               </div>
 
               <div className="font-mono text-label uppercase text-accent mb-3">{step.duration}</div>
-              <h3 className="font-serif text-h3 text-text-primary mb-3">{step.title}</h3>
-              <p className="text-body text-text-secondary leading-relaxed mb-4">{step.description}</p>
+              <h3 className="font-serif text-h3 text-primary mb-3">{step.title}</h3>
+              <p className="text-body text-secondary leading-relaxed mb-4">{step.description}</p>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-light rounded-sm">
-                <span className="text-sm font-medium text-text-primary">{step.deliverable}</span>
+                <span className="text-sm font-medium text-primary">{step.deliverable}</span>
               </div>
             </motion.div>
           ))}
         </div>
 
         {/* Trust signals */}
-        <FadeUpSection className="mt-20 pt-16 border-t border-border" delay={0.2}>
+        <FadeUpSection className="mt-20 pt-16 border-t border-rule" delay={0.2}>
           <div className="grid md:grid-cols-4 gap-8">
             {trustSignals.map((signal) => (
               <div key={signal.label} className="text-center">
-                <div className="font-mono text-label uppercase text-text-tertiary mb-2">{signal.label}</div>
-                <div className="font-medium text-text-primary">{signal.value}</div>
+                <div className="font-mono text-label uppercase text-muted mb-2">{signal.label}</div>
+                <div className="font-medium text-primary">{signal.value}</div>
               </div>
             ))}
           </div>

@@ -27,7 +27,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'glass-nav border-b border-border-strong'
+            ? 'glass-nav border-b border-rule-strong'
             : 'bg-transparent'
         }`}
       >
@@ -36,7 +36,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               to="/"
-              className="font-serif text-xl text-text-primary hover:text-accent transition-colors duration-200"
+              className="font-serif text-xl text-primary hover:text-accent transition-colors duration-200"
             >
               Arthur Souleil
             </Link>
@@ -49,15 +49,15 @@ export default function Navbar() {
                   to={link.path}
                   className={`relative text-sm transition-colors duration-200 line-animate ${
                     location.pathname === link.path
-                      ? 'text-text-primary font-medium'
-                      : 'text-text-secondary hover:text-text-primary'
+                      ? 'text-primary font-medium'
+                      : 'text-secondary hover:text-primary'
                   }`}
                 >
                   {link.label}
                   {location.pathname === link.path && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute -bottom-[2px] left-0 right-0 h-[1px] bg-text-primary"
+                      className="absolute -bottom-[2px] left-0 right-0 h-[1px] bg-primary"
                       transition={{ duration: 0.2, ease: 'easeOut' }}
                     />
                   )}
@@ -69,7 +69,7 @@ export default function Navbar() {
             <div className="hidden md:block">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-text-primary text-bg text-sm font-semibold rounded-sm transition-opacity duration-200 hover:opacity-85"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-page text-sm font-semibold rounded-sm transition-opacity duration-200 hover:opacity-85"
               >
                 Prendre rendez-vous
               </Link>
@@ -77,7 +77,7 @@ export default function Navbar() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-text-primary"
+              className="md:hidden p-2 text-primary"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <div className="w-5 h-4 flex flex-col justify-between">
@@ -98,7 +98,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 z-40 bg-bg/98 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 top-16 z-40 bg-page/98 backdrop-blur-sm md:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
               {navLinks.map((link) => (
@@ -108,8 +108,8 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`font-serif text-2xl ${
                     location.pathname === link.path
-                      ? 'text-text-primary'
-                      : 'text-text-secondary'
+                      ? 'text-primary'
+                      : 'text-secondary'
                   }`}
                 >
                   {link.label}
@@ -118,7 +118,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-text-primary text-bg font-semibold rounded-sm mt-4"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-page font-semibold rounded-sm mt-4"
               >
                 Prendre rendez-vous
               </Link>

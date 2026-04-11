@@ -7,24 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: {
-          DEFAULT: '#FAFAF8',
-        },
+        page: '#FAFAF8',
         surface: {
           DEFAULT: '#F2F0EC',
           hover: '#EAE7E1',
         },
-        text: {
-          primary: '#1A1A1A',
-          secondary: '#6B6B6B',
-          tertiary: '#999999',
-        },
+        primary: '#1A1A1A',
+        secondary: '#6B6B6B',
+        muted: '#999999',
         accent: {
           DEFAULT: '#8B6914',
           hover: '#A37D1C',
           light: 'rgba(139, 105, 20, 0.08)',
         },
-        border: {
+        rule: {
           DEFAULT: 'rgba(26, 26, 26, 0.08)',
           strong: 'rgba(26, 26, 26, 0.15)',
         },

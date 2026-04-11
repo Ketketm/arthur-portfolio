@@ -27,7 +27,7 @@ const timeline = [
 
 export default function About() {
   return (
-    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-bg">
+    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page">
       <div className="max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -36,8 +36,8 @@ export default function About() {
           className="mb-16"
         >
           <span className="section-label mb-4 block">À propos</span>
-          <h1 className="font-serif text-h1 text-text-primary mb-6">Arthur Souleil</h1>
-          <p className="text-xl text-text-secondary leading-relaxed max-w-3xl">
+          <h1 className="font-serif text-h1 text-primary mb-6">Arthur Souleil</h1>
+          <p className="text-xl text-secondary leading-relaxed max-w-3xl">
             Je ne suis pas un développeur devenu curieux du droit. Je suis un juriste
             devenu développeur par nécessité — parce que les outils existants ne
             respectaient pas la profession.
@@ -52,7 +52,7 @@ export default function About() {
           className="mb-16"
         >
           <div className="aspect-[3/2] md:aspect-[21/9] bg-surface rounded-md flex items-center justify-center">
-            <div className="text-center text-text-tertiary">
+            <div className="text-center text-muted">
               <svg className="w-12 h-12 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
@@ -63,18 +63,18 @@ export default function About() {
 
         {/* Philosophy */}
         <FadeUpSection className="mb-16 p-8 bg-surface rounded-md border-l-2 border-accent" delay={0.1}>
-          <blockquote className="font-serif text-h3 md:text-h2 text-text-primary italic leading-relaxed">
+          <blockquote className="font-serif text-h3 md:text-h2 text-primary italic leading-relaxed">
             "Les avocats méritent des outils numériques à la hauteur de leur profession.
             Pas des templates génériques. Pas des agences qui ne comprennent pas le métier."
           </blockquote>
-          <cite className="block mt-4 text-text-secondary not-italic text-sm">
+          <cite className="block mt-4 text-secondary not-italic text-sm">
             — Ce que je me dis à chaque projet
           </cite>
         </FadeUpSection>
 
         {/* Timeline */}
         <FadeUpSection delay={0.15}>
-          <h2 className="font-serif text-h2 text-text-primary mb-8">Le parcours</h2>
+          <h2 className="font-serif text-h2 text-primary mb-8">Le parcours</h2>
           <div className="space-y-0">
             {timeline.map((item, index) => (
               <motion.div
@@ -82,14 +82,14 @@ export default function About() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2 + index * 0.08, ease: 'easeOut' }}
-                className="flex gap-6 py-6 border-b border-border last:border-0"
+                className="flex gap-6 py-6 border-b border-rule last:border-0"
               >
                 <div className="flex-shrink-0 w-16 pt-1">
                   <span className="font-mono text-sm font-medium text-accent">{item.year}</span>
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-serif text-xl text-text-primary mb-2">{item.title}</h3>
-                  <p className="text-text-secondary leading-relaxed">{item.description}</p>
+                  <h3 className="font-serif text-xl text-primary mb-2">{item.title}</h3>
+                  <p className="text-secondary leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -98,7 +98,7 @@ export default function About() {
 
         {/* Contact CTA */}
         <FadeUpSection className="mt-16 text-center" delay={0.3}>
-          <p className="text-text-secondary mb-4">Vous voulez en savoir plus ? Discutons.</p>
+          <p className="text-secondary mb-4">Vous voulez en savoir plus ? Discutons.</p>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 text-accent hover:text-accent-hover font-medium transition-colors"

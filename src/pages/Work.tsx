@@ -13,7 +13,7 @@ const projects = [
 
 export default function Work() {
   return (
-    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-bg">
+    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page">
       <div className="max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -22,8 +22,8 @@ export default function Work() {
           className="mb-12"
         >
           <span className="section-label mb-4 block">Portfolio</span>
-          <h1 className="font-serif text-h1 text-text-primary mb-4">Réalisations</h1>
-          <p className="text-body text-text-secondary max-w-2xl">
+          <h1 className="font-serif text-h1 text-primary mb-4">Réalisations</h1>
+          <p className="text-body text-secondary max-w-2xl">
             Chaque site est conçu sur mesure, en fonction de l'identité du cabinet,
             de sa clientèle et de ses objectifs.
           </p>
@@ -41,30 +41,30 @@ export default function Work() {
             >
               <div className="aspect-[4/3] bg-surface-hover relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-serif text-2xl text-text-tertiary group-hover:text-text-primary transition-colors duration-200">
+                  <span className="font-serif text-2xl text-muted group-hover:text-primary transition-colors duration-200">
                     {project.name}
                   </span>
                 </div>
               </div>
-              <div className="p-5 border-t border-border">
+              <div className="p-5 border-t border-rule">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="font-mono text-label uppercase text-accent">{project.domain}</span>
-                  <span className="text-text-tertiary">·</span>
-                  <span className="font-mono text-label uppercase text-text-tertiary">{project.year}</span>
+                  <span className="text-muted">·</span>
+                  <span className="font-mono text-label uppercase text-muted">{project.year}</span>
                 </div>
-                <h3 className="font-serif text-lg text-text-primary">{project.name}</h3>
-                <p className="text-sm text-text-secondary mt-1">{project.bar}</p>
+                <h3 className="font-serif text-lg text-primary">{project.name}</h3>
+                <p className="text-sm text-secondary mt-1">{project.bar}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
         {/* CTA */}
-        <FadeUpSection className="mt-16 p-8 border border-border rounded-md text-center" delay={0.2}>
-          <p className="text-text-secondary">
+        <FadeUpSection className="mt-16 p-8 border border-rule rounded-md text-center" delay={0.2}>
+          <p className="text-secondary">
             Votre domaine n'est pas dans la liste ?
           </p>
-          <p className="text-text-secondary mt-2">
+          <p className="text-secondary mt-2">
             Je réalise des sites pour tous types de cabinets.{' '}
             <Link to="/contact" className="text-accent hover:text-accent-hover transition-colors">
               Discutons-en

@@ -38,7 +38,7 @@ const faq = [
 
 export default function Pricing() {
   return (
-    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-bg">
+    <div className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page">
       <div className="max-w-content mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -47,8 +47,8 @@ export default function Pricing() {
           className="text-center mb-16"
         >
           <span className="section-label mb-4 block">Investissement</span>
-          <h1 className="font-serif text-h1 text-text-primary mb-4">Un tarif simple, sans surprise</h1>
-          <p className="text-body text-text-secondary max-w-2xl mx-auto">
+          <h1 className="font-serif text-h1 text-primary mb-4">Un tarif simple, sans surprise</h1>
+          <p className="text-body text-secondary max-w-2xl mx-auto">
             Conçu pour les avocats en début d'activité qui ont besoin d'une présence professionnelle sans se ruiner.
           </p>
         </motion.div>
@@ -60,19 +60,19 @@ export default function Pricing() {
           transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
           className="max-w-2xl mx-auto mb-20"
         >
-          <div className="bg-surface border border-border rounded-md p-8 md:p-12">
+          <div className="bg-surface border border-rule rounded-md p-8 md:p-12">
             <div className="font-mono text-label uppercase text-accent bg-accent-light inline-block px-3 py-1.5 rounded-sm mb-6">
               Offre de lancement
             </div>
 
-            <div className="font-serif text-[64px] leading-none text-text-primary mb-1">
-              690 <span className="font-sans text-xl text-text-secondary">€ TTC</span>
+            <div className="font-serif text-[64px] leading-none text-primary mb-1">
+              690 <span className="font-sans text-xl text-secondary">€ TTC</span>
             </div>
-            <p className="text-sm text-text-secondary mb-8">Clé en main, sur mesure, livré en 30 jours</p>
+            <p className="text-sm text-secondary mb-8">Clé en main, sur mesure, livré en 30 jours</p>
 
             <ul className="space-y-0 mb-8">
               {included.map((item) => (
-                <li key={item} className="flex items-center gap-3 py-3 border-b border-border text-sm text-text-primary">
+                <li key={item} className="flex items-center gap-3 py-3 border-b border-rule text-sm text-primary">
                   <span className="text-accent font-semibold text-xs">✓</span>
                   {item}
                 </li>
@@ -81,12 +81,12 @@ export default function Pricing() {
 
             <Link
               to="/contact"
-              className="block w-full py-4 bg-text-primary text-bg font-semibold text-center text-sm rounded-sm transition-opacity duration-200 hover:opacity-85"
+              className="block w-full py-4 bg-primary text-page font-semibold text-center text-sm rounded-sm transition-opacity duration-200 hover:opacity-85"
             >
               Commencer mon projet
             </Link>
 
-            <p className="text-center text-xs text-text-tertiary mt-4">
+            <p className="text-center text-xs text-muted mt-4">
               50% à commande, 50% à livraison — ou 3 × 230€ sans frais
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function Pricing() {
 
         {/* FAQ */}
         <FadeUpSection delay={0.1}>
-          <h2 className="font-serif text-h2 text-text-primary mb-8 text-center">Questions fréquentes</h2>
+          <h2 className="font-serif text-h2 text-primary mb-8 text-center">Questions fréquentes</h2>
           <div className="max-w-2xl mx-auto space-y-4">
             {faq.map((item, index) => (
               <motion.div
@@ -102,10 +102,10 @@ export default function Pricing() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 + index * 0.06, ease: 'easeOut' }}
-                className="p-6 bg-surface rounded-md border border-border"
+                className="p-6 bg-surface rounded-md border border-rule"
               >
-                <h3 className="font-medium text-text-primary mb-2">{item.question}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{item.answer}</p>
+                <h3 className="font-medium text-primary mb-2">{item.question}</h3>
+                <p className="text-sm text-secondary leading-relaxed">{item.answer}</p>
               </motion.div>
             ))}
           </div>
