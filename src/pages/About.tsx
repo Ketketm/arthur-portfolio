@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FadeUpSection } from '../components/SuperEffects'
+import { FadeUpSection, TextReveal, ClipReveal, MagneticButton } from '../components/SuperEffects'
 
 const timeline = [
   {
@@ -28,94 +28,165 @@ const timeline = [
 export default function About() {
   return (
     <motion.div
-      className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page"
+      className="min-h-screen bg-page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
     >
-      <div className="max-w-content mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="mb-16"
-        >
-          <span className="section-label mb-4 block">À propos</span>
-          <h1 className="font-serif text-h1 text-primary mb-6">Arthur Souleil</h1>
-          <p className="text-xl text-secondary leading-relaxed max-w-3xl">
+      {/* Header */}
+      <div className="pt-28 pb-16 px-6 lg:px-8 border-b border-rule">
+        <div className="max-w-content mx-auto">
+          <motion.span
+            className="section-label mb-4 block"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            À propos
+          </motion.span>
+          <TextReveal
+            className="font-serif text-h1 lg:text-hero text-primary mb-6 leading-[1.1]"
+            delay={0.1}
+            stagger={0.06}
+          >
+            Arthur Souleil
+          </TextReveal>
+          <motion.p
+            className="text-xl text-secondary leading-relaxed max-w-3xl"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             Je ne suis pas un développeur devenu curieux du droit. Je suis un juriste
             devenu développeur par nécessité — parce que les outils existants ne
             respectaient pas la profession.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
+      </div>
 
-        {/* Photo placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
-          className="mb-16"
-        >
-          <div className="aspect-[3/2] md:aspect-[21/9] bg-surface rounded-md flex items-center justify-center">
-            <div className="text-center text-muted">
-              <svg className="w-12 h-12 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <p className="text-sm">Photo à ajouter</p>
+      {/* Photo placeholder with clip reveal */}
+      <section className="py-16 px-6 lg:px-8">
+        <div className="max-w-content mx-auto">
+          <ClipReveal direction="up" delay={0.1}>
+            <div className="aspect-[3/2] md:aspect-[21/9] bg-surface rounded-md flex items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <svg className="w-full h-full" viewBox="0 0 1200 400">
+                  <defs>
+                    <pattern id="about-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.3"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#about-grid)" className="text-muted" />
+                </svg>
+              </div>
+              <div className="text-center text-muted relative z-10">
+                <motion.div
+                  animate={{ rotate: [0, 1, -1, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                  <span className="font-serif text-[80px] text-muted/20">AS</span>
+                </motion.div>
+                <p className="text-sm mt-2">Photo à ajouter</p>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </ClipReveal>
+        </div>
+      </section>
 
-        {/* Philosophy */}
-        <FadeUpSection className="mb-16 p-8 bg-surface rounded-md border-l-2 border-bronze" delay={0.1}>
-          <blockquote className="font-serif text-h3 md:text-h2 text-primary italic leading-relaxed">
-            "Les avocats méritent des outils numériques à la hauteur de leur profession.
-            Pas des templates génériques. Pas des agences qui ne comprennent pas le métier."
-          </blockquote>
-          <cite className="block mt-4 text-secondary not-italic text-sm">
-            — Ce que je me dis à chaque projet
-          </cite>
-        </FadeUpSection>
+      {/* Philosophy — quote block */}
+      <section className="py-16 px-6 lg:px-8 bg-surface border-t border-b border-rule">
+        <div className="max-w-content mx-auto">
+          <ClipReveal direction="left">
+            <div className="p-8 md:p-12 bg-page rounded-md border-l-2 border-bronze relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-bronze/[0.02] rounded-full blur-[40px]" />
+              <svg className="w-10 h-10 text-bronze/20 mb-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <blockquote className="font-serif text-h3 md:text-h2 text-primary italic leading-relaxed relative z-10">
+                "Les avocats méritent des outils numériques à la hauteur de leur profession.
+                Pas des templates génériques. Pas des agences qui ne comprennent pas le métier."
+              </blockquote>
+              <cite className="block mt-6 text-secondary not-italic text-sm">
+                — Ce que je me dis à chaque projet
+              </cite>
+            </div>
+          </ClipReveal>
+        </div>
+      </section>
 
-        {/* Timeline */}
-        <FadeUpSection delay={0.15}>
-          <h2 className="font-serif text-h2 text-primary mb-8">Le parcours</h2>
-          <div className="space-y-0">
+      {/* Timeline */}
+      <section className="py-24 px-6 lg:px-8">
+        <div className="max-w-content mx-auto">
+          <FadeUpSection className="mb-12">
+            <span className="section-label mb-4 block">Parcours</span>
+            <h2 className="font-serif text-h2 text-primary">De juriste à développeur</h2>
+          </FadeUpSection>
+          <div className="max-w-2xl space-y-0">
             {timeline.map((item, index) => (
-              <motion.div
-                key={item.year}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 + index * 0.08, ease: 'easeOut' }}
-                className="flex gap-6 py-6 border-b border-rule last:border-0"
-              >
-                <div className="flex-shrink-0 w-16 pt-1">
-                  <span className="font-mono text-sm font-medium text-bronze">{item.year}</span>
+              <ClipReveal key={item.year} direction="left" delay={index * 0.12}>
+                <div className="flex gap-6 py-8 border-b border-rule last:border-0 group">
+                  <div className="flex-shrink-0 w-16 pt-1">
+                    <motion.span
+                      className="font-mono text-sm font-bold text-bronze"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                    >
+                      {item.year}
+                    </motion.span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-xl text-primary mb-2 group-hover:text-bronze transition-colors duration-200">{item.title}</h3>
+                    <p className="text-secondary leading-relaxed">{item.description}</p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-serif text-xl text-primary mb-2">{item.title}</h3>
-                  <p className="text-secondary leading-relaxed">{item.description}</p>
-                </div>
-              </motion.div>
+              </ClipReveal>
             ))}
           </div>
-        </FadeUpSection>
+        </div>
+      </section>
 
-        {/* Contact CTA */}
-        <FadeUpSection className="mt-16 text-center" delay={0.3}>
-          <p className="text-secondary mb-4">Vous voulez en savoir plus ? Discutons.</p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 text-bronze hover:text-bronze-hover font-medium transition-colors"
-          >
-            Me contacter
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </FadeUpSection>
-      </div>
+      {/* Dark CTA */}
+      <section className="py-20 px-6 lg:px-8 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03]">
+          <svg className="w-full h-full" viewBox="0 0 1200 300">
+            <defs>
+              <pattern id="about-cta-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#about-cta-grid)" />
+          </svg>
+        </div>
+        <div className="max-w-content mx-auto text-center relative z-10">
+          <ClipReveal>
+            <h2 className="font-serif text-h2 text-page mb-4">
+              Envie d'en discuter ?
+            </h2>
+            <p className="text-body text-page/60 max-w-lg mx-auto mb-8">
+              Parlons de votre projet. Première consultation gratuite.
+            </p>
+            <MagneticButton className="inline-block" strength={0.15}>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-semibold text-base rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/40"
+              >
+                Me contacter
+                <motion.svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  whileHover={{ x: 4 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </motion.svg>
+              </Link>
+            </MagneticButton>
+          </ClipReveal>
+        </div>
+      </section>
     </motion.div>
   )
 }

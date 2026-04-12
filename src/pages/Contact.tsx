@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { TextReveal, ClipReveal } from '../components/SuperEffects'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,33 +25,47 @@ export default function Contact() {
 
   return (
     <motion.div
-      className="min-h-screen pt-24 pb-16 px-6 lg:px-8 bg-page"
+      className="min-h-screen bg-page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
     >
-      <div className="max-w-content mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="text-center mb-12"
-        >
-          <span className="section-label mb-4 block">Contact</span>
-          <h1 className="font-serif text-h1 text-primary mb-4">Discutons de votre projet</h1>
-          <p className="text-body text-secondary max-w-2xl mx-auto">
+      {/* Header */}
+      <div className="pt-28 pb-16 px-6 lg:px-8 border-b border-rule">
+        <div className="max-w-content mx-auto text-center">
+          <motion.span
+            className="section-label mb-4 block"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            Contact
+          </motion.span>
+          <TextReveal
+            className="font-serif text-h1 lg:text-hero text-primary mb-6 leading-[1.1]"
+            delay={0.1}
+            stagger={0.05}
+          >
+            Discutons de votre projet
+          </TextReveal>
+          <motion.p
+            className="text-body text-secondary max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+          >
             Je réponds sous 4 heures en moyenne. Première consultation gratuite.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
+      </div>
+
+      <div className="py-16 px-6 lg:px-8">
+      <div className="max-w-content mx-auto">
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
-          >
+          <ClipReveal direction="left" delay={0.1}>
             {submitted ? (
               <div className="p-8 bg-bronze-light rounded-md text-center">
                 <svg className="w-10 h-10 text-bronze mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,15 +119,10 @@ export default function Contact() {
                 </p>
               </form>
             )}
-          </motion.div>
+          </ClipReveal>
 
           {/* Contact info */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.15, ease: 'easeOut' }}
-            className="space-y-6"
-          >
+          <ClipReveal direction="right" delay={0.2} className="space-y-6">
             <div className="p-6 bg-surface rounded-md">
               <h3 className="font-serif text-lg text-primary mb-3">Prendre rendez-vous</h3>
               <p className="text-sm text-secondary mb-4">
@@ -177,8 +187,9 @@ export default function Contact() {
                 Si c'est urgent, appelez directement.
               </p>
             </div>
-          </motion.div>
+          </ClipReveal>
         </div>
+      </div>
       </div>
     </motion.div>
   )
