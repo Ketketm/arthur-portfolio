@@ -11,7 +11,7 @@ interface CountUpProps {
 
 export function CountUp({ value, suffix = '', duration = 1.5, className = '' }: CountUpProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const count = useMotionValue(0);
   const [display, setDisplay] = useState('0');
 
@@ -110,7 +110,7 @@ export function FadeUpSection({ children, className = '', delay = 0 }: FadeUpSec
       className={className}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{
         duration: 0.4,
         delay,
@@ -135,7 +135,7 @@ export function StaggerContainer({ children, className = '', staggerDelay = 0.05
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -319,7 +319,7 @@ export function ClipReveal({ children, className = '', direction = 'up', delay =
       className={className}
       initial={{ clipPath: clipFrom[direction] }}
       whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}

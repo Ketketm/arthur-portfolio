@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Lenis from '@studio-freight/lenis'
@@ -14,13 +14,15 @@ import Contact from './pages/Contact'
 
 function App() {
   const location = useLocation()
+  const lenisRef = useRef<Lenis | null>(null)
 
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.07,
+      lerp: 0.1,
       wheelMultiplier: 1,
       smoothWheel: true,
     })
+    lenisRef.current = lenis
 
     function raf(time: number) {
       lenis.raf(time)
@@ -28,11 +30,18 @@ function App() {
     }
     requestAnimationFrame(raf)
 
-    return () => lenis.destroy()
+    return () => {
+      lenis.destroy()
+      lenisRef.current = null
+    }
   }, [])
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo(0, 0)
+    }
   }, [location.pathname])
 
   return (
@@ -40,7 +49,7 @@ function App() {
       <GrainOverlay />
       <SmoothCursor />
       <Navbar />
-      
+
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
