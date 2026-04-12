@@ -1,5 +1,25 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { motion, useInView, useMotionValue, animate, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useMotionValue, animate, useScroll, useTransform, useSpring } from 'framer-motion';
+
+// Custom hook: reliable IntersectionObserver that works with Lenis
+function useVisible(threshold = 0.1) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+      { threshold }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, visible };
+}
 
 // Animated number counter — counts from 0 to target when in view
 interface CountUpProps {
@@ -10,13 +30,12 @@ interface CountUpProps {
 }
 
 export function CountUp({ value, suffix = '', duration = 1.5, className = '' }: CountUpProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const { ref, visible } = useVisible(0.1);
   const count = useMotionValue(0);
   const [display, setDisplay] = useState('0');
 
   useEffect(() => {
-    if (isInView) {
+    if (visible) {
       const controls = animate(count, value, {
         duration,
         ease: 'easeOut',
@@ -24,7 +43,7 @@ export function CountUp({ value, suffix = '', duration = 1.5, className = '' }: 
       });
       return controls.stop;
     }
-  }, [isInView, value, duration, count]);
+  }, [visible, value, duration, count]);
 
   return (
     <span ref={ref} className={className}>
@@ -105,12 +124,13 @@ interface FadeUpSectionProps {
 }
 
 export function FadeUpSection({ children, className = '', delay = 0 }: FadeUpSectionProps) {
+  const { ref, visible } = useVisible(0.05);
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
       transition={{
         duration: 0.4,
         delay,
@@ -130,12 +150,13 @@ interface StaggerContainerProps {
 }
 
 export function StaggerContainer({ children, className = '', staggerDelay = 0.05 }: StaggerContainerProps) {
+  const { ref, visible } = useVisible(0.05);
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
+      animate={visible ? 'visible' : 'hidden'}
       variants={{
         hidden: { opacity: 0 },
         visible: {
@@ -308,6 +329,7 @@ interface ClipRevealProps {
 }
 
 export function ClipReveal({ children, className = '', direction = 'up', delay = 0 }: ClipRevealProps) {
+  const { ref, visible } = useVisible(0.05);
   const clipFrom = {
     up: 'inset(100% 0% 0% 0%)',
     left: 'inset(0% 100% 0% 0%)',
@@ -316,10 +338,10 @@ export function ClipReveal({ children, className = '', direction = 'up', delay =
 
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ clipPath: clipFrom[direction] }}
-      whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-      viewport={{ once: true, amount: 0.1 }}
+      animate={visible ? { clipPath: 'inset(0% 0% 0% 0%)' } : { clipPath: clipFrom[direction] }}
       transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
