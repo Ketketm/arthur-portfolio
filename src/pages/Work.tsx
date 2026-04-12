@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { TextReveal, ClipReveal, MagneticButton, StaggerContainer, StaggerItem } from '../components/SuperEffects'
+import { TextReveal, ClipReveal, MagneticButton, FadeUpSection } from '../components/SuperEffects'
 
 const projects = [
-  { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024', accent: '#8B6914' },
-  { name: 'Cabinet Dupont & Associés', bar: 'Barreau de Lyon', domain: 'Affaires', year: '2024', accent: '#5B7553' },
-  { name: 'Maître Pierre Martin', bar: 'Barreau de Bordeaux', domain: 'Famille', year: '2024', accent: '#4A6FA5' },
-  { name: 'SCP Lefèvre & Moreau', bar: 'Barreau de Lille', domain: 'Immobilier', year: '2023', accent: '#8B5E3C' },
-  { name: 'Maître Claire Bernard', bar: 'Barreau de Nantes', domain: 'Social', year: '2023', accent: '#6B5B95' },
-  { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023', accent: '#2C7873' },
+  { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024' },
+  { name: 'Cabinet Dupont & Associés', bar: 'Barreau de Lyon', domain: 'Affaires', year: '2024' },
+  { name: 'Maître Pierre Martin', bar: 'Barreau de Bordeaux', domain: 'Famille', year: '2024' },
+  { name: 'SCP Lefèvre & Moreau', bar: 'Barreau de Lille', domain: 'Immobilier', year: '2023' },
+  { name: 'Maître Claire Bernard', bar: 'Barreau de Nantes', domain: 'Social', year: '2023' },
+  { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023' },
 ]
 
 export default function Work() {
@@ -21,10 +21,10 @@ export default function Work() {
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
       {/* Header */}
-      <div className="pt-28 pb-16 px-6 lg:px-8 border-b border-rule">
+      <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">
         <div className="max-w-content mx-auto">
           <motion.span
-            className="section-label mb-4 block"
+            className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -32,14 +32,14 @@ export default function Work() {
             Portfolio
           </motion.span>
           <TextReveal
-            className="font-serif text-h1 lg:text-hero text-primary mb-6 leading-[1.1]"
+            className="font-serif text-[clamp(2.5rem,7vw,5rem)] text-primary mb-6 leading-[1.05] tracking-[-0.02em]"
             delay={0.1}
             stagger={0.06}
           >
             Réalisations
           </TextReveal>
           <motion.p
-            className="text-body text-secondary max-w-2xl"
+            className="text-secondary max-w-xl leading-relaxed"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -50,93 +50,57 @@ export default function Work() {
         </div>
       </div>
 
-      {/* Project Grid */}
-      <div className="py-16 px-6 lg:px-8">
+      {/* Project List */}
+      <div className="px-6 lg:px-8">
         <div className="max-w-content mx-auto">
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
-            {projects.map((project) => (
-              <StaggerItem key={project.name}>
-                <div className="group rounded-md overflow-hidden cursor-pointer">
-                  <div className="bg-[#1A1A1A] rounded-t-md">
-                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/5">
-                      <div className="flex gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-white/10" />
-                        <div className="w-2 h-2 rounded-full bg-white/10" />
-                        <div className="w-2 h-2 rounded-full bg-white/10" />
-                      </div>
-                      <div className="flex-1 mx-6">
-                        <div className="bg-white/5 rounded-sm py-0.5 px-3 text-[9px] text-white/25 font-mono text-center">
-                          {project.name.toLowerCase().replace(/\s+/g, '-').replace(/[éèê]/g, 'e').replace(/[àâ]/g, 'a').replace(/[îï]/g, 'i')}.fr
-                        </div>
-                      </div>
-                    </div>
-                    <div className="aspect-[4/3] relative overflow-hidden flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${project.accent}12 0%, ${project.accent}25 100%)` }}>
-                      <div className="text-center px-4">
-                        <div className="font-serif text-xl md:text-2xl mb-1" style={{ color: project.accent }}>{project.name}</div>
-                        <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/25">{project.domain}</div>
-                      </div>
-                      <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0">
-                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="p-5 bg-surface border-t border-rule">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="font-mono text-label uppercase text-bronze">{project.domain}</span>
-                      <span className="text-muted">·</span>
-                      <span className="font-mono text-label uppercase text-muted">{project.year}</span>
-                    </div>
-                    <h3 className="font-serif text-lg text-primary group-hover:text-bronze transition-colors duration-200">{project.name}</h3>
-                    <p className="text-sm text-secondary mt-1">{project.bar}</p>
+          {projects.map((project, i) => (
+            <ClipReveal key={project.name} direction="left" delay={i * 0.06}>
+              <div className="group flex flex-col md:flex-row md:items-center justify-between py-10 md:py-12 border-b border-rule hover:pl-4 transition-all duration-300 cursor-pointer">
+                <div className="flex items-start md:items-center gap-5 md:gap-8 mb-3 md:mb-0">
+                  <span className="font-mono text-[11px] text-muted mt-1 md:mt-0">{String(i + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="font-serif text-xl md:text-3xl text-primary group-hover:text-bronze transition-colors duration-300 mb-1 md:mb-0">
+                      {project.name}
+                    </h3>
+                    <span className="md:hidden font-mono text-[10px] tracking-[0.15em] uppercase text-muted">{project.bar}</span>
                   </div>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+                <div className="flex items-center gap-6 md:gap-10 pl-10 md:pl-0">
+                  <span className="hidden md:block font-mono text-[10px] tracking-[0.2em] uppercase text-muted w-32">{project.bar}</span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-bronze w-24">{project.domain}</span>
+                  <span className="font-mono text-sm text-muted">{project.year}</span>
+                  <svg className="w-5 h-5 text-muted opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-3 group-hover:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                  </svg>
+                </div>
+              </div>
+            </ClipReveal>
+          ))}
         </div>
       </div>
 
-      {/* CTA band */}
-      <section className="py-20 px-6 lg:px-8 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03]">
-          <svg className="w-full h-full" viewBox="0 0 1200 300">
-            <defs>
-              <pattern id="work-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#work-grid)" />
-          </svg>
-        </div>
+      {/* CTA */}
+      <section className="mt-20 py-28 px-6 lg:px-8 bg-primary relative overflow-hidden">
         <div className="max-w-content mx-auto text-center relative z-10">
-          <ClipReveal>
-            <h2 className="font-serif text-h2 text-page mb-4">
+          <FadeUpSection>
+            <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-page mb-4 leading-tight">
               Votre cabinet mérite la même attention
             </h2>
-            <p className="text-body text-page/60 max-w-lg mx-auto mb-8">
+            <p className="text-page/50 max-w-md mx-auto mb-10">
               Nous réalisons des sites pour tous types de cabinets, quelle que soit votre spécialité.
             </p>
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-semibold text-base rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/40"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-medium rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/30"
               >
                 Discutons de votre projet
-                <motion.svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  whileHover={{ x: 4 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </motion.svg>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                </svg>
               </Link>
             </MagneticButton>
-          </ClipReveal>
+          </FadeUpSection>
         </div>
       </section>
     </motion.div>
