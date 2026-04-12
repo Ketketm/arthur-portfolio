@@ -1,5 +1,7 @@
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import Lenis from '@studio-freight/lenis'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { GrainOverlay, SmoothCursor } from './components/SuperEffects'
@@ -12,6 +14,26 @@ import Contact from './pages/Contact'
 
 function App() {
   const location = useLocation()
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.07,
+      wheelMultiplier: 1,
+      smoothWheel: true,
+    })
+
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    requestAnimationFrame(raf)
+
+    return () => lenis.destroy()
+  }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   return (
     <div className="min-h-screen bg-page text-primary">
