@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { GrainOverlay, SmoothCursor } from './components/SuperEffects'
 import Home from './pages/Home'
 import Work from './pages/Work'
 import Process from './pages/Process'
@@ -14,6 +15,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-page text-primary">
+      <GrainOverlay />
+      <SmoothCursor />
       <Navbar />
       
       <AnimatePresence mode="wait">
