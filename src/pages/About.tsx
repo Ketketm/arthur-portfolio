@@ -66,36 +66,23 @@ export default function About() {
         </div>
       </div>
 
-      {/* Photo placeholder with clip reveal */}
-      <section className="py-16 px-6 lg:px-8">
+      {/* Values band */}
+      <section className="py-16 px-6 lg:px-8 bg-primary">
         <div className="max-w-content mx-auto">
-          <ClipReveal direction="up" delay={0.1}>
-            <div className="aspect-[3/2] md:aspect-[21/9] rounded-md relative overflow-hidden bg-[#1A1A1A]">
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 400" fill="none">
-                <rect width="1200" height="400" fill="#1A1A1A"/>
-                <defs>
-                  <pattern id="about-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#8B6914" strokeWidth="0.3"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#about-grid)" opacity="0.08"/>
-                <text x="600" y="220" textAnchor="middle" fontFamily="serif" fontSize="160" fill="#8B6914" opacity="0.08">VERNE</text>
-                <line x1="100" y1="200" x2="500" y2="200" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
-                <line x1="700" y1="200" x2="1100" y2="200" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
-                <circle cx="600" cy="200" r="60" stroke="#8B6914" strokeWidth="0.5" fill="none" opacity="0.15"/>
-                <circle cx="600" cy="200" r="40" stroke="#8B6914" strokeWidth="0.5" fill="none" opacity="0.1"/>
-              </svg>
-              <div className="absolute bottom-8 left-8 flex items-center gap-4 z-10">
-                <div className="w-10 h-10 rounded-full border border-bronze/40 flex items-center justify-center">
-                  <span className="font-serif text-sm text-bronze">V</span>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: 'Spécialisation', desc: 'Un seul secteur, une seule obsession : le digital juridique.' },
+              { title: 'Exigence', desc: 'Chaque pixel, chaque mot, chaque interaction est pensé pour votre profession.' },
+              { title: 'Transparence', desc: 'Un tarif clair, un processus simple, un interlocuteur dédié.' },
+            ].map((v) => (
+              <FadeUpSection key={v.title}>
+                <div className="border-l border-bronze/30 pl-6">
+                  <h3 className="font-serif text-xl text-page mb-2">{v.title}</h3>
+                  <p className="text-sm text-page/60 leading-relaxed">{v.desc}</p>
                 </div>
-                <div>
-                  <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/60">Studio Verne</div>
-                  <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-bronze/50">Design & développement pour le droit</div>
-                </div>
-              </div>
-            </div>
-          </ClipReveal>
+              </FadeUpSection>
+            ))}
+          </div>
         </div>
       </section>
 

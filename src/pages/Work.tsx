@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 import { TextReveal, ClipReveal, MagneticButton, StaggerContainer, StaggerItem } from '../components/SuperEffects'
 
 const projects = [
-  { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024', color: '#2D3436' },
-  { name: 'Cabinet Dupont & Associés', bar: 'Barreau de Lyon', domain: 'Affaires', year: '2024', color: '#1A1A2E' },
-  { name: 'Maître Pierre Martin', bar: 'Barreau de Bordeaux', domain: 'Famille', year: '2024', color: '#3D3D3D' },
-  { name: 'SCP Lefèvre & Moreau', bar: 'Barreau de Lille', domain: 'Immobilier', year: '2023', color: '#2C3E50' },
-  { name: 'Maître Claire Bernard', bar: 'Barreau de Nantes', domain: 'Social', year: '2023', color: '#34495E' },
-  { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023', color: '#1B2631' },
+  { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024', accent: '#8B6914' },
+  { name: 'Cabinet Dupont & Associés', bar: 'Barreau de Lyon', domain: 'Affaires', year: '2024', accent: '#5B7553' },
+  { name: 'Maître Pierre Martin', bar: 'Barreau de Bordeaux', domain: 'Famille', year: '2024', accent: '#4A6FA5' },
+  { name: 'SCP Lefèvre & Moreau', bar: 'Barreau de Lille', domain: 'Immobilier', year: '2023', accent: '#8B5E3C' },
+  { name: 'Maître Claire Bernard', bar: 'Barreau de Nantes', domain: 'Social', year: '2023', accent: '#6B5B95' },
+  { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023', accent: '#2C7873' },
 ]
 
 export default function Work() {
@@ -57,20 +57,29 @@ export default function Work() {
             {projects.map((project) => (
               <StaggerItem key={project.name}>
                 <div className="group rounded-md overflow-hidden cursor-pointer">
-                  <div
-                    className="aspect-[4/3] relative overflow-hidden"
-                    style={{ backgroundColor: project.color }}
-                  >
-                    <div className="absolute inset-0 flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110">
-                      <span className="font-serif text-2xl text-white/80 group-hover:text-white transition-colors duration-300 drop-shadow-sm">
-                        {project.name}
-                      </span>
+                  <div className="bg-[#1A1A1A] rounded-t-md">
+                    <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/5">
+                      <div className="flex gap-1.5">
+                        <div className="w-2 h-2 rounded-full bg-white/10" />
+                        <div className="w-2 h-2 rounded-full bg-white/10" />
+                        <div className="w-2 h-2 rounded-full bg-white/10" />
+                      </div>
+                      <div className="flex-1 mx-6">
+                        <div className="bg-white/5 rounded-sm py-0.5 px-3 text-[9px] text-white/25 font-mono text-center">
+                          {project.name.toLowerCase().replace(/\s+/g, '-').replace(/[éèê]/g, 'e').replace(/[àâ]/g, 'a').replace(/[îï]/g, 'i')}.fr
+                        </div>
+                      </div>
                     </div>
-                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/15 transition-colors duration-500" />
-                    <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0">
-                      <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
+                    <div className="aspect-[4/3] relative overflow-hidden flex items-center justify-center" style={{ background: `linear-gradient(135deg, ${project.accent}12 0%, ${project.accent}25 100%)` }}>
+                      <div className="text-center px-4">
+                        <div className="font-serif text-xl md:text-2xl mb-1" style={{ color: project.accent }}>{project.name}</div>
+                        <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/25">{project.domain}</div>
+                      </div>
+                      <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white/0 group-hover:bg-white/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0">
+                        <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                   <div className="p-5 bg-surface border-t border-rule">
