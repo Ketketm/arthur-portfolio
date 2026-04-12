@@ -15,12 +15,12 @@ const projects = [
 
 const testimonials = [
   {
-    quote: "Arthur a parfaitement compris les contraintes de notre profession. Le résultat est à la hauteur de notre exigence.",
+    quote: "L'équipe Verne a parfaitement compris les contraintes de notre profession. Le résultat est à la hauteur de notre exigence.",
     author: 'Maître Sophie Renard',
     title: 'Avocate au Barreau de Paris',
   },
   {
-    quote: "Un vrai professionnel qui parle notre langage. Notre site reflète enfin l'image que nous voulons donner à notre cabinet.",
+    quote: "Une équipe qui parle notre langage. Notre site reflète enfin l'image que nous voulons donner à notre cabinet.",
     author: 'Cabinet Dupont & Associés',
     title: 'Barreau de Lyon',
   },
@@ -69,7 +69,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  Créateur de sites pour avocats
+                  Agence digitale pour avocats
                 </motion.span>
                 <TextReveal
                   className="font-serif text-hero-mobile md:text-h1 lg:text-hero text-primary mb-6 leading-[1.1]"
@@ -84,7 +84,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                 >
-                  Juriste de formation, je conçois des expériences web sur-mesure
+                  Verne conçoit des expériences web sur-mesure
                   pour les cabinets d'avocats exigeants. Design éditorial, exécution
                   technique, conformité CNB.
                 </motion.p>
@@ -146,7 +146,7 @@ export default function Home() {
                       animate={{ rotate: [0, 1, -1, 0] }}
                       transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
                     >
-                      AS
+                      V
                     </motion.span>
                   </div>
                 </div>
@@ -177,8 +177,8 @@ export default function Home() {
                 <div className="font-mono text-label uppercase text-muted mt-1">Sur-mesure</div>
               </div>
               <div className="py-8 text-center">
-                <div className="font-serif text-h3 md:text-h2 text-primary italic">Juriste</div>
-                <div className="font-mono text-label uppercase text-muted mt-1">Profil unique</div>
+                <div className="font-serif text-h3 md:text-h2 text-primary italic">Droit</div>
+                <div className="font-mono text-label uppercase text-muted mt-1">Expertise sectorielle</div>
               </div>
             </div>
           </div>
@@ -231,29 +231,29 @@ export default function Home() {
         <div className="max-w-content mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeUpSection>
-              <span className="section-label mb-4 block">Pourquoi un juriste ?</span>
+              <span className="section-label mb-4 block">Notre différence</span>
               <h2 className="font-serif text-h2 text-primary mb-6 leading-tight">
-                Je parle votre langage
+                Nous parlons votre langage
               </h2>
               <p className="text-body text-secondary leading-relaxed mb-6">
-                Ancien juriste d'affaires, j'ai compris ce qui manque aux cabinets :
-                des sites qui reflètent leur excellence sans tomber dans les clichés
-                du droit corporate.
+                Notre équipe allie expertise juridique et savoir-faire digital.
+                Nous comprenons les contraintes déontologiques, les attentes des
+                justiciables, et les codes de la profession.
               </p>
               <p className="text-body text-secondary leading-relaxed">
-                Je traduis votre expertise en expériences digitales qui impressionnent
-                vos clients et rassurent vos prospects.
+                Pas de templates génériques. Des sites conçus par ceux qui
+                connaissent votre métier.
               </p>
             </FadeUpSection>
             <ParallaxSection speed={0.15}>
               <ClipReveal direction="right" delay={0.2}>
                 <div className="aspect-[4/5] bg-page rounded-md relative overflow-hidden border border-rule">
                   <div className="absolute inset-0 flex flex-col justify-end p-8">
-                    <span className="font-mono text-label uppercase text-muted mb-2">Formation</span>
-                    <span className="font-serif text-h3 text-primary">UT1 Capitole</span>
-                    <span className="font-serif text-h3 text-primary">Assas Paris II</span>
+                    <span className="font-mono text-label uppercase text-muted mb-2">Expertise</span>
+                    <span className="font-serif text-h3 text-primary">+15 cabinets</span>
+                    <span className="font-serif text-h3 text-primary">accompagnés</span>
                     <div className="mt-4 h-[1px] bg-rule-strong" />
-                    <span className="font-mono text-label uppercase text-muted mt-4">Préparation CRFPA 2025</span>
+                    <span className="font-mono text-label uppercase text-muted mt-4">Conformité CNB intégrée</span>
                   </div>
                 </div>
               </ClipReveal>

@@ -4,24 +4,24 @@ import { FadeUpSection, TextReveal, ClipReveal, MagneticButton } from '../compon
 
 const timeline = [
   {
+    year: '2021',
+    title: 'Les prémices',
+    description: "Premiers sites conçus pour des avocats en début d'activité. La conviction que le secteur juridique méritait mieux que des templates génériques.",
+  },
+  {
     year: '2022',
-    title: 'UT1 Capitole',
-    description: 'Licence de droit à Toulouse. Découverte du droit et de sa rigueur. Première approche des obligations, du droit des affaires, des contrats.',
+    title: 'Spécialisation',
+    description: "Choix délibéré de se concentrer exclusivement sur les cabinets d'avocats. Développement d'une expertise CNB et déontologie numérique.",
   },
   {
     year: '2023',
-    title: 'Assas Paris II',
-    description: "Master 1 à Paris. Approfondissement, spécialisation. Immersion dans l'excellence juridique parisienne. Premiers contacts avec la profession.",
+    title: 'Premiers grands cabinets',
+    description: "Accompagnement de cabinets multi-associés. Identités digitales complètes, sites corporate, landing pages.",
   },
   {
     year: '2024',
-    title: 'Premier site pour un avocat',
-    description: "La rencontre du droit et du code. Un confrère en début d'activité avait besoin d'un site. J'ai appris à coder pour le lui faire. Ça a fonctionné.",
-  },
-  {
-    year: '2025',
-    title: 'LexConfig',
-    description: "Un outil pour générer des identités digitales sur mesure. Maquettes dynamiques, chartes graphiques automatisées. La technologie au service des avocats.",
+    title: 'Naissance de Verne',
+    description: "Structuration en agence. Une équipe dédiée au digital juridique. +15 cabinets accompagnés à travers la France.",
   },
 ]
 
@@ -50,7 +50,7 @@ export default function About() {
             delay={0.1}
             stagger={0.06}
           >
-            Arthur Souleil
+            Verne
           </TextReveal>
           <motion.p
             className="text-xl text-secondary leading-relaxed max-w-3xl"
@@ -58,9 +58,10 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Je ne suis pas un développeur devenu curieux du droit. Je suis un juriste
-            devenu développeur par nécessité — parce que les outils existants ne
-            respectaient pas la profession.
+            Verne est née d'un constat : les cabinets d'avocats méritent des outils
+            numériques à la hauteur de leur profession. Pas des templates. Pas des
+            agences généralistes. Un studio dédié, qui comprend les contraintes et
+            les codes du métier.
           </motion.p>
         </div>
       </div>
@@ -85,9 +86,9 @@ export default function About() {
                   animate={{ rotate: [0, 1, -1, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <span className="font-serif text-[80px] text-muted/20">AS</span>
+                  <span className="font-serif text-[80px] text-muted/20">V</span>
                 </motion.div>
-                <p className="text-sm mt-2">Photo à ajouter</p>
+                <p className="text-sm mt-2">Studio Verne</p>
               </div>
             </div>
           </ClipReveal>
@@ -108,7 +109,7 @@ export default function About() {
                 Pas des templates génériques. Pas des agences qui ne comprennent pas le métier."
               </blockquote>
               <cite className="block mt-6 text-secondary not-italic text-sm">
-                — Ce que je me dis à chaque projet
+                — Notre philosophie
               </cite>
             </div>
           </ClipReveal>
@@ -120,7 +121,7 @@ export default function About() {
         <div className="max-w-content mx-auto">
           <FadeUpSection className="mb-12">
             <span className="section-label mb-4 block">Parcours</span>
-            <h2 className="font-serif text-h2 text-primary">De juriste à développeur</h2>
+            <h2 className="font-serif text-h2 text-primary">Notre parcours</h2>
           </FadeUpSection>
           <div className="max-w-2xl space-y-0">
             {timeline.map((item, index) => (
@@ -171,7 +172,7 @@ export default function About() {
                 to="/contact"
                 className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-semibold text-base rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/40"
               >
-                Me contacter
+                Nous contacter
                 <motion.svg
                   className="w-5 h-5"
                   fill="none"

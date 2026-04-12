@@ -38,7 +38,7 @@ export default function Navbar() {
               to="/"
               className="font-serif text-xl text-primary hover:text-bronze transition-colors duration-200"
             >
-              Arthur Souleil
+              Verne
             </Link>
 
             {/* Desktop Navigation */}

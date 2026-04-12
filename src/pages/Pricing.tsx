@@ -15,24 +15,24 @@ const included = [
 
 const faq = [
   {
-    question: 'Pourquoi si peu cher ?',
-    answer: "Je suis étudiant, pas agence. Pas de loyer, pas de salariés, pas de structure à rentabiliser. Maîtrise technique + connaissance métier = efficacité. C'est un tarif de lancement honnête.",
+    question: 'Pourquoi ce tarif ?',
+    answer: "Notre structure légère et notre spécialisation nous permettent d'être efficaces. Pas de processus inutiles, pas de couches hiérarchiques. L'expertise sectorielle réduit le temps de conception. C'est un tarif de lancement honnête.",
   },
   {
     question: 'Et après la livraison ?',
-    answer: "Vous gérez le site. Je vous forme à la mise à jour du contenu. Pas de contrat de maintenance caché, pas de facturation récurrente obligatoire. Vous êtes propriétaire de votre site.",
+    answer: "Vous gérez le site. Nous vous formons à la mise à jour du contenu. Pas de contrat de maintenance caché, pas de facturation récurrente obligatoire. Vous êtes propriétaire de votre site.",
   },
   {
     question: "Je n'ai pas de logo ?",
-    answer: "Je crée votre identité visuelle dans la charte graphique : typographie, couleurs, éléments graphiques. Vous aurez un logo simple et élégant, adapté au web.",
+    answer: "Nous créons votre identité visuelle dans la charte graphique : typographie, couleurs, éléments graphiques. Vous aurez un logo simple et élégant, adapté au web.",
   },
   {
     question: 'Le référencement ?',
-    answer: "SEO technique intégré : vitesse de chargement, version mobile, balises meta structurées. Pour le contenu rédactionnel, je peux vous recommander des rédacteurs juridiques ou vous former.",
+    answer: "SEO technique intégré : vitesse de chargement, version mobile, balises meta structurées. Pour le contenu rédactionnel, nous pouvons vous recommander des rédacteurs juridiques ou vous former.",
   },
   {
     question: 'Les délais ?',
-    answer: "7 jours pour la maquette, 30 jours maximum pour la livraison. Je ne prends que 2 projets par mois pour garantir cette qualité et ces délais.",
+    answer: "7 jours pour la maquette, 30 jours maximum pour la livraison. Nous limitons nos engagements à quelques projets par mois pour garantir cette qualité.",
   },
 ]
 
@@ -164,7 +164,7 @@ export default function Pricing() {
               Convaincu ?
             </h2>
             <p className="text-body text-page/60 max-w-lg mx-auto mb-8">
-              Réservez votre créneau. 2 projets par mois seulement.
+              Réservez votre créneau. Places limitées chaque mois.
             </p>
             <MagneticButton className="inline-block" strength={0.15}>
               <Link

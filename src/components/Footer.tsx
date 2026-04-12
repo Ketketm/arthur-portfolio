@@ -16,10 +16,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="font-serif text-xl text-primary">
-              Arthur Souleil
+              Verne
             </Link>
             <p className="text-sm text-secondary mt-3 leading-relaxed max-w-[280px]">
-              Juriste de formation, je conçois des sites sur mesure pour les cabinets d'avocats exigeants.
+              L'agence digitale dédiée aux cabinets d'avocats exigeants.
             </p>
           </div>
 
@@ -44,19 +44,19 @@ export default function Footer() {
             <div className="font-mono text-label uppercase text-muted mb-4">Contact</div>
             <div className="flex flex-col gap-2.5 text-sm">
               <a
-                href="mailto:arthursouleil@gmail.com"
+                href="mailto:contact@verne.fr"
                 className="text-secondary hover:text-primary transition-colors"
               >
-                arthursouleil@gmail.com
+                contact@verne.fr
               </a>
               <a
-                href="tel:+33782447255"
+                href="tel:+33100000000"
                 className="text-secondary hover:text-primary transition-colors"
               >
-                07 82 44 72 55
+                01 00 00 00 00
               </a>
               <a
-                href="https://linkedin.com/in/arthursouleil"
+                href="https://linkedin.com/company/verne-agency"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary hover:text-primary transition-colors"
@@ -69,8 +69,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-rule flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted">
-          <span>© {new Date().getFullYear()} Arthur Souleil. Tous droits réservés.</span>
-          <span className="font-mono">Conçu avec exigence, depuis Toulouse.</span>
+          <span>© {new Date().getFullYear()} Verne. Tous droits réservés.</span>
+          <span className="font-mono">Conçu avec exigence.</span>
         </div>
       </div>
     </footer>

@@ -21,14 +21,14 @@ const steps = [
     number: '03',
     title: 'La Livraison',
     duration: 'Jours 14-30',
-    description: "Site en ligne, formation à l'administration, support 30 jours. Et si vous avez besoin de modifier du texte plus tard ? Je vous montre comment.",
+    description: "Site en ligne, formation à l'administration, support 30 jours. Et si vous avez besoin de modifier du texte plus tard ? Nous vous montrons comment.",
     deliverable: 'Site en ligne + Formation',
   },
 ]
 
 const trustSignals = [
-  { label: 'Formation', value: 'UT1 Capitole + Assas Paris II' },
-  { label: 'Préparation', value: 'CRFPA 2025' },
+  { label: 'Spécialisation', value: "Cabinets d'avocats" },
+  { label: 'Projets livrés', value: '+15' },
   { label: 'Conformité', value: 'Obligations CNB respectées' },
   { label: 'Délai moyen', value: '30 jours' },
 ]

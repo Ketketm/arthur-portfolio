@@ -55,7 +55,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
           >
-            Je réponds sous 4 heures en moyenne. Première consultation gratuite.
+            Nous répondons sous 4 heures en moyenne. Première consultation gratuite.
           </motion.p>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function Contact() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <h3 className="font-serif text-xl text-primary mb-2">Message envoyé</h3>
-                <p className="text-secondary text-sm">Je vous réponds dans les plus brefs délais.</p>
+                <p className="text-secondary text-sm">Nous vous répondons dans les plus brefs délais.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -112,9 +112,9 @@ export default function Contact() {
                 </button>
 
                 <p className="text-xs text-muted text-center">
-                  Ou écrivez-moi directement :{' '}
-                  <a href="mailto:arthursouleil@gmail.com" className="text-bronze hover:text-bronze-hover transition-colors">
-                    arthursouleil@gmail.com
+                  Ou écrivez-nous directement :{' '}
+                  <a href="mailto:contact@verne.fr" className="text-bronze hover:text-bronze-hover transition-colors">
+                    contact@verne.fr
                   </a>
                 </p>
               </form>
@@ -130,7 +130,7 @@ export default function Contact() {
                 Pas de préparation nécessaire — juste votre curiosité.
               </p>
               <a
-                href="https://calendly.com/arthursouleil"
+                href="https://calendly.com/verne-agency"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 border border-rule-strong text-primary text-sm font-medium rounded-sm hover:border-primary transition-colors"
@@ -153,7 +153,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs text-muted mb-0.5">Email</div>
-                    <a href="mailto:arthursouleil@gmail.com" className="text-primary hover:text-bronze transition-colors font-medium">arthursouleil@gmail.com</a>
+                    <a href="mailto:contact@verne.fr" className="text-primary hover:text-bronze transition-colors font-medium">contact@verne.fr</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 py-3 border-b border-rule">
@@ -164,7 +164,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs text-muted mb-0.5">Téléphone</div>
-                    <a href="tel:+33782447255" className="text-primary hover:text-bronze transition-colors font-medium">07 82 44 72 55</a>
+                    <a href="tel:+33100000000" className="text-primary hover:text-bronze transition-colors font-medium">01 00 00 00 00</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 py-3">
@@ -175,7 +175,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs text-muted mb-0.5">LinkedIn</div>
-                    <a href="https://linkedin.com/in/arthursouleil" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-bronze transition-colors font-medium">Arthur Souleil</a>
+                    <a href="https://linkedin.com/company/verne-agency" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-bronze transition-colors font-medium">Verne</a>
                   </div>
                 </div>
               </div>

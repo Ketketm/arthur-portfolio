@@ -1,10 +1,10 @@
-# Design System — Arthur Souleil Portfolio
+# Design System — Verne Agency
 
 ## Product Context
-- **What this is:** Freelance portfolio selling custom website design for French law firms
+- **What this is:** Digital agency website specializing in custom web design for French law firms
 - **Who it's for:** Avocats (lawyers) early in practice who need a professional web presence, partners evaluating digital agencies
 - **Space/industry:** Legal services web design, French market
-- **Project type:** Marketing site / portfolio — must project quiet authority and editorial taste
+- **Project type:** Agency marketing site — must project quiet authority and editorial taste
 
 ## Aesthetic Direction
 - **Direction:** Editorial/Refined

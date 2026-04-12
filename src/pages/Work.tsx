@@ -107,7 +107,7 @@ export default function Work() {
               Votre cabinet mérite la même attention
             </h2>
             <p className="text-body text-page/60 max-w-lg mx-auto mb-8">
-              Je réalise des sites pour tous types de cabinets, quelle que soit votre spécialité.
+              Nous réalisons des sites pour tous types de cabinets, quelle que soit votre spécialité.
             </p>
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
