@@ -36,7 +36,7 @@ function App() {
   }, [location.pathname])
 
   return (
-    <div className="min-h-screen bg-page text-primary">
+    <div className="relative min-h-screen bg-page text-primary">
       <GrainOverlay />
       <SmoothCursor />
       <Navbar />

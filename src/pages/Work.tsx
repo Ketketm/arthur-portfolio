@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 import { TextReveal, ClipReveal, MagneticButton, StaggerContainer, StaggerItem } from '../components/SuperEffects'
 
 const projects = [
-  { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024', color: '#D4C5A0' },
-  { name: 'Cabinet Dupont & Associés', bar: 'Barreau de Lyon', domain: 'Affaires', year: '2024', color: '#B8C4C0' },
-  { name: 'Maître Pierre Martin', bar: 'Barreau de Bordeaux', domain: 'Famille', year: '2024', color: '#C9BBA8' },
-  { name: 'SCP Lefèvre & Moreau', bar: 'Barreau de Lille', domain: 'Immobilier', year: '2023', color: '#A8B8C9' },
-  { name: 'Maître Claire Bernard', bar: 'Barreau de Nantes', domain: 'Social', year: '2023', color: '#C4B8A0' },
-  { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023', color: '#B0C4B8' },
+  { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024', color: '#2D3436' },
+  { name: 'Cabinet Dupont & Associés', bar: 'Barreau de Lyon', domain: 'Affaires', year: '2024', color: '#1A1A2E' },
+  { name: 'Maître Pierre Martin', bar: 'Barreau de Bordeaux', domain: 'Famille', year: '2024', color: '#3D3D3D' },
+  { name: 'SCP Lefèvre & Moreau', bar: 'Barreau de Lille', domain: 'Immobilier', year: '2023', color: '#2C3E50' },
+  { name: 'Maître Claire Bernard', bar: 'Barreau de Nantes', domain: 'Social', year: '2023', color: '#34495E' },
+  { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023', color: '#1B2631' },
 ]
 
 export default function Work() {
@@ -62,7 +62,7 @@ export default function Work() {
                     style={{ backgroundColor: project.color }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110">
-                      <span className="font-serif text-2xl text-white/60 group-hover:text-white transition-colors duration-300 drop-shadow-sm">
+                      <span className="font-serif text-2xl text-white/80 group-hover:text-white transition-colors duration-300 drop-shadow-sm">
                         {project.name}
                       </span>
                     </div>

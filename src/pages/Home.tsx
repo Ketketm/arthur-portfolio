@@ -7,10 +7,10 @@ import {
 import { useRef } from 'react'
 
 const projects = [
-  { name: 'LexConfig', type: 'Site vitrine', year: '2024', color: '#D4C5A0' },
-  { name: 'Cabinet DSA', type: 'Identité digitale', year: '2024', color: '#B8C4C0' },
-  { name: 'Avocats Associés', type: 'Site corporate', year: '2023', color: '#C9BBA8' },
-  { name: 'LexInnov', type: 'Landing page', year: '2023', color: '#A8B8C9' },
+  { name: 'LexConfig', type: 'Site vitrine', year: '2024', color: '#2D3436' },
+  { name: 'Cabinet DSA', type: 'Identité digitale', year: '2024', color: '#1A1A2E' },
+  { name: 'Avocats Associés', type: 'Site corporate', year: '2023', color: '#3D3D3D' },
+  { name: 'LexInnov', type: 'Landing page', year: '2023', color: '#2C3E50' },
 ]
 
 const testimonials = [
@@ -131,23 +131,35 @@ export default function Home() {
                 className="hidden md:flex items-center justify-center"
                 style={{ y: heroImageY, scale: heroImageScale }}
               >
-                <div className="aspect-[4/5] w-full bg-surface rounded-md relative overflow-hidden">
-                  <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 500">
-                    <defs>
-                      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.3"/>
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" className="text-muted" />
+                <div className="aspect-[4/5] w-full rounded-md relative overflow-hidden bg-[#1A1A1A]">
+                  {/* Geometric agency visual */}
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 500" fill="none">
+                    <rect width="400" height="500" fill="#1A1A1A"/>
+                    <rect x="40" y="60" width="320" height="1" fill="#8B6914" opacity="0.3"/>
+                    <rect x="40" y="440" width="320" height="1" fill="#8B6914" opacity="0.3"/>
+                    <rect x="40" y="60" width="1" height="380" fill="#8B6914" opacity="0.3"/>
+                    <rect x="360" y="60" width="1" height="380" fill="#8B6914" opacity="0.3"/>
+                    <text x="200" y="270" textAnchor="middle" fontFamily="serif" fontSize="120" fill="#8B6914" opacity="0.15">V</text>
+                    <text x="200" y="310" textAnchor="middle" fontFamily="sans-serif" fontSize="11" letterSpacing="8" fill="#FAFAF8" opacity="0.5">DIGITAL STUDIO</text>
+                    <circle cx="60" cy="80" r="3" fill="#8B6914" opacity="0.4"/>
+                    <circle cx="340" cy="80" r="3" fill="#8B6914" opacity="0.4"/>
+                    <circle cx="60" cy="420" r="3" fill="#8B6914" opacity="0.4"/>
+                    <circle cx="340" cy="420" r="3" fill="#8B6914" opacity="0.4"/>
+                    <line x1="60" y1="250" x2="170" y2="250" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
+                    <line x1="230" y1="250" x2="340" y2="250" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
+                    <line x1="200" y1="180" x2="200" y2="210" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
+                    <line x1="200" y1="330" x2="200" y2="360" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
                   </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.span
-                      className="font-serif text-[80px] text-muted/15"
-                      animate={{ rotate: [0, 1, -1, 0] }}
-                      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-                    >
-                      V
-                    </motion.span>
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full border border-bronze/40 flex items-center justify-center">
+                        <span className="font-serif text-xs text-bronze">V</span>
+                      </div>
+                      <div>
+                        <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/40">Agence digitale</div>
+                        <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-bronze/60">Pour cabinets d'avocats</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -247,13 +259,21 @@ export default function Home() {
             </FadeUpSection>
             <ParallaxSection speed={0.15}>
               <ClipReveal direction="right" delay={0.2}>
-                <div className="aspect-[4/5] bg-page rounded-md relative overflow-hidden border border-rule">
+                <div className="aspect-[4/5] rounded-md relative overflow-hidden bg-[#1A1A1A]">
+                  <svg className="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 400 500">
+                    <defs>
+                      <pattern id="diff-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8B6914" strokeWidth="0.5"/>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#diff-grid)" />
+                  </svg>
                   <div className="absolute inset-0 flex flex-col justify-end p-8">
-                    <span className="font-mono text-label uppercase text-muted mb-2">Expertise</span>
-                    <span className="font-serif text-h3 text-primary">+15 cabinets</span>
-                    <span className="font-serif text-h3 text-primary">accompagnés</span>
-                    <div className="mt-4 h-[1px] bg-rule-strong" />
-                    <span className="font-mono text-label uppercase text-muted mt-4">Conformité CNB intégrée</span>
+                    <span className="font-mono text-label uppercase text-bronze/60 mb-2">Expertise</span>
+                    <span className="font-serif text-h3 text-white">+15 cabinets</span>
+                    <span className="font-serif text-h3 text-white">accompagnés</span>
+                    <div className="mt-4 h-[1px] bg-bronze/30" />
+                    <span className="font-mono text-label uppercase text-white/50 mt-4">Conformité CNB intégrée</span>
                   </div>
                 </div>
               </ClipReveal>

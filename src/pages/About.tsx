@@ -70,25 +70,29 @@ export default function About() {
       <section className="py-16 px-6 lg:px-8">
         <div className="max-w-content mx-auto">
           <ClipReveal direction="up" delay={0.1}>
-            <div className="aspect-[3/2] md:aspect-[21/9] bg-surface rounded-md flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10">
-                <svg className="w-full h-full" viewBox="0 0 1200 400">
-                  <defs>
-                    <pattern id="about-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.3"/>
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#about-grid)" className="text-muted" />
-                </svg>
-              </div>
-              <div className="text-center text-muted relative z-10">
-                <motion.div
-                  animate={{ rotate: [0, 1, -1, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <span className="font-serif text-[80px] text-muted/20">V</span>
-                </motion.div>
-                <p className="text-sm mt-2">Studio Verne</p>
+            <div className="aspect-[3/2] md:aspect-[21/9] rounded-md relative overflow-hidden bg-[#1A1A1A]">
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 400" fill="none">
+                <rect width="1200" height="400" fill="#1A1A1A"/>
+                <defs>
+                  <pattern id="about-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#8B6914" strokeWidth="0.3"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#about-grid)" opacity="0.08"/>
+                <text x="600" y="220" textAnchor="middle" fontFamily="serif" fontSize="160" fill="#8B6914" opacity="0.08">VERNE</text>
+                <line x1="100" y1="200" x2="500" y2="200" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
+                <line x1="700" y1="200" x2="1100" y2="200" stroke="#8B6914" strokeWidth="0.5" opacity="0.2"/>
+                <circle cx="600" cy="200" r="60" stroke="#8B6914" strokeWidth="0.5" fill="none" opacity="0.15"/>
+                <circle cx="600" cy="200" r="40" stroke="#8B6914" strokeWidth="0.5" fill="none" opacity="0.1"/>
+              </svg>
+              <div className="absolute bottom-8 left-8 flex items-center gap-4 z-10">
+                <div className="w-10 h-10 rounded-full border border-bronze/40 flex items-center justify-center">
+                  <span className="font-serif text-sm text-bronze">V</span>
+                </div>
+                <div>
+                  <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-white/60">Studio Verne</div>
+                  <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-bronze/50">Design & développement pour le droit</div>
+                </div>
               </div>
             </div>
           </ClipReveal>
