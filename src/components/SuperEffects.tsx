@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, useMotionValue, animate, useScroll, useTransform, useSpring } from 'framer-motion';
 
 // Custom hook: reliable IntersectionObserver that works with Lenis
+// Falls back to visible after 2s if observer never fires (safety net)
 function useVisible(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -12,10 +13,14 @@ function useVisible(threshold = 0.1) {
 
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold }
+      { threshold, rootMargin: '50px' }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Safety net: if observer hasn't fired after 2s, make visible anyway
+    const timeout = setTimeout(() => setVisible(true), 2000);
+
+    return () => { observer.disconnect(); clearTimeout(timeout); };
   }, [threshold]);
 
   return { ref, visible };
@@ -129,13 +134,13 @@ export function FadeUpSection({ children, className = '', delay = 0 }: FadeUpSec
     <motion.div
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y: 16 }}
-      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 16 }}
       transition={{
         duration: 0.4,
-        delay,
+        delay: visible ? delay : 0,
         ease: 'easeOut',
       }}
+      style={{ willChange: 'opacity, transform' }}
     >
       {children}
     </motion.div>
@@ -155,7 +160,6 @@ export function StaggerContainer({ children, className = '', staggerDelay = 0.05
     <motion.div
       ref={ref}
       className={className}
-      initial="hidden"
       animate={visible ? 'visible' : 'hidden'}
       variants={{
         hidden: { opacity: 0 },
@@ -340,9 +344,8 @@ export function ClipReveal({ children, className = '', direction = 'up', delay =
     <motion.div
       ref={ref}
       className={className}
-      initial={{ clipPath: clipFrom[direction] }}
-      animate={visible ? { clipPath: 'inset(0% 0% 0% 0%)' } : { clipPath: clipFrom[direction] }}
-      transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      animate={{ clipPath: visible ? 'inset(0% 0% 0% 0%)' : clipFrom[direction] }}
+      transition={{ duration: 0.8, delay: visible ? delay : 0, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
     </motion.div>
