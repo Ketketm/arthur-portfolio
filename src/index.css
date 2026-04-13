@@ -1,55 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ═══ LIGHT MODE (default) ═══ */
+/* ═══ DARK MODE (default) ═══ */
 :root {
-  --bg: #FFFFFF;
-  --bg-rgb: 255 255 255;
-  --surface: #F5F5F3;
-  --surface-hover: #EBEBEA;
-  --text-primary: #111111;
-  --text-secondary: #666666;
-  --text-tertiary: #999999;
-  --accent: #5B8DEF;
-  --accent-rgb: 91 141 239;
-  --accent-hover: #4A7DE0;
-  --accent-glow: rgba(91, 141, 239, 0.10);
-  --border: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.15);
-  --glass-bg: rgba(255, 255, 255, 0.90);
+  --bg: #08090E;
+  --bg-rgb: 8 9 14;
+  --surface: #0F1118;
+  --surface-hover: #161923;
+  --text-primary: #F0EDE8;
+  --text-secondary: #8A8580;
+  --text-tertiary: #555048;
+  --accent: #7C9A82;
+  --accent-rgb: 124 154 130;
+  --accent-hover: #92B098;
+  --accent-glow: rgba(124, 154, 130, 0.10);
+  --border: rgba(240, 237, 232, 0.06);
+  --border-strong: rgba(240, 237, 232, 0.12);
+  --glass-bg: rgba(8, 9, 14, 0.80);
 }
 
-/* ═══ DARK MODE ═══ */
-[data-theme="dark"] {
-  --bg: #0A0A14;
-  --bg-rgb: 10 10 20;
-  --surface: #12141F;
-  --surface-hover: #1A1D2B;
-  --text-primary: #E8ECF4;
-  --text-secondary: #8A8FA0;
-  --text-tertiary: #555B6E;
-  --accent: #5B8DEF;
-  --accent-rgb: 91 141 239;
-  --accent-hover: #7BA4F5;
-  --accent-glow: rgba(91, 141, 239, 0.15);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.12);
-  --glass-bg: rgba(10, 10, 20, 0.80);
+/* ═══ LIGHT MODE ═══ */
+[data-theme="light"] {
+  --bg: #FAFAF7;
+  --bg-rgb: 250 250 247;
+  --surface: #F0EFEB;
+  --surface-hover: #E6E5E0;
+  --text-primary: #1A1A18;
+  --text-secondary: #6B6964;
+  --text-tertiary: #9A9892;
+  --accent: #5C7D62;
+  --accent-rgb: 92 125 98;
+  --accent-hover: #4A6B50;
+  --accent-glow: rgba(92, 125, 98, 0.08);
+  --border: rgba(26, 26, 24, 0.08);
+  --border-strong: rgba(26, 26, 24, 0.15);
+  --glass-bg: rgba(250, 250, 247, 0.90);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-#root {
-  position: relative;
-}
+* { box-sizing: border-box; }
+#root { position: relative; }
 
 html, body, .glass-nav {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.3s ease;
 }
 
 body {
@@ -65,7 +60,7 @@ body {
 
 .font-serif { font-family: 'Instrument Serif', Georgia, serif; }
 .font-sans { font-family: 'Instrument Sans', system-ui, sans-serif; }
-.font-mono { font-family: 'JetBrains Mono', monospace; }
+.font-mono { font-family: 'Geist Mono', 'JetBrains Mono', monospace; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
@@ -85,10 +80,7 @@ body {
 .line-animate::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
+  bottom: -2px; left: 0; width: 0; height: 1px;
   background: var(--text-primary);
   transition: width 0.3s ease-out;
 }
@@ -98,15 +90,12 @@ body {
 .card-hover { transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; }
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-[data-theme="dark"] .card-hover:hover {
-  box-shadow: 0 12px 40px rgba(91, 141, 239, 0.06), 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 40px rgba(124, 154, 130, 0.06), 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Grain overlay — adapts blend mode per theme */
-.grain-overlay { mix-blend-mode: overlay; }
-[data-theme="dark"] .grain-overlay { mix-blend-mode: multiply; }
+/* Grain overlay */
+.grain-overlay { mix-blend-mode: multiply; }
+[data-theme="light"] .grain-overlay { mix-blend-mode: overlay; }
 
 /* Selection */
 ::selection { background: var(--accent); color: #fff; }
@@ -116,7 +105,7 @@ body {
 
 /* Section label */
 .section-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Geist Mono', 'JetBrains Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;

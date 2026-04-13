@@ -7,69 +7,90 @@
 - **Project type:** Agency marketing site — must project quiet authority and editorial taste
 
 ## Aesthetic Direction
-- **Direction:** Editorial/Refined
-- **Decoration level:** Intentional — no grain overlays, no custom cursors, no ambient glow orbs, no scroll progress bars. Only precise micro-interactions where they aid comprehension.
-- **Mood:** Like a beautifully typeset legal brief. Quiet precision. The site itself is the portfolio piece. Restraint IS the statement.
-- **Reference sites:** Bredin Prat (bredinprat.fr), Anima Dispute Resolution, DPS Avocats, Awwwards editorial portfolios
+- **Direction:** Dark Editorial
+- **Decoration level:** Minimal — typography does the work. No grain, no custom cursors, no glow orbs.
+- **Mood:** Like a beautifully lit law library at night. Deep, precise, authoritative. The restraint IS the statement.
+- **Reference sites:** Ourama (ourama.fr), Obys Agency, Locomotive, Bredin Prat
+- **Default theme:** Dark mode. Light mode available via toggle.
 
 ## Typography
-- **Display/Hero:** Instrument Serif — elegant, editorial, signals authority. Unusual for a tech portfolio, perfect for selling to lawyers.
-- **Body:** Instrument Sans — clean, modern, pairs with its serif sibling.
-- **UI/Labels:** JetBrains Mono — subtle tech credibility for labels, metadata, and eyebrows. Uppercase with letter-spacing for section labels.
-- **Code:** JetBrains Mono
-- **Loading:** Google Fonts — `https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap`
+- **Display/Hero:** Instrument Serif — elegant, editorial, signals authority
+- **Body:** Instrument Sans — clean, modern, pairs with its serif sibling
+- **UI/Labels:** Geist Mono — Apple-adjacent, cleaner than JetBrains Mono. Uppercase + letter-spacing for section labels.
+- **Code:** Geist Mono
+- **Loading:** Google Fonts — Instrument Sans + Instrument Serif. Geist Mono self-hosted or from CDN.
 - **Scale:**
-  - Hero: 96px / line-height 1.1
-  - H1: 48px / line-height 1.2
-  - H2: 38px / line-height 1.25
-  - H3: 30px / line-height 1.3
-  - Body: 18px / line-height 1.6
+  - Hero: clamp(3rem, 8vw, 7rem) / line-height 0.95 / tracking -0.03em
+  - H2: clamp(2rem, 5vw, 3.5rem) / line-height 1.1
+  - H3: 24px / line-height 1.3
+  - Body: 15px / line-height 1.6
   - Small: 14px / line-height 1.5
-  - Label: 11px / line-height 1.4 / letter-spacing 0.2em / uppercase
+  - Label: 10px / line-height 1.4 / letter-spacing 0.3em / uppercase
 
 ## Color
-- **Approach:** Restrained — near-monochrome warm neutrals with one deliberate bronze accent
-- **Background:** #FAFAF8 (warm off-white) — not stark white
-- **Surface/Cards:** #F2F0EC (warm stone)
-- **Surface Hover:** #EAE7E1
-- **Text Primary:** #1A1A1A (near-black) — not pure black
-- **Text Secondary:** #6B6B6B (warm gray)
-- **Text Tertiary:** #999999
-- **Accent:** #8B6914 (aged bronze) — richer and more authoritative than gold, reads "notaire" not "crypto"
-- **Accent Hover:** #A37D1C
-- **Accent Light:** rgba(139, 105, 20, 0.08) — for subtle backgrounds
-- **Border:** rgba(26, 26, 26, 0.08)
-- **Border Strong:** rgba(26, 26, 26, 0.15)
-- **Semantic:** success #2D8F3C, warning #B8860B, error #C53030, info #2B6CB0
-- **Dark mode:** Optional. If implemented: bg #141416, surface #1E1E22, text #F0EDE8, accent #C4A044
+- **Approach:** Restrained — near-monochrome with one sage green accent
+- **Accent rationale:** Sage green is unusual for law. That's the point. It says "considered, natural, precise" while competitors use blue or gold. Reads as sophisticated without being corporate.
+
+### Dark mode (default)
+- **Page:** #08090E (deep navy-black)
+- **Surface:** #0F1118 (slightly lifted)
+- **Surface Hover:** #161923
+- **Text:** #F0EDE8 (warm ivory, not clinical white)
+- **Text Secondary:** #8A8580 (warm gray)
+- **Text Muted:** #555048
+- **Accent:** #7C9A82 (sage green)
+- **Accent Hover:** #92B098
+- **Accent Glow:** rgba(124, 154, 130, 0.10)
+- **Border:** rgba(240, 237, 232, 0.06)
+- **Border Strong:** rgba(240, 237, 232, 0.12)
+- **Glass nav:** rgba(8, 9, 14, 0.80) + blur(20px) + saturate(180%)
+
+### Light mode
+- **Page:** #FAFAF7 (warm off-white)
+- **Surface:** #F0EFEB (warm stone)
+- **Surface Hover:** #E6E5E0
+- **Text:** #1A1A18 (near-black, warm)
+- **Text Secondary:** #6B6964
+- **Text Muted:** #9A9892
+- **Accent:** #5C7D62 (deeper sage for contrast on light)
+- **Accent Hover:** #4A6B50
+- **Accent Glow:** rgba(92, 125, 98, 0.08)
+- **Border:** rgba(26, 26, 24, 0.08)
+- **Border Strong:** rgba(26, 26, 24, 0.15)
+- **Glass nav:** rgba(250, 250, 247, 0.90) + blur(20px) + saturate(180%)
+
+### Semantic colors
+- Success: #5C9A6E
+- Warning: #C4A054
+- Error: #C46A5C
+- Info: #5C8AC4
 
 ## Spacing
 - **Base unit:** 8px
-- **Density:** Comfortable — generous whitespace, the space breathes
+- **Density:** Comfortable — generous whitespace
 - **Scale:** 2xs(4) xs(8) sm(16) md(24) lg(32) xl(48) 2xl(64) 3xl(96)
-- **Section padding:** 96px vertical (py-96), 32px horizontal (px-32)
+- **Section padding:** 120px vertical, 32px horizontal
 - **Content max-width:** 1200px
 
 ## Layout
 - **Approach:** Grid-disciplined with editorial breaks
-- **Grid:** 12 columns, asymmetric hero compositions
+- **Grid:** Asymmetric two-column for services/FAQ (1fr 2fr), full-width for hero/CTA
 - **Max content width:** 1200px
-- **Border radius:** Minimal — sm: 2px, md: 4px, lg: 8px. No large rounded corners. Precision, not friendliness.
-- **Hero composition:** Magazine-cover feel. Asymmetric two-column with strong typographic hierarchy. NOT centered text + button.
+- **Border radius:** Minimal — 2px, 3px, 4px. No large rounded corners.
+- **Hero:** Bottom-aligned, full-width text, massive type scaling
 
 ## Motion
-- **Approach:** Minimal-functional — restraint IS the statement
-- **Easing:** ease-out for enters, ease-in for exits, ease-in-out for state changes
-- **Duration:** fade-up on scroll 200ms, page transitions 300ms crossfade, hover states 150ms
-- **What to animate:** Section fade-ups on scroll, page transitions, hover state changes
-- **What NOT to animate:** No parallax, no spring physics, no infinite animations, no grain, no glow orbs, no custom cursors
-- **Framer Motion:** Keep it, but use sparingly. Simple `initial/whileInView` fade-ups only.
+- **Approach:** Minimal-functional
+- **Easing:** ease-out for enters, ease-in for exits
+- **Duration:** fade-up 400ms, page transitions 300ms, hover 200ms
+- **What to animate:** Section reveals on scroll (IntersectionObserver), hover states, page transitions
+- **What NOT to animate:** No parallax, no spring physics, no infinite loops, no decorative motion
 
 ## Decisions Log
 | Date | Decision | Rationale |
 |------|----------|-----------|
-| 2025-04-11 | Initial design system created | Created by /design-consultation based on competitive research (legal web agencies, Awwwards portfolios) and product positioning analysis |
-| 2025-04-11 | Editorial/Refined over dark luxury | Dark mode + gold = crypto portfolio, not legal trust. Light + serif = editorial authority. |
-| 2025-04-11 | Instrument Serif for display | Serif on a tech portfolio is unusual — but the audience is lawyers, not developers. The serif says "I understand your world." |
-| 2025-04-11 | Kill all decorative effects | Grain, custom cursor, glow orbs, scroll progress = "I just learned framer-motion." Restraint demonstrates taste. |
-| 2025-04-11 | Near-monochrome palette | In a sea of colorful law agency sites, the restraint makes you memorable. One bronze accent, used rarely and precisely. |
+| 2026-04-13 | Dark-first design | Competitive research: top agencies (Obys, Locomotive) go dark-first. Ourama alternates. Dark = authority + differentiation from generic law sites. |
+| 2026-04-13 | Sage green accent (#7C9A82) | Unusual for law. That's the point. Competitors use blue or gold. Sage says "considered, natural, precise." Pairs with warm ivory on dark navy. |
+| 2026-04-13 | Warm ivory text (#F0EDE8) | Not clinical white. Warm ivory reduces eye strain on dark backgrounds and reads more editorial. Inspired by Apple's dark mode text treatment. |
+| 2026-04-13 | Keep Instrument Serif/Sans | They work. Serif signals authority for lawyers. Sans is clean for body. No need to change what's already good. |
+| 2026-04-13 | Light mode as toggle, not default | Dark-first commits to a direction. Light mode exists for accessibility and preference. Not a compromise. |
