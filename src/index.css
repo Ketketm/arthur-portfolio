@@ -7,14 +7,14 @@
 /* ═══ LIGHT MODE (default) ═══ */
 :root {
   --bg: #FFFFFF;
-  --bg-rgb: 255, 255, 255;
+  --bg-rgb: 255 255 255;
   --surface: #F5F5F3;
   --surface-hover: #EBEBEA;
   --text-primary: #111111;
   --text-secondary: #666666;
   --text-tertiary: #999999;
   --accent: #5B8DEF;
-  --accent-rgb: 91, 141, 239;
+  --accent-rgb: 91 141 239;
   --accent-hover: #4A7DE0;
   --accent-glow: rgba(91, 141, 239, 0.10);
   --border: rgba(0, 0, 0, 0.08);
@@ -25,14 +25,14 @@
 /* ═══ DARK MODE ═══ */
 [data-theme="dark"] {
   --bg: #0A0A14;
-  --bg-rgb: 10, 10, 20;
+  --bg-rgb: 10 10 20;
   --surface: #12141F;
   --surface-hover: #1A1D2B;
   --text-primary: #E8ECF4;
   --text-secondary: #8A8FA0;
   --text-tertiary: #555B6E;
   --accent: #5B8DEF;
-  --accent-rgb: 91, 141, 239;
+  --accent-rgb: 91 141 239;
   --accent-hover: #7BA4F5;
   --accent-glow: rgba(91, 141, 239, 0.15);
   --border: rgba(255, 255, 255, 0.08);
