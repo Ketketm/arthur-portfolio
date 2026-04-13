@@ -38,7 +38,7 @@ export default function About() {
       <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">
         <div className="max-w-content mx-auto">
           <motion.span
-            className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4"
+            className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -77,7 +77,7 @@ export default function About() {
                 { title: 'Transparence', desc: 'Un tarif clair, un processus simple, un interlocuteur dédié. Pas de surprises.' },
               ].map((v, i) => (
                 <div key={v.title}>
-                  <span className="font-mono text-[11px] text-bronze">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-[11px] text-accent">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="font-serif text-2xl text-page mt-3 mb-3">{v.title}</h3>
                   <p className="text-sm text-page/50 leading-relaxed">{v.desc}</p>
                 </div>
@@ -106,7 +106,7 @@ export default function About() {
       <section className="py-28 px-6 lg:px-8">
         <div className="max-w-content mx-auto">
           <FadeUpSection className="mb-16">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4">Parcours</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Parcours</span>
             <h2 className="font-serif text-h2 md:text-[2.8rem] text-primary leading-[1.15]">Notre parcours</h2>
           </FadeUpSection>
           <div className="max-w-2xl">
@@ -114,10 +114,10 @@ export default function About() {
               <ClipReveal key={item.year} direction="left" delay={index * 0.1}>
                 <div className="flex gap-8 py-10 border-b border-rule group">
                   <div className="flex-shrink-0">
-                    <span className="font-mono text-sm font-bold text-bronze">{item.year}</span>
+                    <span className="font-mono text-sm font-bold text-accent">{item.year}</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-serif text-xl md:text-2xl text-primary mb-3 group-hover:text-bronze transition-colors duration-200">{item.title}</h3>
+                    <h3 className="font-serif text-xl md:text-2xl text-primary mb-3 group-hover:text-accent transition-colors duration-200">{item.title}</h3>
                     <p className="text-secondary leading-relaxed">{item.description}</p>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export default function About() {
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-medium rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/30"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-page/20 text-page text-sm tracking-wide rounded-sm hover:bg-page hover:text-primary transition-all duration-300"
               >
                 Nous contacter
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

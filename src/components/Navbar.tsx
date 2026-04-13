@@ -36,7 +36,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               to="/"
-              className="font-serif text-xl text-primary hover:text-bronze transition-colors duration-200"
+              className="font-serif text-xl text-primary hover:text-accent transition-colors duration-200"
             >
               Verne
             </Link>

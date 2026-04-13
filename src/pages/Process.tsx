@@ -39,7 +39,7 @@ export default function Process() {
       <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">
         <div className="max-w-content mx-auto">
           <motion.span
-            className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4"
+            className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -71,7 +71,7 @@ export default function Process() {
           <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-20">
             <div>
               <FadeUpSection>
-                <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4">3 étapes</span>
+                <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">3 étapes</span>
                 <h2 className="font-serif text-h2 md:text-[2.8rem] text-primary leading-[1.15]">
                   Du brief<br />à la mise en ligne
                 </h2>
@@ -82,10 +82,10 @@ export default function Process() {
                 <ClipReveal key={step.number} direction="left" delay={i * 0.12}>
                   <div className="py-10 border-b border-rule group">
                     <div className="flex items-start gap-6">
-                      <span className="font-mono text-[11px] text-bronze mt-1.5">{step.number}</span>
+                      <span className="font-mono text-[11px] text-accent mt-1.5">{step.number}</span>
                       <div className="flex-1">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                          <h3 className="font-serif text-xl md:text-2xl text-primary group-hover:text-bronze transition-colors duration-300">
+                          <h3 className="font-serif text-xl md:text-2xl text-primary group-hover:text-accent transition-colors duration-300">
                             {step.title}
                           </h3>
                           <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted mt-1 md:mt-0">
@@ -94,7 +94,7 @@ export default function Process() {
                         </div>
                         <p className="text-sm text-secondary leading-relaxed mb-4 max-w-lg">{step.description}</p>
                         <div className="inline-flex items-center gap-2">
-                          <svg className="w-3.5 h-3.5 text-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3.5 h-3.5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                           <span className="font-mono text-[10px] tracking-[0.15em] uppercase text-primary">{step.deliverable}</span>
@@ -143,7 +143,7 @@ export default function Process() {
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-medium rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/30"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-page/20 text-page text-sm tracking-wide rounded-sm hover:bg-page hover:text-primary transition-all duration-300"
               >
                 Prendre rendez-vous
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

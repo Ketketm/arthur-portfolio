@@ -24,7 +24,7 @@ export default function Work() {
       <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">
         <div className="max-w-content mx-auto">
           <motion.span
-            className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4"
+            className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -59,7 +59,7 @@ export default function Work() {
                 <div className="flex items-start md:items-center gap-5 md:gap-8 mb-3 md:mb-0">
                   <span className="font-mono text-[11px] text-muted mt-1 md:mt-0">{String(i + 1).padStart(2, '0')}</span>
                   <div>
-                    <h3 className="font-serif text-xl md:text-3xl text-primary group-hover:text-bronze transition-colors duration-300 mb-1 md:mb-0">
+                    <h3 className="font-serif text-xl md:text-3xl text-primary group-hover:text-accent transition-colors duration-300 mb-1 md:mb-0">
                       {project.name}
                     </h3>
                     <span className="md:hidden font-mono text-[10px] tracking-[0.15em] uppercase text-muted">{project.bar}</span>
@@ -67,7 +67,7 @@ export default function Work() {
                 </div>
                 <div className="flex items-center gap-6 md:gap-10 pl-10 md:pl-0">
                   <span className="hidden md:block font-mono text-[10px] tracking-[0.2em] uppercase text-muted w-32">{project.bar}</span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-bronze w-24">{project.domain}</span>
+                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent w-24">{project.domain}</span>
                   <span className="font-mono text-sm text-muted">{project.year}</span>
                   <svg className="w-5 h-5 text-muted opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-3 group-hover:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6l-6 6" />
@@ -92,7 +92,7 @@ export default function Work() {
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-medium rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/30"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-page/20 text-page text-sm tracking-wide rounded-sm hover:bg-page hover:text-primary transition-all duration-300"
               >
                 Discutons de votre projet
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

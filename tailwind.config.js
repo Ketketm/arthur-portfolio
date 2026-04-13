@@ -7,22 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        page: '#F8F7F4',
+        page: '#FFFFFF',
         surface: {
-          DEFAULT: '#EFEEE8',
-          hover: '#E5E3DC',
+          DEFAULT: '#F5F5F3',
+          hover: '#ECECEA',
         },
-        primary: '#141414',
-        secondary: '#5C5C5C',
-        muted: '#8A8A8A',
+        primary: '#111111',
+        secondary: '#666666',
+        muted: '#999999',
         bronze: {
-          DEFAULT: '#9A7B2E',
-          hover: '#B08E35',
-          light: 'rgba(154, 123, 46, 0.07)',
+          DEFAULT: '#111111',
+          hover: '#333333',
+          light: 'rgba(17, 17, 17, 0.04)',
         },
+        accent: '#8C7A5A',
         rule: {
-          DEFAULT: 'rgba(20, 20, 20, 0.10)',
-          strong: 'rgba(20, 20, 20, 0.18)',
+          DEFAULT: 'rgba(0, 0, 0, 0.08)',
+          strong: 'rgba(0, 0, 0, 0.15)',
         },
         semantic: {
           success: '#2D8F3C',

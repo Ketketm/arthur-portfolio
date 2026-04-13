@@ -49,7 +49,7 @@ export default function Pricing() {
       <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">
         <div className="max-w-content mx-auto">
           <motion.span
-            className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4"
+            className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -81,7 +81,7 @@ export default function Pricing() {
             {/* Price */}
             <ClipReveal direction="left" delay={0.1}>
               <div>
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-bronze inline-block mb-8">
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent inline-block mb-8">
                   Offre de lancement
                 </span>
                 <div className="font-serif text-[clamp(4rem,10vw,7rem)] leading-none text-primary">
@@ -91,7 +91,7 @@ export default function Pricing() {
                 <MagneticButton className="block" strength={0.1}>
                   <Link
                     to="/contact"
-                    className="block w-full md:w-auto md:inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-page font-medium text-sm text-center rounded-sm transition-all duration-200 hover:bg-bronze"
+                    className="block w-full md:w-auto md:inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-page font-medium text-sm text-center rounded-sm transition-all duration-200 hover:opacity-80"
                   >
                     Commencer mon projet
                     <svg className="w-4 h-4 hidden md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -110,7 +110,7 @@ export default function Pricing() {
               <div className="border-t border-rule">
                 {included.map((item) => (
                   <div key={item} className="flex items-center gap-4 py-4 border-b border-rule">
-                    <svg className="w-4 h-4 text-bronze flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="text-sm text-primary">{item}</span>
@@ -127,7 +127,7 @@ export default function Pricing() {
         <div className="max-w-content mx-auto">
           <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-20">
             <FadeUpSection>
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-bronze block mb-4">FAQ</span>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">FAQ</span>
               <h2 className="font-serif text-h2 md:text-[2.8rem] text-primary leading-[1.15]">
                 Questions<br />fréquentes
               </h2>
@@ -136,7 +136,7 @@ export default function Pricing() {
               {faq.map((item, i) => (
                 <ClipReveal key={item.question} direction="left" delay={i * 0.08}>
                   <div className="py-8 border-b border-rule group">
-                    <h3 className="font-serif text-lg md:text-xl text-primary mb-3 group-hover:text-bronze transition-colors duration-200">
+                    <h3 className="font-serif text-lg md:text-xl text-primary mb-3 group-hover:text-accent transition-colors duration-200">
                       {item.question}
                     </h3>
                     <p className="text-sm text-secondary leading-relaxed max-w-lg">{item.answer}</p>
@@ -161,7 +161,7 @@ export default function Pricing() {
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-bronze text-white font-medium rounded-sm transition-all duration-300 hover:bg-bronze-hover hover:shadow-xl hover:shadow-bronze/30"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-page/20 text-page text-sm tracking-wide rounded-sm hover:bg-page hover:text-primary transition-all duration-300"
               >
                 Réserver mon créneau
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
