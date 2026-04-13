@@ -149,19 +149,19 @@ export default function Pricing() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-6 lg:px-8 bg-primary relative overflow-hidden">
+      <section className="py-32 px-6 lg:px-8 bg-surface relative overflow-hidden">
         <div className="max-w-content mx-auto text-center relative z-10">
           <FadeUpSection>
-            <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-page mb-4 leading-tight">
+            <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-primary mb-4 leading-tight">
               Convaincu ?
             </h2>
-            <p className="text-page/50 max-w-md mx-auto mb-10">
+            <p className="text-secondary max-w-md mx-auto mb-10">
               Réservez votre créneau. Places limitées chaque mois.
             </p>
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 border border-page/20 text-page text-sm tracking-wide rounded-sm hover:bg-page hover:text-primary transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm tracking-wide rounded-sm hover:bg-accent/80 transition-all duration-300"
               >
                 Réserver mon créneau
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

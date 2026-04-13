@@ -67,7 +67,7 @@ export default function About() {
       </div>
 
       {/* Values */}
-      <section className="py-24 px-6 lg:px-8 bg-primary">
+      <section className="py-24 px-6 lg:px-8 bg-surface">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <div className="grid md:grid-cols-3 gap-16 md:gap-12">
@@ -78,8 +78,8 @@ export default function About() {
               ].map((v, i) => (
                 <div key={v.title}>
                   <span className="font-mono text-[11px] text-accent">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="font-serif text-2xl text-page mt-3 mb-3">{v.title}</h3>
-                  <p className="text-sm text-page/50 leading-relaxed">{v.desc}</p>
+                  <h3 className="font-serif text-2xl text-primary mt-3 mb-3">{v.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed">{v.desc}</p>
                 </div>
               ))}
             </div>
@@ -128,19 +128,19 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 px-6 lg:px-8 bg-primary relative overflow-hidden">
+      <section className="py-28 px-6 lg:px-8 bg-surface relative overflow-hidden">
         <div className="max-w-content mx-auto text-center relative z-10">
           <FadeUpSection>
-            <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-page mb-4 leading-tight">
+            <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-primary mb-4 leading-tight">
               Envie d'en discuter ?
             </h2>
-            <p className="text-page/50 max-w-md mx-auto mb-10">
+            <p className="text-secondary max-w-md mx-auto mb-10">
               Parlons de votre projet. Première consultation gratuite.
             </p>
             <MagneticButton className="inline-block" strength={0.15}>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 border border-page/20 text-page text-sm tracking-wide rounded-sm hover:bg-page hover:text-primary transition-all duration-300"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm tracking-wide rounded-sm hover:bg-accent/80 transition-all duration-300"
               >
                 Nous contacter
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -7,30 +7,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        page: '#FFFFFF',
+        page: '#050510',
         surface: {
-          DEFAULT: '#F5F5F3',
-          hover: '#ECECEA',
+          DEFAULT: '#0C0E1A',
+          hover: '#141728',
         },
-        primary: '#111111',
-        secondary: '#666666',
-        muted: '#999999',
+        primary: '#E8ECF4',
+        secondary: '#7A8294',
+        muted: '#4D5466',
         bronze: {
-          DEFAULT: '#111111',
-          hover: '#333333',
-          light: 'rgba(17, 17, 17, 0.04)',
+          DEFAULT: '#5B8DEF',
+          hover: '#7BA4F5',
+          light: 'rgba(91, 141, 239, 0.06)',
         },
-        accent: '#8C7A5A',
+        accent: '#5B8DEF',
         rule: {
-          DEFAULT: 'rgba(0, 0, 0, 0.08)',
-          strong: 'rgba(0, 0, 0, 0.15)',
+          DEFAULT: 'rgba(255, 255, 255, 0.06)',
+          strong: 'rgba(255, 255, 255, 0.12)',
         },
-        semantic: {
-          success: '#2D8F3C',
-          warning: '#B8860B',
-          error: '#C53030',
-          info: '#2B6CB0',
-        },
+        dark: '#000000',
       },
       fontFamily: {
         serif: ['Instrument Serif', 'Georgia', 'serif'],

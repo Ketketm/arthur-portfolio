@@ -405,7 +405,7 @@ export function SmoothCursor() {
       aria-hidden="true"
     >
       <motion.div
-        className="rounded-full bg-bronze"
+        className="rounded-full bg-accent"
         animate={{
           width: isHovering ? 48 : 10,
           height: isHovering ? 48 : 10,

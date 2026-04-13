@@ -21,7 +21,7 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const inputClass = "w-full px-4 py-3 bg-page border border-rule-strong rounded-sm text-primary text-sm focus:outline-none focus:border-bronze transition-colors placeholder:text-muted"
+  const inputClass = "w-full px-4 py-3 bg-surface border border-rule-strong rounded-sm text-primary text-sm focus:outline-none focus:border-accent transition-colors placeholder:text-muted"
 
   return (
     <motion.div

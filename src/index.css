@@ -5,18 +5,17 @@
 @tailwind utilities;
 
 :root {
-  --bg: #FFFFFF;
-  --surface: #F5F5F3;
-  --surface-hover: #ECECEA;
-  --text-primary: #111111;
-  --text-secondary: #666666;
-  --text-tertiary: #999999;
-  --bronze: #111111;
-  --bronze-hover: #333333;
-  --bronze-light: rgba(17, 17, 17, 0.04);
-  --accent: #8C7A5A;
-  --border: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.15);
+  --bg: #050510;
+  --surface: #0C0E1A;
+  --surface-hover: #141728;
+  --text-primary: #E8ECF4;
+  --text-secondary: #7A8294;
+  --text-tertiary: #4D5466;
+  --accent: #5B8DEF;
+  --accent-hover: #7BA4F5;
+  --accent-glow: rgba(91, 141, 239, 0.15);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -51,7 +50,7 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Custom scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -69,11 +68,11 @@ body {
   background: var(--text-secondary);
 }
 
-/* Glass nav */
+/* Glass nav — dark frosted */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(5, 5, 16, 0.80);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
 /* Line animation */
@@ -103,34 +102,22 @@ body {
 
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 12px 40px rgba(91, 141, 239, 0.08), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Shimmer loading placeholder */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.shimmer {
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%);
-  background-size: 200% 100%;
-  animation: shimmer 2s ease-in-out infinite;
-}
-
-/* Selection color */
+/* Selection */
 ::selection {
-  background: var(--bronze);
+  background: var(--accent);
   color: #fff;
 }
 
-/* Focus styles */
+/* Focus */
 :focus-visible {
-  outline: 1px solid var(--bronze);
+  outline: 1px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* Section label — mono uppercase eyebrow */
+/* Section label */
 .section-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;

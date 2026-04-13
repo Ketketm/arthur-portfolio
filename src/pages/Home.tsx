@@ -115,11 +115,11 @@ export default function Home() {
       </section>
 
       {/* ═══ SERVICES ═══ */}
-      <section className="py-28 px-6 lg:px-8 bg-primary">
+      <section className="py-28 px-6 lg:px-8 bg-surface">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-6">Services</span>
-            <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-page leading-[1.1] max-w-2xl mb-20">
+            <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] max-w-2xl mb-20">
               De la stratégie à la mise en ligne
             </h2>
           </FadeUpSection>
@@ -130,10 +130,10 @@ export default function Home() {
               { num: '03', title: 'Conformité', desc: 'Mentions légales, RGPD, obligations CNB. Intégrées dès la conception.' },
             ].map((s, i) => (
               <ClipReveal key={s.num} direction="up" delay={i * 0.1}>
-                <div className="border-t border-page/10 pt-8 pr-8 pb-8 group">
+                <div className="border-t border-rule pt-8 pr-8 pb-8 group">
                   <span className="font-mono text-[10px] text-accent">{s.num}</span>
-                  <h3 className="font-serif text-2xl text-page mt-4 mb-3">{s.title}</h3>
-                  <p className="text-sm text-page/50 leading-relaxed">{s.desc}</p>
+                  <h3 className="font-serif text-2xl text-primary mt-4 mb-3">{s.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed">{s.desc}</p>
                 </div>
               </ClipReveal>
             ))}
@@ -197,21 +197,21 @@ export default function Home() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="py-40 px-6 lg:px-8 bg-primary">
+      <section className="py-40 px-6 lg:px-8 bg-surface">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
-              <h2 className="font-serif text-[clamp(2.5rem,7vw,5rem)] text-page leading-[0.95] tracking-[-0.02em] max-w-xl">
+              <h2 className="font-serif text-[clamp(2.5rem,7vw,5rem)] text-primary leading-[0.95] tracking-[-0.02em] max-w-xl">
                 Prêt à démarquer votre cabinet ?
               </h2>
               <div className="flex flex-col items-start md:items-end gap-4 pb-2">
-                <p className="text-page/50 text-sm max-w-xs md:text-right">
+                <p className="text-secondary text-sm max-w-xs md:text-right">
                   Première consultation gratuite. Sans engagement.
                 </p>
                 <MagneticButton strength={0.15}>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-3 px-7 py-4 border border-page/20 text-page text-sm tracking-wide rounded-sm hover:bg-page hover:text-primary transition-all duration-300"
+                    className="inline-flex items-center gap-3 px-7 py-4 bg-accent text-white text-sm tracking-wide rounded-sm hover:bg-accent/80 transition-all duration-300"
                   >
                     Prendre rendez-vous
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
