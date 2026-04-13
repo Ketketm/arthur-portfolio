@@ -91,7 +91,7 @@ export default function Pricing() {
                 <MagneticButton className="block" strength={0.1}>
                   <Link
                     to="/contact"
-                    className="block w-full md:w-auto md:inline-flex items-center justify-center gap-3 px-8 py-4 bg-primary text-page font-medium text-sm text-center rounded-sm transition-all duration-200 hover:opacity-80"
+                    className="block w-full md:w-auto md:inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-white font-medium text-sm text-center rounded-sm transition-all duration-200 hover:bg-accent/80"
                   >
                     Commencer mon projet
                     <svg className="w-4 h-4 hidden md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">

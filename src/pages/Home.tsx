@@ -67,7 +67,7 @@ export default function Home() {
                 <MagneticButton strength={0.15}>
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-3 px-7 py-4 bg-primary text-page text-sm tracking-wide rounded-sm hover:opacity-80 transition-opacity duration-300"
+                    className="inline-flex items-center gap-3 px-7 py-4 bg-accent text-white text-sm tracking-wide rounded-sm hover:bg-accent/80 transition-all duration-300"
                   >
                     Démarrer un projet
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -263,7 +263,7 @@ interface FloatingBlobsProps {
   color?: string;
 }
 
-export function FloatingBlobs({ className = '', color = 'var(--bronze)' }: FloatingBlobsProps) {
+export function FloatingBlobs({ className = '', color = 'var(--accent)' }: FloatingBlobsProps) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} aria-hidden="true">
       <motion.div
