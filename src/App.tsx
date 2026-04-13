@@ -5,6 +5,7 @@ import Lenis from '@studio-freight/lenis'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { GrainOverlay, SmoothCursor } from './components/SuperEffects'
+import { useTheme } from './hooks/useTheme'
 import Home from './pages/Home'
 import Work from './pages/Work'
 import Process from './pages/Process'
@@ -15,6 +16,7 @@ import Contact from './pages/Contact'
 function App() {
   const location = useLocation()
   const lenisRef = useRef<Lenis | null>(null)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -48,7 +50,7 @@ function App() {
     <div className="relative min-h-screen bg-page text-primary">
       <GrainOverlay />
       <SmoothCursor />
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

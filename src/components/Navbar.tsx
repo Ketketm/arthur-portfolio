@@ -9,7 +9,12 @@ const navLinks = [
   { path: '/a-propos', label: 'À propos' },
 ]
 
-export default function Navbar() {
+interface NavbarProps {
+  theme: 'light' | 'dark'
+  toggleTheme: () => void
+}
+
+export default function Navbar({ theme, toggleTheme }: NavbarProps) {
   const location = useLocation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -57,7 +62,7 @@ export default function Navbar() {
                   {location.pathname === link.path && (
                     <motion.div
                       layoutId="navbar-indicator"
-                      className="absolute -bottom-[2px] left-0 right-0 h-[1px] bg-primary"
+                      className="absolute -bottom-[2px] left-0 right-0 h-[1px] bg-accent"
                       transition={{ duration: 0.2, ease: 'easeOut' }}
                     />
                   )}
@@ -65,27 +70,59 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden md:block">
+            {/* Theme toggle + CTA */}
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                onClick={toggleTheme}
+                className="p-2 text-secondary hover:text-primary transition-colors duration-200 rounded-sm"
+                aria-label={theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'}
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                  </svg>
+                )}
+              </button>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-page text-sm font-semibold rounded-sm transition-all duration-200 hover:opacity-90 hover:shadow-md hover:-translate-y-px"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm font-medium rounded-sm transition-all duration-200 hover:bg-accent/80 hover:-translate-y-px"
               >
                 Prendre rendez-vous
               </Link>
             </div>
 
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden p-2 text-primary"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <div className="w-5 h-4 flex flex-col justify-between">
-                <span className={`block h-[1.5px] bg-current transition-all duration-200 ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-                <span className={`block h-[1.5px] bg-current transition-all duration-200 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
-                <span className={`block h-[1.5px] bg-current transition-all duration-200 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
-              </div>
-            </button>
+            {/* Mobile: theme toggle + hamburger */}
+            <div className="flex md:hidden items-center gap-2">
+              <button
+                onClick={toggleTheme}
+                className="p-2 text-secondary hover:text-primary transition-colors"
+                aria-label={theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'}
+              >
+                {theme === 'dark' ? (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                  </svg>
+                )}
+              </button>
+              <button
+                className="p-2 text-primary"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                <div className="w-5 h-4 flex flex-col justify-between">
+                  <span className={`block h-[1.5px] bg-current transition-all duration-200 ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+                  <span className={`block h-[1.5px] bg-current transition-all duration-200 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+                  <span className={`block h-[1.5px] bg-current transition-all duration-200 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -118,7 +155,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-page font-semibold rounded-sm mt-4"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-white font-medium rounded-sm mt-4"
               >
                 Prendre rendez-vous
               </Link>

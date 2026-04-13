@@ -7,23 +7,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        page: '#050510',
+        page: 'rgb(var(--bg-rgb) / <alpha-value>)',
         surface: {
-          DEFAULT: '#0C0E1A',
-          hover: '#141728',
+          DEFAULT: 'var(--surface)',
+          hover: 'var(--surface-hover)',
         },
-        primary: '#E8ECF4',
-        secondary: '#7A8294',
-        muted: '#4D5466',
+        primary: 'var(--text-primary)',
+        secondary: 'var(--text-secondary)',
+        muted: 'var(--text-tertiary)',
         bronze: {
-          DEFAULT: '#5B8DEF',
-          hover: '#7BA4F5',
-          light: 'rgba(91, 141, 239, 0.06)',
+          DEFAULT: 'var(--accent)',
+          hover: 'var(--accent-hover)',
+          light: 'var(--accent-glow)',
         },
-        accent: '#5B8DEF',
+        accent: 'rgb(var(--accent-rgb) / <alpha-value>)',
         rule: {
-          DEFAULT: 'rgba(255, 255, 255, 0.06)',
-          strong: 'rgba(255, 255, 255, 0.12)',
+          DEFAULT: 'var(--border)',
+          strong: 'var(--border-strong)',
         },
         dark: '#000000',
       },

@@ -80,7 +80,7 @@ export default function Work() {
       </div>
 
       {/* CTA */}
-      <section className="mt-20 py-28 px-6 lg:px-8 bg-primary relative overflow-hidden">
+      <section className="mt-20 py-28 px-6 lg:px-8 bg-surface relative overflow-hidden">
         <div className="max-w-content mx-auto text-center relative z-10">
           <FadeUpSection>
             <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-primary mb-4 leading-tight">
