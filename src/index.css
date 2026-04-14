@@ -97,9 +97,6 @@ body {
 .grain-overlay { mix-blend-mode: multiply; }
 [data-theme="light"] .grain-overlay { mix-blend-mode: overlay; }
 
-/* Brand logo — black on white original; invert on dark theme */
-.brand-logo { filter: invert(1); }
-[data-theme="light"] .brand-logo { filter: invert(0); }
 
 /* Selection */
 ::selection { background: var(--accent); color: #fff; }

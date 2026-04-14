@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Logo from './Logo'
 
 const navLinks = [
   { path: '/realisations', label: 'Réalisations' },
@@ -44,7 +45,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
               className="inline-flex items-center gap-2.5 text-primary hover:text-accent transition-colors duration-200"
               aria-label="Nérée — Accueil"
             >
-              <img src="/logo.png" alt="" className="h-9 w-9 brand-logo" />
+              <Logo className="h-9 w-9 text-primary" />
               <span className="font-serif text-xl">Nérée</span>
             </Link>
 

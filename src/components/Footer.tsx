@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Logo from './Logo'
 
 const navLinks = [
   { label: 'Réalisations', path: '/realisations' },
@@ -16,7 +17,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-flex items-center gap-2">
-              <img src="/logo.png" alt="Nérée" className="h-9 w-9 brand-logo" />
+              <Logo className="h-9 w-9 text-primary" />
               <span className="font-serif text-xl text-primary">Nérée</span>
             </Link>
             <p className="text-sm text-secondary mt-3 leading-relaxed max-w-[280px]">
