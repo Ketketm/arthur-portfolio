@@ -1,9 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <!-- Outer circle -->
-  <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="2.5" fill="none"/>
-  <!-- Wave hint at bottom -->
-  <path d="M 12 62 Q 25 56 38 62 T 64 62 T 88 62" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.5"/>
-  <path d="M 14 70 Q 28 65 42 70 T 68 70 T 86 70" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
-  <!-- Stylized N letterform -->
-  <path d="M 33 28 L 33 72 L 39 72 L 39 42 L 61 72 L 67 72 L 67 28 L 61 28 L 61 58 L 39 28 Z" fill="currentColor"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <circle cx="100" cy="100" r="94" stroke="#111" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="100" r="88" stroke="#111" stroke-width="1" fill="none"/>
+  <g fill="#111">
+    <path d="M 62 58 L 62 132 L 75 132 L 75 82 L 75 58 Z"/>
+    <path d="M 75 58 L 75 78 L 125 132 L 125 112 Z"/>
+    <path d="M 125 58 L 125 132 L 138 132 L 138 58 Z"/>
+    <rect x="56" y="55" width="25" height="5"/>
+    <rect x="119" y="55" width="25" height="5"/>
+    <rect x="56" y="132" width="25" height="5"/>
+    <rect x="119" y="132" width="25" height="5"/>
+  </g>
+  <path d="M 20 150 Q 40 142 60 150 T 100 150 T 140 150 T 180 150" stroke="#111" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 22 162 Q 42 156 62 162 T 102 162 T 142 162 T 180 162" stroke="#111" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+  <path d="M 24 172 Q 44 167 64 172 T 104 172 T 144 172 T 180 172" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+  <circle cx="38" cy="90" r="2" fill="#111" opacity="0.5"/>
+  <circle cx="46" cy="100" r="1.5" fill="#111" opacity="0.4"/>
+  <circle cx="38" cy="112" r="2" fill="#111" opacity="0.5"/>
 </svg>
