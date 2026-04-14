@@ -20,7 +20,7 @@ const timeline = [
   },
   {
     year: '2024',
-    title: 'Naissance de Verne',
+    title: 'Naissance de Nérée',
     description: "Structuration en agence. Une équipe dédiée au digital juridique. +15 cabinets accompagnés à travers la France.",
   },
 ]
@@ -50,7 +50,7 @@ export default function About() {
             delay={0.1}
             stagger={0.1}
           >
-            Verne
+            Nérée
           </TextReveal>
           <motion.p
             className="text-xl text-secondary leading-relaxed max-w-2xl"
@@ -58,7 +58,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Verne est née d'un constat : les cabinets d'avocats méritent des outils
+            Nérée est née d'un constat : les cabinets d'avocats méritent des outils
             numériques à la hauteur de leur profession. Pas des templates. Pas des
             agences généralistes. Un studio dédié, qui comprend les contraintes et
             les codes du métier.

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 
 type Theme = 'light' | 'dark'
-const STORAGE_KEY = 'verne-theme'
+const STORAGE_KEY = 'neree-theme'
 
 function getSystemTheme(): Theme {
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'

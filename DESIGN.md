@@ -1,4 +1,4 @@
-# Design System — Verne Agency
+# Design System — Nérée Agency
 
 ## Product Context
 - **What this is:** Digital agency website specializing in custom web design for French law firms
@@ -29,7 +29,7 @@
 
 ## Color
 - **Approach:** Restrained — near-monochrome with one sage green accent
-- **Accent rationale:** Sage green is unusual for law. That's the point. It says "considered, natural, precise" while competitors use blue or gold. Reads as sophisticated without being corporate.
+- **Accent rationale:** Oceanic slate blue. Thematically tied to Nérée (Greek sea god). Desaturated and slightly cool — references ocean depth without being literal. Not the generic "Apple blue" SaaS palette.
 
 ### Dark mode (default)
 - **Page:** #08090E (deep navy-black)
@@ -38,9 +38,9 @@
 - **Text:** #F0EDE8 (warm ivory, not clinical white)
 - **Text Secondary:** #8A8580 (warm gray)
 - **Text Muted:** #555048
-- **Accent:** #7C9A82 (sage green)
-- **Accent Hover:** #92B098
-- **Accent Glow:** rgba(124, 154, 130, 0.10)
+- **Accent:** #6B9DC4 (soft slate blue)
+- **Accent Hover:** #86B5D8
+- **Accent Glow:** rgba(107, 157, 196, 0.10)
 - **Border:** rgba(240, 237, 232, 0.06)
 - **Border Strong:** rgba(240, 237, 232, 0.12)
 - **Glass nav:** rgba(8, 9, 14, 0.80) + blur(20px) + saturate(180%)
@@ -52,9 +52,9 @@
 - **Text:** #1A1A18 (near-black, warm)
 - **Text Secondary:** #6B6964
 - **Text Muted:** #9A9892
-- **Accent:** #5C7D62 (deeper sage for contrast on light)
-- **Accent Hover:** #4A6B50
-- **Accent Glow:** rgba(92, 125, 98, 0.08)
+- **Accent:** #3A6B95 (deeper navy-blue for contrast on light)
+- **Accent Hover:** #2C5980
+- **Accent Glow:** rgba(58, 107, 149, 0.08)
 - **Border:** rgba(26, 26, 24, 0.08)
 - **Border Strong:** rgba(26, 26, 24, 0.15)
 - **Glass nav:** rgba(250, 250, 247, 0.90) + blur(20px) + saturate(180%)
@@ -90,7 +90,10 @@
 | Date | Decision | Rationale |
 |------|----------|-----------|
 | 2026-04-13 | Dark-first design | Competitive research: top agencies (Obys, Locomotive) go dark-first. Ourama alternates. Dark = authority + differentiation from generic law sites. |
-| 2026-04-13 | Sage green accent (#7C9A82) | Unusual for law. That's the point. Competitors use blue or gold. Sage says "considered, natural, precise." Pairs with warm ivory on dark navy. |
+| 2026-04-13 | Sage green accent (#7C9A82) | Original choice — superseded 2026-04-14 |
+| 2026-04-14 | Rebranded Verne → Nérée | Verne.com unavailable. Nérée is the Greek sea god, father of the Nereids. Ties to the new logo (Nereus silhouette with marine elements). |
+| 2026-04-14 | Sage green → oceanic slate blue (#6B9DC4 dark / #3A6B95 light) | Thematic fit with Nérée (sea god). Desaturated to avoid generic SaaS blue. Reads as considered, refined. |
+| 2026-04-14 | Logo integration | Black-on-white original logo. CSS filter:invert(1) on dark mode, filter:invert(0) on light mode. Used in navbar, footer, favicon. |
 | 2026-04-13 | Warm ivory text (#F0EDE8) | Not clinical white. Warm ivory reduces eye strain on dark backgrounds and reads more editorial. Inspired by Apple's dark mode text treatment. |
 | 2026-04-13 | Keep Instrument Serif/Sans | They work. Serif signals authority for lawyers. Sans is clean for body. No need to change what's already good. |
 | 2026-04-13 | Light mode as toggle, not default | Dark-first commits to a direction. Light mode exists for accessibility and preference. Not a compromise. |

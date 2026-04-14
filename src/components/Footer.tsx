@@ -15,8 +15,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="font-serif text-xl text-primary">
-              Verne
+            <Link to="/" className="inline-flex items-center gap-2">
+              <img src="/logo.png" alt="Nérée" className="h-9 w-9 brand-logo" />
+              <span className="font-serif text-xl text-primary">Nérée</span>
             </Link>
             <p className="text-sm text-secondary mt-3 leading-relaxed max-w-[280px]">
               L'agence digitale dédiée aux cabinets d'avocats exigeants.
@@ -44,10 +45,10 @@ export default function Footer() {
             <div className="font-mono text-label uppercase text-muted mb-4">Contact</div>
             <div className="flex flex-col gap-2.5 text-sm">
               <a
-                href="mailto:contact@verne.fr"
+                href="mailto:contact@neree.fr"
                 className="text-secondary hover:text-primary transition-colors"
               >
-                contact@verne.fr
+                contact@neree.fr
               </a>
               <a
                 href="tel:+33100000000"
@@ -56,7 +57,7 @@ export default function Footer() {
                 01 00 00 00 00
               </a>
               <a
-                href="https://linkedin.com/company/verne-agency"
+                href="https://linkedin.com/company/neree-agency"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary hover:text-primary transition-colors"
@@ -69,7 +70,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-rule flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted">
-          <span>© {new Date().getFullYear()} Verne. Tous droits réservés.</span>
+          <span>© {new Date().getFullYear()} Nérée. Tous droits réservés.</span>
           <span className="font-mono">Conçu avec exigence.</span>
         </div>
       </div>

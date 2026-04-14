@@ -61,7 +61,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
                 <p className="text-secondary max-w-[400px] text-[15px] leading-relaxed">
-                  Verne conçoit des expériences web sur-mesure pour les cabinets d'avocats
+                  Nérée conçoit des expériences web sur-mesure pour les cabinets d'avocats
                   exigeants. Design éditorial, exécution technique, conformité CNB.
                 </p>
                 <MagneticButton strength={0.15}>
@@ -184,7 +184,7 @@ export default function Home() {
           <ClipReveal direction="up">
             <div className="max-w-3xl mx-auto text-center">
               <blockquote className="font-serif text-[clamp(1.5rem,3.5vw,2.5rem)] text-primary leading-[1.3] italic">
-                "L'équipe Verne a parfaitement compris les contraintes de notre profession.
+                "L'équipe Nérée a parfaitement compris les contraintes de notre profession.
                 Le résultat est à la hauteur de notre exigence."
               </blockquote>
               <div className="mt-10">

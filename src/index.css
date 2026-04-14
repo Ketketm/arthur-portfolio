@@ -13,10 +13,10 @@
   --text-primary: #F0EDE8;
   --text-secondary: #8A8580;
   --text-tertiary: #555048;
-  --accent: #7C9A82;
-  --accent-rgb: 124 154 130;
-  --accent-hover: #92B098;
-  --accent-glow: rgba(124, 154, 130, 0.10);
+  --accent: #6B9DC4;
+  --accent-rgb: 107 157 196;
+  --accent-hover: #86B5D8;
+  --accent-glow: rgba(107, 157, 196, 0.10);
   --border: rgba(240, 237, 232, 0.06);
   --border-strong: rgba(240, 237, 232, 0.12);
   --glass-bg: rgba(8, 9, 14, 0.80);
@@ -31,10 +31,10 @@
   --text-primary: #1A1A18;
   --text-secondary: #6B6964;
   --text-tertiary: #9A9892;
-  --accent: #5C7D62;
-  --accent-rgb: 92 125 98;
-  --accent-hover: #4A6B50;
-  --accent-glow: rgba(92, 125, 98, 0.08);
+  --accent: #3A6B95;
+  --accent-rgb: 58 107 149;
+  --accent-hover: #2C5980;
+  --accent-glow: rgba(58, 107, 149, 0.08);
   --border: rgba(26, 26, 24, 0.08);
   --border-strong: rgba(26, 26, 24, 0.15);
   --glass-bg: rgba(250, 250, 247, 0.90);
@@ -90,12 +90,16 @@ body {
 .card-hover { transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; }
 .card-hover:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(124, 154, 130, 0.06), 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(107, 157, 196, 0.06), 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Grain overlay */
 .grain-overlay { mix-blend-mode: multiply; }
 [data-theme="light"] .grain-overlay { mix-blend-mode: overlay; }
+
+/* Brand logo — black on white original; invert on dark theme */
+.brand-logo { filter: invert(1); }
+[data-theme="light"] .brand-logo { filter: invert(0); }
 
 /* Selection */
 ::selection { background: var(--accent); color: #fff; }

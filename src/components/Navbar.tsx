@@ -41,9 +41,11 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
             {/* Logo */}
             <Link
               to="/"
-              className="font-serif text-xl text-primary hover:text-accent transition-colors duration-200"
+              className="inline-flex items-center gap-2.5 text-primary hover:text-accent transition-colors duration-200"
+              aria-label="Nérée — Accueil"
             >
-              Verne
+              <img src="/logo.png" alt="" className="h-9 w-9 brand-logo" />
+              <span className="font-serif text-xl">Nérée</span>
             </Link>
 
             {/* Desktop Navigation */}
