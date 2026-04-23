@@ -14,6 +14,23 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // No backend yet — open the user's email client with a prefilled draft
+    // so the message actually reaches us. When a form service (Formspree,
+    // Resend, etc.) is wired in, replace this with a fetch POST.
+    const subject = `Projet — ${formData.company || formData.name}`
+    const body = [
+      `Nom : ${formData.name}`,
+      `Email : ${formData.email}`,
+      `Marque / société : ${formData.company}`,
+      formData.phone ? `Téléphone : ${formData.phone}` : null,
+      '',
+      formData.message || '(pas de message)',
+    ]
+      .filter(Boolean)
+      .join('\n')
+
+    window.location.href = `mailto:contact@nérée.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     setSubmitted(true)
   }
 
@@ -104,7 +121,7 @@ export default function Contact() {
                   <label htmlFor="message" className="block text-sm font-medium text-primary mb-1.5">
                     Message
                   </label>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className={`${inputClass} resize-none`} placeholder="Décrivez votre marque, votre projet et votre ambition..." />
+                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} required className={`${inputClass} resize-none`} placeholder="Décrivez votre marque, votre projet et votre ambition..." />
                 </div>
 
                 <button type="submit" className="w-full py-4 bg-accent text-white font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-accent/80">
@@ -124,21 +141,19 @@ export default function Contact() {
           {/* Contact info */}
           <ClipReveal direction="right" delay={0.2} className="space-y-6">
             <div className="p-6 bg-surface rounded-md">
-              <h3 className="font-serif text-lg text-primary mb-3">Prendre rendez-vous</h3>
+              <h3 className="font-serif text-lg text-primary mb-3">Un échange direct</h3>
               <p className="text-sm text-secondary mb-4">
-                Réservez un appel de 20 minutes pour discuter de votre projet.
-                Pas de préparation nécessaire — juste votre curiosité.
+                Un appel de 20 minutes vaut souvent plus qu'un long formulaire.
+                Appelez ou écrivez-nous, on répond sous 4 heures.
               </p>
               <a
-                href="https://calendly.com/neree-agency"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:+33782447255"
                 className="inline-flex items-center gap-2 px-5 py-2.5 border border-rule-strong text-primary text-sm font-medium rounded-sm hover:border-primary transition-colors"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
                 </svg>
-                Voir les disponibilités
+                07 82 44 72 55
               </a>
             </div>
 

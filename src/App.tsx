@@ -80,8 +80,8 @@ function AppShell() {
           </AnimatePresence>
           <Footer />
         </motion.div>
+        <ContactWidget />
       </div>
-      <ContactWidget />
     </div>
   )
 }
