@@ -4,31 +4,36 @@ import { FadeUpSection, TextReveal, ClipReveal, MagneticButton } from '../compon
 
 const timeline = [
   {
+    year: '2018',
+    title: 'Études de droit',
+    description: "Arthur Souley entame des études de droit. Il y développe une obsession pour la précision, la rigueur du raisonnement et la culture professionnelle des cabinets — un vocabulaire qui reviendra plus tard.",
+  },
+  {
     year: '2021',
-    title: 'Les prémices',
-    description: "Premiers sites conçus pour des avocats en début d'activité. La conviction que le secteur juridique méritait mieux que des templates génériques.",
+    title: 'Bascule vers le code',
+    description: "Le développement web devient une activité parallèle, menée en marge du travail principal. Les soirées sont consacrées à apprendre le métier de fond en comble : design, performance, architecture.",
   },
   {
     year: '2022',
-    title: 'Spécialisation',
-    description: "Choix délibéré de se concentrer exclusivement sur les cabinets d'avocats. Développement d'une expertise CNB et déontologie numérique.",
+    title: 'Spécialisation cabinets d\'avocats',
+    description: "Premiers sites livrés pour des avocats. La double culture droit + dev est un avantage rare : compréhension du métier, des contraintes déontologiques, des codes visuels du secteur.",
   },
   {
     year: '2023',
-    title: 'Premiers grands cabinets',
-    description: "Accompagnement de cabinets multi-associés. Identités digitales complètes, sites corporate, landing pages.",
+    title: 'Élargissement du terrain',
+    description: "Au-delà du juridique : marques de mode, fondateurs, e-commerces, applications. Le langage de l'agence se forge — éditorial, exigeant, sur-mesure.",
   },
   {
     year: '2024',
     title: 'Naissance de Nérée',
-    description: "Structuration en agence. Une équipe dédiée au digital juridique. +15 cabinets accompagnés à travers la France.",
+    description: "Structuration en studio digital indépendant. Une seule promesse : aucun projet ne ressemble à un autre. Aujourd'hui +30 projets livrés à travers 3 pays.",
   },
 ]
 
 export default function About() {
   return (
     <motion.div
-      className="min-h-screen bg-page"
+      className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -58,10 +63,11 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Nérée est née d'un constat : les cabinets d'avocats méritent des outils
-            numériques à la hauteur de leur profession. Pas des templates. Pas des
-            agences généralistes. Un studio dédié, qui comprend les contraintes et
-            les codes du métier.
+            Nérée est un studio digital indépendant fondé par Arthur Souley.
+            Une trajectoire singulière — études de droit, bascule vers le
+            développement, spécialisation cabinets d'avocats puis ouverture
+            à toutes les marques exigeantes. Aucun projet ne ressemble à un
+            autre, le détail est un produit en soi.
           </motion.p>
         </div>
       </div>
@@ -72,9 +78,9 @@ export default function About() {
           <FadeUpSection>
             <div className="grid md:grid-cols-3 gap-16 md:gap-12">
               {[
-                { title: 'Spécialisation', desc: 'Un seul secteur, une seule obsession : le digital juridique. Nous ne faisons que ça.' },
-                { title: 'Exigence', desc: 'Chaque pixel, chaque mot, chaque interaction est pensé pour votre profession.' },
-                { title: 'Transparence', desc: 'Un tarif clair, un processus simple, un interlocuteur dédié. Pas de surprises.' },
+                { title: 'Singularité', desc: 'Aucun projet ne ressemble à un autre. Chaque livrable porte la signature de la marque, jamais celle d\'un thème.' },
+                { title: 'Exigence', desc: 'Pixel, micro-interaction, performance, accessibilité. Le détail est un produit en soi.' },
+                { title: 'Engagement', desc: 'Un seul interlocuteur, transparent, qui défend votre projet du brief à la mise en orbite.' },
               ].map((v, i) => (
                 <div key={v.title}>
                   <span className="font-mono text-[11px] text-accent">{String(i + 1).padStart(2, '0')}</span>
@@ -92,8 +98,8 @@ export default function About() {
         <div className="max-w-content mx-auto max-w-3xl">
           <ClipReveal direction="up">
             <blockquote className="font-serif text-[clamp(1.3rem,3vw,2.2rem)] text-primary italic leading-relaxed text-center">
-              "Les avocats méritent des outils numériques à la hauteur de leur profession.
-              Pas des templates génériques. Pas des agences qui ne comprennent pas le métier."
+              « Une marque mémorable mérite un produit numérique mémorable.
+              Le reste n'est qu'un compromis. »
             </blockquote>
             <cite className="block mt-8 text-center text-secondary not-italic text-sm">
               — La conviction qui guide chacun de nos projets
@@ -132,10 +138,10 @@ export default function About() {
         <div className="max-w-content mx-auto text-center relative z-10">
           <FadeUpSection>
             <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-primary mb-4 leading-tight">
-              Envie d'en discuter ?
+              On en parle ?
             </h2>
             <p className="text-secondary max-w-md mx-auto mb-10">
-              Parlons de votre projet. Première consultation gratuite.
+              Premier échange offert. Briefing en 30 minutes.
             </p>
             <MagneticButton className="inline-block" strength={0.15}>
               <Link

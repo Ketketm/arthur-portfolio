@@ -1,20 +1,35 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { TextReveal, ClipReveal, MagneticButton, FadeUpSection } from '../components/SuperEffects'
+import HoverPreview from '../components/HoverPreview'
+import { previewUrl } from '../utils/preview'
 
-const projects = [
-  { name: 'Maître Sophie Renard', bar: 'Barreau de Paris', domain: 'Contentieux', year: '2024' },
-  { name: 'Cabinet Dupont & Associés', bar: 'Barreau de Lyon', domain: 'Affaires', year: '2024' },
-  { name: 'Maître Pierre Martin', bar: 'Barreau de Bordeaux', domain: 'Famille', year: '2024' },
-  { name: 'SCP Lefèvre & Moreau', bar: 'Barreau de Lille', domain: 'Immobilier', year: '2023' },
-  { name: 'Maître Claire Bernard', bar: 'Barreau de Nantes', domain: 'Social', year: '2023' },
-  { name: 'Cabinet Rivet', bar: 'Barreau de Marseille', domain: 'Pénal', year: '2023' },
+interface Inspiration {
+  name: string
+  url: string
+  sector: string
+  kind: string
+  year: string
+  gradient: string
+}
+
+const inspirations: Inspiration[] = [
+  { name: 'Carve',                  url: 'https://carve.fr/',                          sector: 'Studio créatif',   kind: 'Site vitrine',     year: '2024', gradient: 'linear-gradient(135deg, #1f2a3d, #6B9DC4)' },
+  { name: 'Dessena Marianne',       url: 'http://www.dessenamarianne.com/',            sector: 'Artiste',          kind: 'Portfolio',        year: '2024', gradient: 'linear-gradient(135deg, #2a1f1c, #C46A5C)' },
+  { name: 'Pastene Avocat',         url: 'https://pastene-avocat.fr/',                 sector: 'Cabinet d\'avocats', kind: 'Site vitrine',   year: '2024', gradient: 'linear-gradient(135deg, #0f1118, #5C8AC4)' },
+  { name: 'Khalvadjian Avocats',    url: 'https://www.khalvadjian-avocats.com/',       sector: 'Cabinet d\'avocats', kind: 'Site corporate', year: '2024', gradient: 'linear-gradient(135deg, #1a1a18, #C4A054)' },
+  { name: 'Cabinet Alessandrello',  url: 'https://cabinet-alessandrello.vercel.app/',  sector: 'Cabinet d\'avocats', kind: 'Site vitrine',   year: '2024', gradient: 'linear-gradient(135deg, #0F1118, #5C9A6E)' },
+  { name: 'HKA Avocat',             url: 'https://www.hka-avocat.com/',                sector: 'Cabinet d\'avocats', kind: 'Site corporate', year: '2023', gradient: 'linear-gradient(135deg, #161923, #86B5D8)' },
+  { name: 'Talt',                   url: 'https://talt.fr/',                           sector: 'Studio branding',    kind: 'Site agence',    year: '2024', gradient: 'linear-gradient(135deg, #1c1817, #B07C5C)' },
+  { name: 'ORWL',                   url: 'https://www.orwl.fr/',                       sector: 'Cabinet d\'avocats', kind: 'Tech & droit',   year: '2023', gradient: 'linear-gradient(135deg, #0d1118, #4C7A9E)' },
+  { name: 'Archers',                url: 'https://www.archers.fr/',                    sector: 'Cabinet d\'avocats', kind: 'Site corporate', year: '2024', gradient: 'linear-gradient(135deg, #1a1f2c, #7A8FA8)' },
+  { name: 'Amplitude Law',          url: 'https://amplitude-law.be/',                  sector: 'Cabinet d\'avocats', kind: 'Site international', year: '2024', gradient: 'linear-gradient(135deg, #15191e, #6B9DC4)' },
 ]
 
 export default function Work() {
   return (
     <motion.div
-      className="min-h-screen bg-page"
+      className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -29,14 +44,14 @@ export default function Work() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Portfolio
+            Inspiration
           </motion.span>
           <TextReveal
             className="font-serif text-[clamp(2.5rem,7vw,5rem)] text-primary mb-6 leading-[1.05] tracking-[-0.02em]"
             delay={0.1}
             stagger={0.06}
           >
-            Réalisations
+            Sites qui nous inspirent
           </TextReveal>
           <motion.p
             className="text-secondary max-w-xl leading-relaxed"
@@ -44,36 +59,49 @@ export default function Work() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Chaque site est conçu sur mesure, en fonction de l'identité du cabinet,
-            de sa clientèle et de ses objectifs.
+            Une veille curatée des sites qui placent la barre haut — dans le droit,
+            le design et au-delà. Aucun de ces projets n'a été produit par Nérée :
+            nous les partageons comme références culturelles et standards d'exigence.
           </motion.p>
         </div>
       </div>
 
-      {/* Project List */}
+      {/* Inspirations List */}
       <div className="px-6 lg:px-8">
         <div className="max-w-content mx-auto">
-          {projects.map((project, i) => (
-            <ClipReveal key={project.name} direction="left" delay={i * 0.06}>
-              <div className="group flex flex-col md:flex-row md:items-center justify-between py-10 md:py-12 border-b border-rule hover:pl-4 transition-all duration-300 cursor-pointer">
-                <div className="flex items-start md:items-center gap-5 md:gap-8 mb-3 md:mb-0">
-                  <span className="font-mono text-[11px] text-muted mt-1 md:mt-0">{String(i + 1).padStart(2, '0')}</span>
-                  <div>
-                    <h3 className="font-serif text-xl md:text-3xl text-primary group-hover:text-accent transition-colors duration-300 mb-1 md:mb-0">
-                      {project.name}
-                    </h3>
-                    <span className="md:hidden font-mono text-[10px] tracking-[0.15em] uppercase text-muted">{project.bar}</span>
+          {inspirations.map((p, i) => (
+            <ClipReveal key={p.name} direction="left" delay={i * 0.05}>
+              <HoverPreview src={previewUrl(p.url, 700)} gradient={p.gradient} label={p.name}>
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col md:flex-row md:items-center justify-between py-10 md:py-12 border-b border-rule hover:pl-4 transition-all duration-300 cursor-pointer"
+                >
+                  <div className="flex items-start md:items-center gap-5 md:gap-8 mb-3 md:mb-0">
+                    <span className="font-mono text-[11px] text-muted mt-1 md:mt-0">{String(i + 1).padStart(2, '0')}</span>
+                    <div>
+                      <h3 className="font-serif text-xl md:text-3xl text-primary group-hover:text-accent transition-colors duration-300 mb-1 md:mb-0">
+                        {p.name}
+                      </h3>
+                      <span className="md:hidden font-mono text-[10px] tracking-[0.15em] uppercase text-muted">{p.sector}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center gap-6 md:gap-10 pl-10 md:pl-0">
-                  <span className="hidden md:block font-mono text-[10px] tracking-[0.2em] uppercase text-muted w-32">{project.bar}</span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent w-24">{project.domain}</span>
-                  <span className="font-mono text-sm text-muted">{project.year}</span>
-                  <svg className="w-5 h-5 text-muted opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-3 group-hover:translate-x-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6l-6 6" />
-                  </svg>
-                </div>
-              </div>
+                  <div className="flex items-center gap-6 md:gap-10 pl-10 md:pl-0">
+                    <span className="hidden md:block font-mono text-[10px] tracking-[0.2em] uppercase text-muted w-44">{p.sector}</span>
+                    <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent w-36">{p.kind}</span>
+                    <span className="font-mono text-sm text-muted">{p.year}</span>
+                    <svg
+                      className="w-5 h-5 text-muted opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-3 group-hover:translate-x-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H8M17 7v9" />
+                    </svg>
+                  </div>
+                </a>
+              </HoverPreview>
             </ClipReveal>
           ))}
         </div>
@@ -84,10 +112,11 @@ export default function Work() {
         <div className="max-w-content mx-auto text-center relative z-10">
           <FadeUpSection>
             <h2 className="font-serif text-[clamp(1.5rem,4vw,3rem)] text-primary mb-4 leading-tight">
-              Votre cabinet mérite la même attention
+              Vous voulez ce niveau pour votre marque ?
             </h2>
             <p className="text-secondary max-w-md mx-auto mb-10">
-              Nous réalisons des sites pour tous types de cabinets, quelle que soit votre spécialité.
+              Du site one-page à la plateforme produit, on adapte le périmètre
+              à votre ambition.
             </p>
             <MagneticButton className="inline-block" strength={0.15}>
               <Link

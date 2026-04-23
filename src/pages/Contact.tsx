@@ -6,7 +6,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    barreau: '',
+    company: '',
     phone: '',
     message: '',
   })
@@ -25,7 +25,7 @@ export default function Contact() {
 
   return (
     <motion.div
-      className="min-h-screen bg-page"
+      className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -80,19 +80,19 @@ export default function Contact() {
                   <label htmlFor="name" className="block text-sm font-medium text-primary mb-1.5">
                     Nom complet
                   </label>
-                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className={inputClass} placeholder="Maître Jean Dupont" />
+                  <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required className={inputClass} placeholder="Jeanne Dupont" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-primary mb-1.5">
                     Email
                   </label>
-                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className={inputClass} placeholder="contact@cabinet.fr" />
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className={inputClass} placeholder="contact@marque.com" />
                 </div>
                 <div>
-                  <label htmlFor="barreau" className="block text-sm font-medium text-primary mb-1.5">
-                    Barreau
+                  <label htmlFor="company" className="block text-sm font-medium text-primary mb-1.5">
+                    Marque / société
                   </label>
-                  <input type="text" id="barreau" name="barreau" value={formData.barreau} onChange={handleChange} required className={inputClass} placeholder="Barreau de Paris" />
+                  <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} required className={inputClass} placeholder="Atelier Volta" />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-primary mb-1.5">
@@ -104,7 +104,7 @@ export default function Contact() {
                   <label htmlFor="message" className="block text-sm font-medium text-primary mb-1.5">
                     Message
                   </label>
-                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className={`${inputClass} resize-none`} placeholder="Décrivez votre cabinet et vos besoins..." />
+                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className={`${inputClass} resize-none`} placeholder="Décrivez votre marque, votre projet et votre ambition..." />
                 </div>
 
                 <button type="submit" className="w-full py-4 bg-accent text-white font-semibold text-sm rounded-sm transition-all duration-200 hover:bg-accent/80">

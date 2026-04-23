@@ -1,8 +1,10 @@
 interface LogoProps {
   className?: string
+  variant?: 'neutral' | 'smile'
 }
 
-export default function Logo({ className = 'h-9 w-9' }: LogoProps) {
+export default function Logo({ className = 'h-9 w-9', variant = 'neutral' }: LogoProps) {
+  const smile = variant === 'smile'
   return (
     <svg
       className={className}
@@ -62,6 +64,25 @@ export default function Logo({ className = 'h-9 w-9' }: LogoProps) {
           L 312 250 Z
         " />
       </g>
+
+      {/* Mouth — smile vs neutral */}
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+      >
+        {smile ? (
+          // Curved smile
+          <path d="M 224 168 Q 232 176 242 168" />
+        ) : (
+          // Neutral straight line
+          <path d="M 224 168 L 242 168" />
+        )}
+      </g>
+
+      {/* Eye */}
+      <circle cx="246" cy="148" r="2.4" fill="currentColor" />
 
       {/* ═══ DOLPHIN in Nereus's hand (small, to the right) ═══ */}
       <g fill="currentColor">

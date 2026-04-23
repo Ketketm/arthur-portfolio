@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
 const navLinks = [
-  { label: 'Réalisations', path: '/realisations' },
+  { label: 'Inspiration', path: '/inspiration' },
   { label: 'Méthode', path: '/methode' },
-  { label: 'Tarifs', path: '/tarifs' },
   { label: 'À propos', path: '/a-propos' },
   { label: 'Contact', path: '/contact' },
 ]
@@ -21,7 +20,7 @@ export default function Footer() {
               <span className="font-serif text-xl text-primary">Nérée</span>
             </Link>
             <p className="text-sm text-secondary mt-3 leading-relaxed max-w-[280px]">
-              L'agence digitale dédiée aux cabinets d'avocats exigeants.
+              Studio digital ultra premium — design, développement et applications sur-mesure.
             </p>
           </div>
 
