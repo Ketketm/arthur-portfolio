@@ -84,14 +84,14 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                     },
                   }}
                 >
-                  <Logo className="h-9 w-9 text-primary" variant="smile" />
+                  <Logo className="h-9 w-9 md:h-11 md:w-11" alt="Nérée" />
                 </motion.span>
               )}
               {showBrand && (
                 <motion.span
                   layoutId="neree-brand"
                   className="font-serif text-primary leading-none flex items-baseline"
-                  style={{ fontSize: '1.25rem', letterSpacing: '-0.01em' }}
+                  style={{ fontSize: 'clamp(1.25rem, 1.7vw, 1.65rem)', letterSpacing: '-0.01em' }}
                   transition={MORPH}
                 >
                   Nérée

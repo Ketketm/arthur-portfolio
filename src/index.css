@@ -104,6 +104,12 @@ body {
 /* Focus */
 :focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
 
+/* Brand mark theme switch — default is dark theme (white logo visible) */
+.logo-mark--white { display: block; }
+.logo-mark--black { display: none; }
+[data-theme="light"] .logo-mark--white { display: none; }
+[data-theme="light"] .logo-mark--black { display: block; }
+
 /* Section label */
 .section-label {
   font-family: 'Geist Mono', 'JetBrains Mono', monospace;

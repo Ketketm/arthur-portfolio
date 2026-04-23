@@ -39,10 +39,7 @@ export default function LoadingScreen() {
               animate={{ opacity: 0.025 }}
               aria-hidden="true"
             >
-              <Logo
-                variant="smile"
-                className="text-primary w-full h-full"
-              />
+              <Logo className="w-full h-full" />
             </motion.div>
           </div>
 

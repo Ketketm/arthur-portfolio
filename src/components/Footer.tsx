@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link to="/" className="inline-flex items-center gap-2">
-              <Logo className="h-9 w-9 text-primary" />
+              <Logo className="h-9 w-9 rounded-full overflow-hidden" variant="on-blue" alt="Nérée" />
               <span className="font-serif text-xl text-primary">Nérée</span>
             </Link>
             <p className="text-sm text-secondary mt-3 leading-relaxed max-w-[280px]">
@@ -54,18 +54,10 @@ export default function Footer() {
                 contact@neree.fr
               </a>
               <a
-                href="tel:+33100000000"
+                href="tel:+33782447255"
                 className="text-secondary hover:text-primary transition-colors"
               >
-                01 00 00 00 00
-              </a>
-              <a
-                href="https://linkedin.com/company/neree-agency"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-secondary hover:text-primary transition-colors"
-              >
-                LinkedIn
+                07 82 44 72 55
               </a>
             </div>
           </div>

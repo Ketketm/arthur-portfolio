@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import {
   FadeUpSection, CountUp, TextReveal, Marquee,
-  MagneticButton, ClipReveal, HorizontalScroll,
+  MagneticButton, ClipReveal,
 } from '../components/SuperEffects'
 import HoverPreview from '../components/HoverPreview'
 import { previewUrl } from '../utils/preview'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const ticker = [
   'Web Design', 'Développement', 'Applications', 'E-commerce',
@@ -46,6 +46,29 @@ export default function Home() {
   const heroOpacity = useTransform(heroScroll, [0, 0.6], [1, 0])
   const heroY = useTransform(heroScroll, [0, 1], [0, 200])
 
+  // Showcase horizontal-scroll: title stays sticky inside the same pinned
+  // container while cards translate horizontally based on vertical scroll.
+  const showcaseRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [trackOffset, setTrackOffset] = useState(0)
+
+  useEffect(() => {
+    function measure() {
+      if (!trackRef.current) return
+      // Distance the track must translate so the last card is fully visible
+      setTrackOffset(Math.max(0, trackRef.current.scrollWidth - window.innerWidth))
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
+  const { scrollYProgress: showcaseScroll } = useScroll({
+    target: showcaseRef,
+    offset: ['start start', 'end end'],
+  })
+  const showcaseX = useTransform(showcaseScroll, [0, 1], [0, -trackOffset])
+
   return (
     <motion.div
       className="min-h-screen"
@@ -58,7 +81,7 @@ export default function Home() {
       <section ref={heroRef} className="relative pt-16 overflow-hidden">
         <motion.div style={{ opacity: heroOpacity, y: heroY }}>
           <div className="max-w-content mx-auto px-6 lg:px-8">
-            <div className="min-h-[100vh] flex flex-col justify-end pb-24">
+            <div className="min-h-[100dvh] flex flex-col justify-end pb-16 md:pb-24">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -167,52 +190,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ HORIZONTAL SHOWCASE — vertical scroll drives horizontal cards ═══ */}
-      <section className="bg-page">
-        <div className="px-6 lg:px-8 pt-20 pb-2 max-w-content mx-auto">
-          <FadeUpSection>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Showcase</span>
-            <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] max-w-2xl">
+      {/* ═══ HORIZONTAL SHOWCASE — title stays pinned next to cards ═══ */}
+      <section
+        ref={showcaseRef}
+        className="bg-page relative"
+        style={{ height: `calc(${trackOffset}px + 100dvh)` }}
+      >
+        <div className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col">
+          <div className="px-6 lg:px-8 pt-20 pb-6 max-w-content mx-auto w-full flex-shrink-0">
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-3">Showcase</span>
+            <h2 className="font-serif text-[clamp(1.6rem,4vw,2.6rem)] text-primary leading-[1.1] max-w-2xl">
               Les projets qui nous obsèdent.
             </h2>
-          </FadeUpSection>
-        </div>
-
-        <HorizontalScroll className="bg-page">
-          <div className="pl-6 lg:pl-8 flex gap-8">
-            {showcase.map((p) => (
-              <a
-                key={p.name}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex-shrink-0 w-[80vw] sm:w-[58vw] md:w-[42vw] lg:w-[34vw] aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
-                style={{ background: p.gradient }}
-              >
-                <img
-                  src={previewUrl(p.url, 800)}
-                  alt={p.name}
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/75" />
-                <div className="relative h-full p-5 flex flex-col justify-between text-white">
-                  <span className="font-mono text-[9px] tracking-[0.25em] uppercase opacity-90">{p.year}</span>
-                  <div>
-                    <h3 className="font-serif text-xl md:text-2xl leading-tight mb-1">{p.name}</h3>
-                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase opacity-90">{p.type}</span>
-                  </div>
-                </div>
-              </a>
-            ))}
-            <div className="w-[10vw] flex-shrink-0" />
           </div>
-        </HorizontalScroll>
+
+          <div className="flex-1 flex items-center overflow-hidden">
+            <motion.div
+              ref={trackRef}
+              style={{ x: showcaseX }}
+              className="flex gap-6 pl-6 lg:pl-8"
+            >
+              {showcase.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex-shrink-0 w-[80vw] sm:w-[55vw] md:w-[40vw] lg:w-[32vw] aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
+                  style={{ background: p.gradient }}
+                >
+                  <img
+                    src={previewUrl(p.url, 800)}
+                    alt={p.name}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/75" />
+                  <div className="relative h-full p-5 flex flex-col justify-between text-white">
+                    <span className="font-mono text-[9px] tracking-[0.25em] uppercase opacity-90">{p.year}</span>
+                    <div>
+                      <h3 className="font-serif text-xl md:text-2xl leading-tight mb-1">{p.name}</h3>
+                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase opacity-90">{p.type}</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+              <div className="w-[6vw] flex-shrink-0" />
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* ═══ WORK LIST with hover preview ═══ */}
-      <section className="py-20 px-6 lg:px-8">
+      <section className="pt-10 pb-20 px-6 lg:px-8">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <div className="flex items-end justify-between mb-4">

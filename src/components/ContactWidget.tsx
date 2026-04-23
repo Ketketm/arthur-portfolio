@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useIntroPhase } from '../hooks/useIntro'
 
-const PHONE_DISPLAY = '+33 1 00 00 00 00'
-const PHONE_TEL = '+33100000000'
-const WHATSAPP = 'https://wa.me/33100000000'
+const PHONE_DISPLAY = '07 82 44 72 55'
+const PHONE_TEL = '+33782447255'
+const WHATSAPP = 'https://wa.me/33782447255'
 
 export default function ContactWidget() {
   const phase = useIntroPhase()
@@ -17,7 +17,7 @@ export default function ContactWidget() {
       initial={{ opacity: 0, y: 24, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
-      className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-[60] flex flex-col items-end gap-2"
+      className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-30 flex flex-col items-end gap-2"
     >
       <AnimatePresence>
         {open && (
