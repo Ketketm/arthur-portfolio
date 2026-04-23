@@ -48,10 +48,10 @@ export default function Footer() {
             <div className="font-mono text-label uppercase text-muted mb-4">Contact</div>
             <div className="flex flex-col gap-2.5 text-sm">
               <a
-                href="mailto:contact@neree.fr"
+                href="mailto:contact@nérée.com"
                 className="text-secondary hover:text-primary transition-colors"
               >
-                contact@neree.fr
+                contact@nérée.com
               </a>
               <a
                 href="tel:+33782447255"

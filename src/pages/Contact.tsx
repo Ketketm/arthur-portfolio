@@ -113,8 +113,8 @@ export default function Contact() {
 
                 <p className="text-xs text-muted text-center">
                   Ou écrivez-nous directement :{' '}
-                  <a href="mailto:contact@neree.fr" className="text-accent hover:text-primary transition-colors">
-                    contact@neree.fr
+                  <a href="mailto:contact@nérée.com" className="text-accent hover:text-primary transition-colors">
+                    contact@nérée.com
                   </a>
                 </p>
               </form>
@@ -153,7 +153,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs text-muted mb-0.5">Email</div>
-                    <a href="mailto:contact@neree.fr" className="text-primary hover:text-accent transition-colors font-medium">contact@neree.fr</a>
+                    <a href="mailto:contact@nérée.com" className="text-primary hover:text-accent transition-colors font-medium">contact@nérée.com</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 py-3">

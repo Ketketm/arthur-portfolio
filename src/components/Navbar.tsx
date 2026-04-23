@@ -194,8 +194,8 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
               >
                 <div>
                   <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-muted mb-2">Contact</div>
-                  <a href="mailto:contact@neree.fr" className="text-primary hover:text-accent transition-colors text-lg">
-                    contact@neree.fr
+                  <a href="mailto:contact@nérée.com" className="text-primary hover:text-accent transition-colors text-lg">
+                    contact@nérée.com
                   </a>
                 </div>
                 <Link
