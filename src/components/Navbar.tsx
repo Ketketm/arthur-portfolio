@@ -58,7 +58,7 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
         }`}
       >
         <div className="max-w-content mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-16 md:h-[4.5rem]">
             {/* Brand — Nérée mark + word */}
             <Link
               to="/"
@@ -84,14 +84,14 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
                     },
                   }}
                 >
-                  <Logo className="h-9 w-9 md:h-11 md:w-11" alt="Nérée" />
+                  <Logo className="h-11 w-11 md:h-[3.25rem] md:w-[3.25rem]" alt="Nérée" />
                 </motion.span>
               )}
               {showBrand && (
                 <motion.span
                   layoutId="neree-brand"
                   className="font-serif text-primary leading-none flex items-baseline"
-                  style={{ fontSize: 'clamp(1.25rem, 1.7vw, 1.65rem)', letterSpacing: '-0.01em' }}
+                  style={{ fontSize: 'clamp(1.5rem, 2.1vw, 2rem)', letterSpacing: '-0.01em' }}
                   transition={MORPH}
                 >
                   Nérée
