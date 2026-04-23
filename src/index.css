@@ -8,18 +8,18 @@
 :root {
   --bg: #08090E;
   --bg-rgb: 8 9 14;
-  --surface: #0F1118;
-  --surface-hover: #161923;
-  --text-primary: #F0EDE8;
-  --text-secondary: #8A8580;
-  --text-tertiary: #555048;
-  --accent: #6B9DC4;
-  --accent-rgb: 107 157 196;
-  --accent-hover: #86B5D8;
-  --accent-glow: rgba(107, 157, 196, 0.10);
-  --border: rgba(240, 237, 232, 0.06);
-  --border-strong: rgba(240, 237, 232, 0.12);
-  --glass-bg: rgba(8, 9, 14, 0.80);
+  --surface: #11131B;
+  --surface-hover: #1A1D27;
+  --text-primary: #F4F1EC;
+  --text-secondary: #B0AAA1;  /* was #8A8580 — bumped for body readability */
+  --text-tertiary: #837C72;   /* was #555048 — bumped so labels are legible */
+  --accent: #88B4D6;          /* was #6B9DC4 — slightly brighter on dark */
+  --accent-rgb: 136 180 214;
+  --accent-hover: #A0C5E0;
+  --accent-glow: rgba(136, 180, 214, 0.12);
+  --border: rgba(244, 241, 236, 0.10);       /* was 0.06 */
+  --border-strong: rgba(244, 241, 236, 0.20); /* was 0.12 */
+  --glass-bg: rgba(8, 9, 14, 0.82);
 }
 
 /* ═══ LIGHT MODE ═══ */

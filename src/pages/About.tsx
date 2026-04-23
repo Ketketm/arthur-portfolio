@@ -36,8 +36,8 @@ export default function About() {
       className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      exit={{ opacity: 0, transition: { duration: 0 } }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
     >
       {/* Header */}
       <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">
@@ -63,11 +63,11 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Nérée est un studio digital indépendant fondé par Arthur Souley.
-            Une trajectoire singulière — études de droit, bascule vers le
-            développement, spécialisation cabinets d'avocats puis ouverture
-            à toutes les marques exigeantes. Aucun projet ne ressemble à un
-            autre, le détail est un produit en soi.
+            Nérée est un studio digital indépendant basé à Paris, fondé par
+            Arthur Souley. Une trajectoire singulière — études de droit,
+            bascule vers le développement, spécialisation cabinets d'avocats
+            puis ouverture à toutes les marques exigeantes. Aucun projet ne
+            ressemble à un autre, le détail est un produit en soi.
           </motion.p>
         </div>
       </div>

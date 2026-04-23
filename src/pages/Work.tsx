@@ -32,8 +32,8 @@ export default function Work() {
       className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      exit={{ opacity: 0, transition: { duration: 0 } }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
     >
       {/* Header */}
       <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">
@@ -44,7 +44,7 @@ export default function Work() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Inspiration
+            Inspirations
           </motion.span>
           <TextReveal
             className="font-serif text-[clamp(2.5rem,7vw,5rem)] text-primary mb-6 leading-[1.05] tracking-[-0.02em]"
@@ -59,9 +59,8 @@ export default function Work() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Une veille curatée des sites qui placent la barre haut — dans le droit,
-            le design et au-delà. Aucun de ces projets n'a été produit par Nérée :
-            nous les partageons comme références culturelles et standards d'exigence.
+            Une veille curatée des sites qui placent la barre haut — dans le
+            droit, le design et au-delà.
           </motion.p>
         </div>
       </div>

@@ -27,21 +27,24 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.55, ease: [0.65, 0, 0.35, 1] } }}
         >
-          {/* Giant faint logo watermark — same layoutId as navbar logo,
-              so it morphs into the navbar mark when phase changes. */}
-          <motion.div
-            layoutId="neree-logo"
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            transition={{ layout: MORPH }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.025 }}
-            aria-hidden="true"
-          >
-            <Logo
-              variant="smile"
-              className="text-primary w-[min(80vh,80vw)] h-[min(80vh,80vw)]"
-            />
-          </motion.div>
+          {/* Giant faint logo watermark. The motion wrapper is sized
+              exactly to the logo (square) so framer-motion morphs uniformly
+              into the navbar's square logo — no oval distortion. */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <motion.div
+              layoutId="neree-logo"
+              className="w-[min(80vh,80vw)] h-[min(80vh,80vw)] flex items-center justify-center"
+              transition={{ layout: MORPH }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.025 }}
+              aria-hidden="true"
+            >
+              <Logo
+                variant="smile"
+                className="text-primary w-full h-full"
+              />
+            </motion.div>
+          </div>
 
           {/* "Nérée" word — letters reveal, then morph to navbar */}
           <motion.div

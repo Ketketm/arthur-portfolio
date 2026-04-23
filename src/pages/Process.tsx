@@ -32,8 +32,8 @@ export default function Process() {
       className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      exit={{ opacity: 0, transition: { duration: 0 } }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
     >
       {/* Header */}
       <div className="pt-28 pb-20 px-6 lg:px-8 border-b border-rule">

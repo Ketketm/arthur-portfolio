@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Logo from './Logo'
 
 const navLinks = [
-  { label: 'Inspiration', path: '/inspiration' },
+  { label: 'Inspirations', path: '/inspirations' },
   { label: 'Méthode', path: '/methode' },
   { label: 'À propos', path: '/a-propos' },
   { label: 'Contact', path: '/contact' },
@@ -22,6 +22,9 @@ export default function Footer() {
             <p className="text-sm text-secondary mt-3 leading-relaxed max-w-[280px]">
               Studio digital ultra premium — design, développement et applications sur-mesure.
             </p>
+            <div className="mt-4 font-mono text-[10px] tracking-[0.25em] uppercase text-muted">
+              Basé à Paris
+            </div>
           </div>
 
           {/* Navigation */}

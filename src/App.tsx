@@ -72,7 +72,7 @@ function AppShell() {
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
-              <Route path="/inspiration" element={<Work />} />
+              <Route path="/inspirations" element={<Work />} />
               <Route path="/methode" element={<Process />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />

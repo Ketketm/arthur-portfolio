@@ -51,8 +51,8 @@ export default function Home() {
       className="min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      exit={{ opacity: 0, transition: { duration: 0 } }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
     >
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} className="relative pt-16 overflow-hidden">
@@ -120,7 +120,7 @@ export default function Home() {
       </div>
 
       {/* ═══ NUMBERS ═══ */}
-      <section className="py-24 px-6 lg:px-8">
+      <section className="py-16 px-6 lg:px-8">
         <div className="max-w-content mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-16">
             {[
@@ -141,11 +141,11 @@ export default function Home() {
       </section>
 
       {/* ═══ SERVICES ═══ */}
-      <section className="py-28 px-6 lg:px-8 bg-surface">
+      <section className="py-20 px-6 lg:px-8 bg-surface">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-6">Disciplines</span>
-            <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] max-w-2xl mb-20">
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Disciplines</span>
+            <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] max-w-2xl mb-12">
               Direction artistique, ingénierie, produit.
             </h2>
           </FadeUpSection>
@@ -169,7 +169,7 @@ export default function Home() {
 
       {/* ═══ HORIZONTAL SHOWCASE — vertical scroll drives horizontal cards ═══ */}
       <section className="bg-page">
-        <div className="px-6 lg:px-8 pt-28 pb-12 max-w-content mx-auto">
+        <div className="px-6 lg:px-8 pt-20 pb-2 max-w-content mx-auto">
           <FadeUpSection>
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Showcase</span>
             <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] max-w-2xl">
@@ -186,7 +186,7 @@ export default function Home() {
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex-shrink-0 w-[58vw] sm:w-[40vw] md:w-[28vw] lg:w-[22vw] aspect-[4/5] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
+                className="group flex-shrink-0 w-[80vw] sm:w-[58vw] md:w-[42vw] lg:w-[34vw] aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
                 style={{ background: p.gradient }}
               >
                 <img
@@ -212,12 +212,12 @@ export default function Home() {
       </section>
 
       {/* ═══ WORK LIST with hover preview ═══ */}
-      <section className="py-28 px-6 lg:px-8">
+      <section className="py-20 px-6 lg:px-8">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <div className="flex items-end justify-between mb-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Inspiration</span>
-              <Link to="/inspiration" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted hover:text-primary transition-colors">
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Inspirations</span>
+              <Link to="/inspirations" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted hover:text-primary transition-colors">
                 Tout voir →
               </Link>
             </div>
@@ -248,7 +248,7 @@ export default function Home() {
       </section>
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-32 px-6 lg:px-8 border-t border-rule">
+      <section className="py-24 px-6 lg:px-8 border-t border-rule">
         <div className="max-w-content mx-auto">
           <ClipReveal direction="up">
             <div className="max-w-3xl mx-auto text-center">
@@ -266,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="py-40 px-6 lg:px-8 bg-surface">
+      <section className="py-28 px-6 lg:px-8 bg-surface">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">

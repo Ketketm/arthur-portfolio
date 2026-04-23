@@ -6,7 +6,7 @@ import { useIntroPhase } from '../hooks/useIntro'
 
 const navLinks = [
   { path: '/', label: 'Accueil' },
-  { path: '/inspiration', label: 'Inspiration' },
+  { path: '/inspirations', label: 'Inspirations' },
   { path: '/methode', label: 'Méthode' },
   { path: '/a-propos', label: 'À propos' },
   { path: '/contact', label: 'Contact' },

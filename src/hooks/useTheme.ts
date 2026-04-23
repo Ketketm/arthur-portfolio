@@ -3,14 +3,12 @@ import { useState, useEffect, useCallback } from 'react'
 type Theme = 'light' | 'dark'
 const STORAGE_KEY = 'neree-theme'
 
-function getSystemTheme(): Theme {
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
-}
-
 function getInitialTheme(): Theme {
+  // Light mode is the brand default. Respect a user override stored from a
+  // previous session, otherwise always start in light.
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') return stored
-  return getSystemTheme()
+  return 'light'
 }
 
 export function useTheme() {
@@ -23,17 +21,6 @@ export function useTheme() {
       document.documentElement.removeAttribute('data-theme')
     }
   }, [theme])
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: light)')
-    const handler = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        setTheme(e.matches ? 'light' : 'dark')
-      }
-    }
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => {
