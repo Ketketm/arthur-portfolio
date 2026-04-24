@@ -298,7 +298,7 @@ export default function Home() {
                 href="https://cabinet-alessandrello.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block aspect-[9/14] sm:aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative"
+                className="group block aspect-[215/466] sm:aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative"
                 style={{ background: 'linear-gradient(135deg, #0F1118, #5C9A6E)' }}
               >
                 <picture>
