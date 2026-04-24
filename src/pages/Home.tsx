@@ -185,41 +185,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ SERVICES ═══ */}
-      <section className="pt-20 pb-12 px-6 lg:px-8 bg-surface">
-        <div className="max-w-content mx-auto">
-          <FadeUpSection>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Disciplines</span>
-            <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] max-w-2xl mb-12">
-              Direction artistique, ingénierie, produit.
-            </h2>
-          </FadeUpSection>
-          <div className="grid md:grid-cols-3 gap-px">
-            {[
-              { num: '01', title: 'Design', desc: 'Identité, direction artistique, design d\'interface. Une signature visuelle qui ne ressemble à personne d\'autre.' },
-              { num: '02', title: 'Développement', desc: 'Sites, e-commerces, applications web et mobiles. Code propre, performance native, scalabilité.' },
-              { num: '03', title: 'Produit', desc: 'Stratégie produit, architecture, intégrations. De l\'idée à la mise en orbite, sans rupture.' },
-            ].map((s, i) => (
-              <ClipReveal key={s.num} direction="up" delay={i * 0.1}>
-                <div className="border-t border-rule pt-8 pr-8 pb-8 group">
-                  <span className="font-mono text-[10px] text-accent">{s.num}</span>
-                  <h3 className="font-serif text-2xl text-primary mt-4 mb-3">{s.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{s.desc}</p>
-                </div>
-              </ClipReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══ HORIZONTAL SHOWCASE — title stays pinned next to cards ═══ */}
       <section
         ref={showcaseRef}
         className="bg-page relative"
-        style={{ height: `calc(${trackOffset}px + 100dvh)` }}
+        style={{ height: `calc(${trackOffset}px + 80dvh)` }}
       >
-        <div className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col">
-          <div className="px-6 lg:px-8 pt-10 pb-6 max-w-content mx-auto w-full flex-shrink-0">
+        <div className="sticky top-0 h-[80dvh] min-h-[560px] overflow-hidden flex flex-col">
+          <div className="px-6 lg:px-8 pt-6 pb-3 max-w-content mx-auto w-full flex-shrink-0">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-3">Showcase</span>
             <h2 className="font-serif text-[clamp(1.6rem,4vw,2.6rem)] text-primary leading-[1.1] max-w-2xl">
               Les projets qui nous obsèdent.
