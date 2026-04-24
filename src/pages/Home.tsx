@@ -163,6 +163,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ MANIFESTO ═══ */}
+      <section className="py-28 px-6 lg:px-8 border-t border-rule">
+        <div className="max-w-content mx-auto">
+          <FadeUpSection>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">Ce que nous croyons</span>
+          </FadeUpSection>
+          <div className="grid md:grid-cols-3 gap-10 md:gap-16">
+            {[
+              {
+                title: 'Le générique ne vend plus.',
+                desc: 'Les marques qui comptent aujourd\'hui refusent les templates. Nous concevons des expériences qui portent votre nom, pas celui d\'un thème.',
+              },
+              {
+                title: 'Le design se mesure.',
+                desc: 'Chaque décision — typographique, chromatique, d\'interaction — répond à un objectif business. L\'esthétique qui ne convertit pas n\'est pas du design.',
+              },
+              {
+                title: 'L\'exécution est le métier.',
+                desc: 'Une belle maquette ne garantit rien. La performance, l\'accessibilité, la maintenabilité — c\'est là que se joue la qualité réelle.',
+              },
+            ].map((m, i) => (
+              <FadeUpSection key={m.title} delay={i * 0.08}>
+                <div className="border-t border-rule pt-6">
+                  <span className="font-mono text-[10px] text-accent">0{i+1}</span>
+                  <h3 className="font-serif text-[clamp(1.3rem,2.2vw,1.75rem)] text-primary leading-[1.25] mt-4 mb-4">{m.title}</h3>
+                  <p className="text-sm text-secondary leading-relaxed">{m.desc}</p>
+                </div>
+              </FadeUpSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ SERVICES ═══ */}
       <section className="py-20 px-6 lg:px-8 bg-surface">
         <div className="max-w-content mx-auto">
@@ -185,6 +218,46 @@ export default function Home() {
                   <p className="text-sm text-secondary leading-relaxed">{s.desc}</p>
                 </div>
               </ClipReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ CAPABILITIES MATRIX ═══ */}
+      <section className="py-24 px-6 lg:px-8 bg-surface border-t border-rule">
+        <div className="max-w-content mx-auto">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20 mb-12">
+            <FadeUpSection>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Savoir-faire</span>
+              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1]">
+                Un périmètre large, zéro approximation.
+              </h2>
+            </FadeUpSection>
+            <FadeUpSection delay={0.1}>
+              <p className="text-secondary leading-relaxed max-w-xl md:mt-3">
+                L'équipe couvre l'intégralité de la chaîne — du positionnement de marque à la mise en production. Voici les terrains que nous maîtrisons en interne, sans sous-traitance.
+              </p>
+            </FadeUpSection>
+          </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8 border-t border-rule pt-10">
+            {[
+              { cat: 'Design', items: ['Identité visuelle', 'Design system', 'Art direction', 'Typographie sur-mesure', 'Motion & micro-interactions', 'Illustration éditoriale'] },
+              { cat: 'Ingénierie', items: ['Next.js, Astro, Vite', 'Headless CMS (Sanity, Payload)', 'Shopify Hydrogen / WooCommerce', 'API & intégrations', 'SEO technique', 'Analytics & privacy-first tracking'] },
+              { cat: 'Produit', items: ['Research & discovery', 'Information architecture', 'Prototypage Figma interactif', 'A/B testing, mesure', 'Accessibilité WCAG 2.2', 'Accompagnement post-lancement'] },
+            ].map((col, i) => (
+              <FadeUpSection key={col.cat} delay={i * 0.08}>
+                <div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted mb-5">{col.cat}</div>
+                  <ul className="space-y-3">
+                    {col.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm text-primary">
+                        <span className="text-accent mt-[0.35em] w-3 h-[1px] bg-accent inline-block flex-shrink-0" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeUpSection>
             ))}
           </div>
         </div>
@@ -242,12 +315,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ CASE STUDY SPOTLIGHT ═══ */}
+      <section className="py-24 px-6 lg:px-8 border-t border-rule">
+        <div className="max-w-content mx-auto">
+          <FadeUpSection>
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-6">Étude de cas</span>
+          </FadeUpSection>
+          <div className="grid md:grid-cols-[1.1fr_1fr] gap-12 md:gap-16 items-center">
+            <FadeUpSection>
+              <a
+                href="https://www.khalvadjian-avocats.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block aspect-[4/3] rounded-md overflow-hidden border border-rule-strong relative"
+                style={{ background: 'linear-gradient(135deg, #1a1a18, #C4A054)' }}
+              >
+                <img
+                  src={previewUrl('https://www.khalvadjian-avocats.com/', 1000)}
+                  alt="Khalvadjian Avocats"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </a>
+            </FadeUpSection>
+            <FadeUpSection delay={0.1}>
+              <div>
+                <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted mb-4">
+                  Cabinet d'avocats · Paris · 2024
+                </div>
+                <h3 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1] mb-6">
+                  Khalvadjian Avocats
+                </h3>
+                <p className="text-secondary leading-relaxed mb-8">
+                  Refonte complète d'un cabinet boutique centré sur le contentieux. Identité sobre, architecture éditoriale dense, accessibilité AAA. Livraison en 5 semaines, hébergement privé.
+                </p>
+                <div className="grid grid-cols-3 gap-6 border-t border-rule pt-6">
+                  {[
+                    { k: 'Trafic', v: '+180%' },
+                    { k: 'LCP', v: '0.9s' },
+                    { k: 'Audit A11Y', v: 'AAA' },
+                  ].map((s) => (
+                    <div key={s.k}>
+                      <div className="font-serif text-[clamp(1.5rem,2.5vw,2rem)] text-primary leading-none">{s.v}</div>
+                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted mt-2">{s.k}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8">
+                  <Link to="/inspirations" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary hover:text-accent transition-colors">
+                    Voir tous les projets
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </FadeUpSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ CLIENTS MARQUEE ═══ */}
+      <section className="py-16 border-t border-b border-rule bg-surface overflow-hidden">
+        <div className="px-6 lg:px-8 max-w-content mx-auto mb-8">
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Ils nous ont fait confiance</span>
+        </div>
+        <Marquee speed={45} className="text-primary">
+          {['KHALVADJIAN', 'CABINET ALESSANDRELLO', 'HKA AVOCAT', 'ARCHERS', 'MAISON REVERSE', 'PASTENE AVOCAT', 'ORWL', 'AMPLITUDE LAW', 'TALT STUDIO', 'CARVE'].map((name) => (
+            <span key={name} className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] whitespace-nowrap flex items-center gap-8 px-4 opacity-70">
+              {name}
+              <span className="w-[5px] h-[5px] rounded-full bg-accent inline-block flex-shrink-0" />
+            </span>
+          ))}
+        </Marquee>
+      </section>
+
       {/* ═══ WORK LIST with hover preview ═══ */}
-      <section className="pt-10 pb-20 px-6 lg:px-8">
+      <section className="pt-20 pb-20 px-6 lg:px-8">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <div className="flex items-end justify-between mb-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Inspirations</span>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Sélection récente</span>
               <Link to="/inspirations" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted hover:text-primary transition-colors">
                 Tout voir →
               </Link>
@@ -274,6 +423,49 @@ export default function Home() {
                 </HoverPreview>
               </ClipReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ PROCESS PREVIEW ═══ */}
+      <section className="py-24 px-6 lg:px-8 border-t border-rule bg-surface">
+        <div className="max-w-content mx-auto">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20">
+            <FadeUpSection>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Méthode</span>
+              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1] mb-6">
+                Du brief à la mise en orbite.
+              </h2>
+              <p className="text-secondary leading-relaxed text-sm mb-6">
+                Trois phases, un seul interlocuteur, zéro angle mort. Vous voyez votre projet avancer à chaque sprint.
+              </p>
+              <Link to="/methode" className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase text-primary hover:text-accent transition-colors">
+                Voir la méthode complète
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 12h16m0 0l-6-6m6 6l-6 6" />
+                </svg>
+              </Link>
+            </FadeUpSection>
+            <div className="border-t border-rule">
+              {[
+                { num: '01', title: 'Discovery', week: 'Semaine 1', desc: 'Atelier collaboratif. On cadre la marque, la cible, la promesse. Brief stratégique + arborescence livrés.' },
+                { num: '02', title: 'Design', week: 'Semaines 2 à 4', desc: 'Direction artistique, design system, prototype interactif. Vous validez sur un produit cliquable.' },
+                { num: '03', title: 'Build', week: 'Semaines 4 à 6', desc: 'Développement, intégrations, animations, optimisation. Mise en ligne et formation.' },
+              ].map((s, i) => (
+                <ClipReveal key={s.num} direction="left" delay={i * 0.08}>
+                  <div className="flex items-start gap-6 py-6 border-b border-rule">
+                    <span className="font-mono text-[11px] text-accent mt-1.5">{s.num}</span>
+                    <div className="flex-1">
+                      <div className="flex items-baseline justify-between mb-2 gap-4">
+                        <h3 className="font-serif text-lg md:text-xl text-primary">{s.title}</h3>
+                        <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted flex-shrink-0">{s.week}</span>
+                      </div>
+                      <p className="text-sm text-secondary leading-relaxed">{s.desc}</p>
+                    </div>
+                  </div>
+                </ClipReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
