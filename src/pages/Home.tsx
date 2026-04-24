@@ -189,12 +189,12 @@ export default function Home() {
       <section
         ref={showcaseRef}
         className="bg-page relative"
-        style={{ height: `calc(${trackOffset}px + 80dvh)` }}
+        style={{ height: `calc(${trackOffset}px + 62dvh)` }}
       >
-        <div className="sticky top-0 h-[80dvh] min-h-[560px] overflow-hidden flex flex-col">
-          <div className="px-6 lg:px-8 pt-6 pb-3 max-w-content mx-auto w-full flex-shrink-0">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-3">Showcase</span>
-            <h2 className="font-serif text-[clamp(1.6rem,4vw,2.6rem)] text-primary leading-[1.1] max-w-2xl">
+        <div className="sticky top-0 h-[62dvh] min-h-[440px] overflow-hidden flex flex-col">
+          <div className="px-6 lg:px-8 pt-5 pb-2 max-w-content mx-auto w-full flex-shrink-0">
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-2">Showcase</span>
+            <h2 className="font-serif text-[clamp(1.4rem,3.2vw,2.1rem)] text-primary leading-[1.1] max-w-2xl">
               Les projets qui nous obsèdent.
             </h2>
           </div>
@@ -203,7 +203,7 @@ export default function Home() {
             <motion.div
               ref={trackRef}
               style={{ x: showcaseX }}
-              className="flex gap-6 pl-6 lg:pl-8"
+              className="flex gap-5 pl-6 lg:pl-8"
             >
               {showcase.map((p) => (
                 <a
@@ -211,7 +211,7 @@ export default function Home() {
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex-shrink-0 w-[80vw] sm:w-[55vw] md:w-[40vw] lg:w-[32vw] aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
+                  className="group flex-shrink-0 w-[68vw] sm:w-[44vw] md:w-[32vw] lg:w-[25vw] aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
                   style={{ background: p.gradient }}
                 >
                   <img
