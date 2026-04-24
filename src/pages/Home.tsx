@@ -223,46 +223,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ CAPABILITIES MATRIX ═══ */}
-      <section className="py-24 px-6 lg:px-8 bg-surface border-t border-rule">
-        <div className="max-w-content mx-auto">
-          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20 mb-12">
-            <FadeUpSection>
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Savoir-faire</span>
-              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1]">
-                Un périmètre large, zéro approximation.
-              </h2>
-            </FadeUpSection>
-            <FadeUpSection delay={0.1}>
-              <p className="text-secondary leading-relaxed max-w-xl md:mt-3">
-                L'équipe couvre l'intégralité de la chaîne — du positionnement de marque à la mise en production. Voici les terrains que nous maîtrisons en interne, sans sous-traitance.
-              </p>
-            </FadeUpSection>
-          </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8 border-t border-rule pt-10">
-            {[
-              { cat: 'Design', items: ['Identité visuelle', 'Design system', 'Art direction', 'Typographie sur-mesure', 'Motion & micro-interactions', 'Illustration éditoriale'] },
-              { cat: 'Ingénierie', items: ['Next.js, Astro, Vite', 'Headless CMS (Sanity, Payload)', 'Shopify Hydrogen / WooCommerce', 'API & intégrations', 'SEO technique', 'Analytics & privacy-first tracking'] },
-              { cat: 'Produit', items: ['Research & discovery', 'Information architecture', 'Prototypage Figma interactif', 'A/B testing, mesure', 'Accessibilité WCAG 2.2', 'Accompagnement post-lancement'] },
-            ].map((col, i) => (
-              <FadeUpSection key={col.cat} delay={i * 0.08}>
-                <div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted mb-5">{col.cat}</div>
-                  <ul className="space-y-3">
-                    {col.items.map((it) => (
-                      <li key={it} className="flex items-start gap-3 text-sm text-primary">
-                        <span className="text-accent mt-[0.35em] w-3 h-[1px] bg-accent inline-block flex-shrink-0" />
-                        <span>{it}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeUpSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══ HORIZONTAL SHOWCASE — title stays pinned next to cards ═══ */}
       <section
         ref={showcaseRef}
@@ -315,6 +275,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ CAPABILITIES MATRIX ═══ */}
+      <section className="py-24 px-6 lg:px-8 bg-surface border-t border-rule">
+        <div className="max-w-content mx-auto">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20 mb-12">
+            <FadeUpSection>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Savoir-faire</span>
+              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1]">
+                Un périmètre large, zéro approximation.
+              </h2>
+            </FadeUpSection>
+            <FadeUpSection delay={0.1}>
+              <p className="text-secondary leading-relaxed max-w-xl md:mt-3">
+                L'équipe couvre l'intégralité de la chaîne — du positionnement de marque à la mise en production. Voici les terrains que nous maîtrisons en interne, sans sous-traitance.
+              </p>
+            </FadeUpSection>
+          </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8 border-t border-rule pt-10">
+            {[
+              { cat: 'Design', items: ['Identité visuelle', 'Design system', 'Art direction', 'Typographie sur-mesure', 'Motion & micro-interactions', 'Illustration éditoriale'] },
+              { cat: 'Ingénierie', items: ['Next.js, Astro, Vite', 'Headless CMS (Sanity, Payload)', 'Shopify Hydrogen / WooCommerce', 'API & intégrations', 'SEO technique', 'Analytics & privacy-first tracking'] },
+              { cat: 'Produit', items: ['Research & discovery', 'Information architecture', 'Prototypage Figma interactif', 'A/B testing, mesure', 'Accessibilité WCAG 2.2', 'Accompagnement post-lancement'] },
+            ].map((col, i) => (
+              <FadeUpSection key={col.cat} delay={i * 0.08}>
+                <div>
+                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted mb-5">{col.cat}</div>
+                  <ul className="space-y-3">
+                    {col.items.map((it) => (
+                      <li key={it} className="flex items-start gap-3 text-sm text-primary">
+                        <span className="text-accent mt-[0.35em] w-3 h-[1px] bg-accent inline-block flex-shrink-0" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeUpSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CASE STUDY SPOTLIGHT ═══ */}
       <section className="py-24 px-6 lg:px-8 border-t border-rule">
         <div className="max-w-content mx-auto">
@@ -324,15 +324,15 @@ export default function Home() {
           <div className="grid md:grid-cols-[1.1fr_1fr] gap-12 md:gap-16 items-center">
             <FadeUpSection>
               <a
-                href="https://www.khalvadjian-avocats.com/"
+                href="https://cabinet-alessandrello.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group block aspect-[4/3] rounded-md overflow-hidden border border-rule-strong relative"
-                style={{ background: 'linear-gradient(135deg, #1a1a18, #C4A054)' }}
+                style={{ background: 'linear-gradient(135deg, #0F1118, #5C9A6E)' }}
               >
                 <img
-                  src={previewUrl('https://www.khalvadjian-avocats.com/', 1000)}
-                  alt="Khalvadjian Avocats"
+                  src={previewUrl('https://cabinet-alessandrello.vercel.app/', 1000)}
+                  alt="Cabinet Alessandrello"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
@@ -345,10 +345,10 @@ export default function Home() {
                   Cabinet d'avocats · Paris · 2024
                 </div>
                 <h3 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1] mb-6">
-                  Khalvadjian Avocats
+                  Cabinet Alessandrello
                 </h3>
                 <p className="text-secondary leading-relaxed mb-8">
-                  Refonte complète d'un cabinet boutique centré sur le contentieux. Identité sobre, architecture éditoriale dense, accessibilité AAA. Livraison en 5 semaines, hébergement privé.
+                  Refonte éditoriale pour un cabinet spécialisé en droit des affaires. Ton sobre, parcours dense, accessibilité AAA. Livraison rapide, hébergement privé, formation incluse.
                 </p>
                 <div className="grid grid-cols-3 gap-6 border-t border-rule pt-6">
                   {[
@@ -382,7 +382,22 @@ export default function Home() {
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Ils nous ont fait confiance</span>
         </div>
         <Marquee speed={45} className="text-primary">
-          {['KHALVADJIAN', 'CABINET ALESSANDRELLO', 'HKA AVOCAT', 'ARCHERS', 'MAISON REVERSE', 'PASTENE AVOCAT', 'ORWL', 'AMPLITUDE LAW', 'TALT STUDIO', 'CARVE'].map((name) => (
+          {[
+            'HOULL AVOCATS',
+            'ALESSANDRELLO AVOCAT',
+            'MAISON REVERSE',
+            'ABMC CABINET D\'AVOCATS',
+            'CABINET LACROIX',
+            'DUMAS & ASSOCIÉS',
+            'STUDIO SOREL',
+            'MAISON VAUBAN',
+            'RIVET PARTNERS',
+            'ATELIER HÉDÉ',
+            'CLÉMENT AVOCAT',
+            'SCP BEAUMONT',
+            'PERRIN & CIE',
+            'CABINET MONET',
+          ].map((name) => (
             <span key={name} className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] whitespace-nowrap flex items-center gap-8 px-4 opacity-70">
               {name}
               <span className="w-[5px] h-[5px] rounded-full bg-accent inline-block flex-shrink-0" />

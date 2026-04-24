@@ -6,7 +6,7 @@ const timeline = [
   {
     year: '2018',
     title: 'Études de droit',
-    description: "Arthur Souley entame des études de droit. Il y développe une obsession pour la précision, la rigueur du raisonnement et la culture professionnelle des cabinets — un vocabulaire qui reviendra plus tard.",
+    description: "Arthur Souleil entame des études de droit. Il y développe une obsession pour la précision, la rigueur du raisonnement et la culture professionnelle des cabinets — un vocabulaire qui reviendra plus tard.",
   },
   {
     year: '2021',
@@ -64,7 +64,7 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             Nérée est un studio digital indépendant basé à Paris, fondé par
-            Arthur Souley. Une trajectoire singulière — études de droit,
+            Arthur Souleil. Une trajectoire singulière — études de droit,
             bascule vers le développement, spécialisation cabinets d'avocats
             puis ouverture à toutes les marques exigeantes. Aucun projet ne
             ressemble à un autre, le détail est un produit en soi.
@@ -140,15 +140,22 @@ export default function About() {
             <FadeUpSection>
               <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Fondateur</span>
               <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] mb-8">
-                Arthur Souley
+                Arthur Souleil
               </h2>
               <div className="aspect-[4/5] max-w-xs rounded-md overflow-hidden relative border border-rule-strong bg-gradient-to-br from-[#1a1a18] to-[#3A6B95]">
-                <div className="absolute inset-0 flex items-center justify-center">
+                <img
+                  src="/arthur-souleil.png"
+                  alt="Arthur Souleil"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-0">
                   <span className="font-serif text-[8rem] text-white/15">AS</span>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/70">Paris · FR</span>
-                  <span className="font-serif text-white text-lg">Directeur de studio</span>
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/90">Paris · FR</span>
+                  <span className="font-serif text-white text-lg drop-shadow-md">Directeur de studio</span>
                 </div>
               </div>
             </FadeUpSection>
@@ -183,43 +190,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ═══ RECOGNITION ═══ */}
-      <section className="py-24 px-6 lg:px-8 border-t border-b border-rule">
-        <div className="max-w-content mx-auto">
-          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20 mb-10">
-            <FadeUpSection>
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Reconnaissance</span>
-              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1]">
-                Cité, primé, cité à nouveau.
-              </h2>
-            </FadeUpSection>
-            <FadeUpSection delay={0.1}>
-              <p className="text-secondary leading-relaxed max-w-xl md:mt-3">
-                Nos projets sont régulièrement distingués dans la presse sectorielle et sur les plateformes de référence de la profession — sans que ce soit une fin en soi.
-              </p>
-            </FadeUpSection>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px border-t border-rule">
-            {[
-              { label: 'Awwwards', items: ['Site of the Day — 2024', 'Honorable Mention — 2024', 'Developer Award — 2023'] },
-              { label: 'CSS Design Awards', items: ['Website of the Day — 2024', 'Special Kudos UI — 2024'] },
-              { label: 'Presse', items: ['Grazia — Portrait studio, 2024', 'L\'ADN — Dossier direction artistique, 2024'] },
-              { label: 'Podcast & Conférences', items: ['Design Matters Paris — 2024', 'Numérique & Métiers — intervenant invité 2023'] },
-            ].map((block, i) => (
-              <FadeUpSection key={block.label} delay={i * 0.06}>
-                <div className="pt-8 pb-8 pr-8">
-                  <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent mb-4">{block.label}</div>
-                  <ul className="space-y-3">
-                    {block.items.map((it) => (
-                      <li key={it} className="text-sm text-primary leading-relaxed">{it}</li>
-                    ))}
-                  </ul>
-                </div>
-              </FadeUpSection>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-28 px-6 lg:px-8 bg-surface relative overflow-hidden">

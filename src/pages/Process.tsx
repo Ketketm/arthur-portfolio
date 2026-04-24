@@ -142,10 +142,10 @@ export default function Process() {
             </FadeUpSection>
             <div className="border-t border-rule">
               {[
-                { cat: 'Stratégie', items: ['Brief stratégique', 'Arborescence & wireframes', 'Audit concurrentiel', 'Personas & parcours utilisateur'] },
-                { cat: 'Design', items: ['Design system Figma complet', 'Prototype interactif', 'Charte éditoriale + ton', 'Librairie d\'icônes et d\'assets'] },
+                { cat: 'Stratégie', items: ['Brief stratégique', 'Audit concurrentiel'] },
+                { cat: 'Design', items: ['Prototype interactif', 'Charte éditoriale + ton', 'Librairie d\'icônes et d\'assets'] },
                 { cat: 'Code & mise en ligne', items: ['Code source (Git complet)', 'Déploiement & configuration CDN', 'Documentation technique', 'Session de formation de 2h'] },
-                { cat: 'Après livraison', items: ['Garantie bugs 60 jours', 'Support Slack 30 jours', 'Session de suivi à 3 mois', 'Analytics & recommandations'] },
+                { cat: 'Après livraison', items: ['Garantie sans bug', 'Session de suivi', 'Analytics & recommandations'] },
               ].map((block, i) => (
                 <ClipReveal key={block.cat} direction="left" delay={i * 0.06}>
                   <div className="py-6 border-b border-rule">
@@ -214,7 +214,7 @@ export default function Process() {
             </FadeUpSection>
             <div className="border-t border-rule">
               {[
-                { q: 'À partir de quel budget travaillez-vous ?', a: 'Nos projets démarrent à 12k€ pour un site vitrine éditorial, 25k€ pour un site corporate, 50k€+ pour une application ou un e-commerce. Nous ajustons selon le périmètre.' },
+                { q: 'À partir de quel budget travaillez-vous ?', a: 'Ça dépend des projets.' },
                 { q: 'Combien de projets gérez-vous en parallèle ?', a: 'Deux. Maximum. Chaque client a un seul interlocuteur référent pendant toute la durée du projet — pas de chef de projet qui relaie, pas de perte d\'information.' },
                 { q: 'Travaillez-vous avec des agences ou uniquement en direct ?', a: 'Les deux. Nous collaborons régulièrement en marque blanche avec des studios de branding ou des agences de communication qui n\'ont pas d\'équipe digitale interne.' },
                 { q: 'Et si je veux faire évoluer le site après la livraison ?', a: 'Vous êtes propriétaire du code et du design system. Vous pouvez faire intervenir n\'importe quel développeur. Nous proposons aussi un forfait de maintenance mensuelle sur-mesure.' },
