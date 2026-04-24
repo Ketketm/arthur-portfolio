@@ -128,7 +128,7 @@ export default function Home() {
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10">
           <div className="max-w-content mx-auto px-6 lg:px-8">
-            <div className="min-h-[100dvh] flex flex-col justify-end pb-16 md:pb-24">
+            <div className="min-h-[calc(100dvh-4rem)] md:min-h-[100dvh] flex flex-col justify-center md:justify-end pb-16 md:pb-24 pt-12 md:pt-0">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -139,7 +139,7 @@ export default function Home() {
                 </span>
               </motion.div>
 
-              <div className="mt-6 mb-16">
+              <div className="mt-4 md:mt-6 mb-10 md:mb-16">
                 <TextReveal
                   className="font-serif text-[clamp(3rem,9vw,8rem)] text-primary leading-[0.95] tracking-[-0.03em]"
                   delay={0.4}
