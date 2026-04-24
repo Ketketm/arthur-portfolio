@@ -5,7 +5,6 @@ import {
   MagneticButton, ClipReveal,
 } from '../components/SuperEffects'
 import HoverPreview from '../components/HoverPreview'
-import HeroStatus from '../components/HeroStatus'
 import { previewUrl } from '../utils/preview'
 import { useEffect, useRef, useState } from 'react'
 
@@ -80,18 +79,29 @@ export default function Home() {
     >
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} className="relative pt-16 overflow-hidden">
-        {/* Subtle live status — top-right of hero, absolute so it doesn't
-            disturb the bottom-aligned content. */}
-        <motion.div
-          className="absolute top-20 right-6 lg:right-8 z-20 hidden sm:block"
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4, ease: 'easeOut' }}
+        {/* Subtle oceanic rings in the background — thematic to Nérée,
+            positioned far to the right and extending off-screen so they
+            feel like a detail, not the focal point. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-[-10%] right-[-18%] w-[70vw] max-w-[900px] aspect-square z-0 opacity-60"
+          style={{ animation: 'hero-ring-drift 40s linear infinite' }}
         >
-          <HeroStatus />
-        </motion.div>
+          <svg viewBox="0 0 600 600" className="w-full h-full text-accent">
+            <g fill="none" stroke="currentColor" strokeWidth="0.6">
+              <circle cx="300" cy="300" r="295" opacity="0.25" />
+              <circle cx="300" cy="300" r="240" opacity="0.20" />
+              <circle cx="300" cy="300" r="180" opacity="0.16" />
+              <circle cx="300" cy="300" r="120" opacity="0.12" />
+              <circle cx="300" cy="300" r="60"  opacity="0.08" />
+            </g>
+            {/* Two small orbiting dots to hint at motion */}
+            <circle cx="300" cy="5"   r="2" fill="currentColor" opacity="0.35" />
+            <circle cx="595" cy="300" r="1.5" fill="currentColor" opacity="0.25" />
+          </svg>
+        </div>
 
-        <motion.div style={{ opacity: heroOpacity, y: heroY }}>
+        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10">
           <div className="max-w-content mx-auto px-6 lg:px-8">
             <div className="min-h-[100dvh] flex flex-col justify-end pb-16 md:pb-24">
               <motion.div
@@ -175,41 +185,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ MANIFESTO ═══ */}
-      <section className="py-28 px-6 lg:px-8 border-t border-rule">
-        <div className="max-w-content mx-auto">
-          <FadeUpSection>
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-8">Ce que nous croyons</span>
-          </FadeUpSection>
-          <div className="grid md:grid-cols-3 gap-10 md:gap-16">
-            {[
-              {
-                title: 'Le générique ne vend plus.',
-                desc: 'Les marques qui comptent aujourd\'hui refusent les templates. Nous concevons des expériences qui portent votre nom, pas celui d\'un thème.',
-              },
-              {
-                title: 'Le design se mesure.',
-                desc: 'Chaque décision — typographique, chromatique, d\'interaction — répond à un objectif business. L\'esthétique qui ne convertit pas n\'est pas du design.',
-              },
-              {
-                title: 'L\'exécution est le métier.',
-                desc: 'Une belle maquette ne garantit rien. La performance, l\'accessibilité, la maintenabilité — c\'est là que se joue la qualité réelle.',
-              },
-            ].map((m, i) => (
-              <FadeUpSection key={m.title} delay={i * 0.08}>
-                <div className="border-t border-rule pt-6">
-                  <span className="font-mono text-[10px] text-accent">0{i+1}</span>
-                  <h3 className="font-serif text-[clamp(1.3rem,2.2vw,1.75rem)] text-primary leading-[1.25] mt-4 mb-4">{m.title}</h3>
-                  <p className="text-sm text-secondary leading-relaxed">{m.desc}</p>
-                </div>
-              </FadeUpSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══ SERVICES ═══ */}
-      <section className="py-20 px-6 lg:px-8 bg-surface">
+      <section className="pt-20 pb-12 px-6 lg:px-8 bg-surface">
         <div className="max-w-content mx-auto">
           <FadeUpSection>
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Disciplines</span>
@@ -242,7 +219,7 @@ export default function Home() {
         style={{ height: `calc(${trackOffset}px + 100dvh)` }}
       >
         <div className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col">
-          <div className="px-6 lg:px-8 pt-20 pb-6 max-w-content mx-auto w-full flex-shrink-0">
+          <div className="px-6 lg:px-8 pt-10 pb-6 max-w-content mx-auto w-full flex-shrink-0">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-3">Showcase</span>
             <h2 className="font-serif text-[clamp(1.6rem,4vw,2.6rem)] text-primary leading-[1.1] max-w-2xl">
               Les projets qui nous obsèdent.
@@ -288,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* ═══ CAPABILITIES MATRIX ═══ */}
-      <section className="py-24 px-6 lg:px-8 bg-surface border-t border-rule">
+      <section className="pt-12 pb-24 px-6 lg:px-8 bg-surface border-t border-rule">
         <div className="max-w-content mx-auto">
           <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20 mb-12">
             <FadeUpSection>
