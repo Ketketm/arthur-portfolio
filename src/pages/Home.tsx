@@ -298,7 +298,7 @@ export default function Home() {
                 href="https://cabinet-alessandrello.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block aspect-[4/3] rounded-md overflow-hidden border border-rule-strong relative"
+                className="group block aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative"
                 style={{ background: 'linear-gradient(135deg, #0F1118, #5C9A6E)' }}
               >
                 <img
@@ -306,7 +306,7 @@ export default function Home() {
                   alt="Cabinet Alessandrello"
                   loading="lazy"
                   referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </a>
             </FadeUpSection>
