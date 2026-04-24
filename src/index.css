@@ -126,14 +126,41 @@ body {
   color: var(--accent);
 }
 
-/* Hero oceanic rings — very slow rotation for a subtle "tide" feel */
-@keyframes hero-ring-drift {
+/* Hero rings — electrons orbiting each concentric shell.
+   Each .electron <g> rotates around the SVG center (300, 300) at its own
+   speed. transform-box: fill-box + transform-origin at center handles it. */
+.electron {
+  transform-origin: 300px 300px;
+  transform-box: view-box;
+  /* Appearance: fade-in after the rings have scaled in */
+  opacity: 0;
+  animation: electron-enter 0.9s ease-out forwards,
+             electron-orbit var(--orbit-duration, 32s) linear infinite;
+}
+
+@keyframes electron-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes electron-orbit {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
+@keyframes electron-orbit-reverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+.electron--r295 { --orbit-duration: 42s; animation-name: electron-enter, electron-orbit; }
+.electron--r240 { --orbit-duration: 28s; animation-name: electron-enter, electron-orbit-reverse; }
+.electron--r180 { --orbit-duration: 22s; animation-name: electron-enter, electron-orbit; }
+.electron--r120 { --orbit-duration: 16s; animation-name: electron-enter, electron-orbit-reverse; }
+.electron--r60  { --orbit-duration: 10s; animation-name: electron-enter, electron-orbit; }
+
 @media (prefers-reduced-motion: reduce) {
-  @keyframes hero-ring-drift {
-    from, to { transform: none; }
+  .electron {
+    animation: electron-enter 0.9s ease-out forwards;
   }
 }
