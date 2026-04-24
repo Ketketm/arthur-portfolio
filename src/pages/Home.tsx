@@ -185,21 +185,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ HORIZONTAL SHOWCASE — title stays pinned next to cards ═══ */}
+      {/* ═══ HORIZONTAL SHOWCASE — title + cards cluster vertically in a 100dvh pin ═══ */}
       <section
         ref={showcaseRef}
         className="bg-page relative"
-        style={{ height: `calc(${trackOffset}px + 62dvh)` }}
+        style={{ height: `calc(${trackOffset}px + 100dvh)` }}
       >
-        <div className="sticky top-0 h-[62dvh] min-h-[440px] overflow-hidden flex flex-col">
-          <div className="px-6 lg:px-8 pt-5 pb-2 max-w-content mx-auto w-full flex-shrink-0">
+        <div className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col justify-center gap-8 md:gap-10">
+          <div className="px-6 lg:px-8 max-w-content mx-auto w-full">
             <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-2">Showcase</span>
             <h2 className="font-serif text-[clamp(1.4rem,3.2vw,2.1rem)] text-primary leading-[1.1] max-w-2xl">
               Les projets qui nous obsèdent.
             </h2>
           </div>
 
-          <div className="flex-1 flex items-center overflow-hidden">
+          <div className="overflow-hidden">
             <motion.div
               ref={trackRef}
               style={{ x: showcaseX }}
