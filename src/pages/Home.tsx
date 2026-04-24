@@ -298,16 +298,22 @@ export default function Home() {
                 href="https://cabinet-alessandrello.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative"
+                className="group block aspect-[9/14] sm:aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative"
                 style={{ background: 'linear-gradient(135deg, #0F1118, #5C9A6E)' }}
               >
-                <img
-                  src={previewUrl('https://cabinet-alessandrello.vercel.app/', 1000)}
-                  alt="Cabinet Alessandrello"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
-                />
+                <picture>
+                  <source
+                    media="(min-width: 640px)"
+                    srcSet={previewUrl('https://cabinet-alessandrello.vercel.app/', 1000)}
+                  />
+                  <img
+                    src="/inspirations/alessandrello-mobile.jpg"
+                    alt="Cabinet Alessandrello — vue mobile"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                </picture>
               </a>
             </FadeUpSection>
             <FadeUpSection delay={0.1}>
