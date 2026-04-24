@@ -59,10 +59,14 @@ export default function Navbar({ theme, toggleTheme }: NavbarProps) {
       >
         <div className="max-w-content mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-[4.5rem]">
-            {/* Brand — Nérée mark + word */}
+            {/* Brand — Nérée mark + word.
+                min-h matches the logo's intrinsic height so the Link reserves
+                its final vertical slot BEFORE the brand mounts. Prevents the
+                tiny layout nudge that happened when the morph handed the logo
+                off to the navbar. */}
             <Link
               to="/"
-              className="inline-flex items-center gap-2.5 text-primary hover:text-accent transition-colors duration-200"
+              className="inline-flex items-center gap-2.5 text-primary hover:text-accent transition-colors duration-200 min-h-11 md:min-h-[3.25rem]"
               aria-label="Nérée — Accueil"
             >
               {showBrand && (
