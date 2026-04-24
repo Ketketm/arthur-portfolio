@@ -125,3 +125,15 @@ body {
   text-transform: uppercase;
   color: var(--accent);
 }
+
+/* Hero live-status pulsing dot */
+@keyframes hero-status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 var(--accent-glow); }
+  50%      { opacity: 0.55; transform: scale(1.35); box-shadow: 0 0 0 4px transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes hero-status-pulse {
+    0%, 100% { opacity: 1; transform: none; }
+  }
+}

@@ -5,6 +5,7 @@ import {
   MagneticButton, ClipReveal,
 } from '../components/SuperEffects'
 import HoverPreview from '../components/HoverPreview'
+import HeroStatus from '../components/HeroStatus'
 import { previewUrl } from '../utils/preview'
 import { useEffect, useRef, useState } from 'react'
 
@@ -79,6 +80,17 @@ export default function Home() {
     >
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} className="relative pt-16 overflow-hidden">
+        {/* Subtle live status — top-right of hero, absolute so it doesn't
+            disturb the bottom-aligned content. */}
+        <motion.div
+          className="absolute top-20 right-6 lg:right-8 z-20 hidden sm:block"
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.4, ease: 'easeOut' }}
+        >
+          <HeroStatus />
+        </motion.div>
+
         <motion.div style={{ opacity: heroOpacity, y: heroY }}>
           <div className="max-w-content mx-auto px-6 lg:px-8">
             <div className="min-h-[100dvh] flex flex-col justify-end pb-16 md:pb-24">
