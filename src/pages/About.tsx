@@ -6,7 +6,7 @@ const timeline = [
   {
     year: '2018',
     title: 'Études de droit',
-    description: "Arthur Souley entame des études de droit. Il y développe une obsession pour la précision, la rigueur du raisonnement et la culture professionnelle des cabinets — un vocabulaire qui reviendra plus tard.",
+    description: "Arthur Souleil entame des études de droit. Il y développe une obsession pour la précision, la rigueur du raisonnement et la culture professionnelle des cabinets — un vocabulaire qui reviendra plus tard.",
   },
   {
     year: '2021',
@@ -64,7 +64,7 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             Nérée est un studio digital indépendant basé à Paris, fondé par
-            Arthur Souley. Une trajectoire singulière — études de droit,
+            Arthur Souleil. Une trajectoire singulière — études de droit,
             bascule vers le développement, spécialisation cabinets d'avocats
             puis ouverture à toutes les marques exigeantes. Aucun projet ne
             ressemble à un autre, le détail est un produit en soi.
@@ -132,6 +132,64 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* ═══ FOUNDER ═══ */}
+      <section className="py-28 px-6 lg:px-8 bg-surface border-t border-rule">
+        <div className="max-w-content mx-auto">
+          <div className="grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 items-start">
+            <FadeUpSection>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Fondateur</span>
+              <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] mb-8">
+                Arthur Souleil
+              </h2>
+              <div className="aspect-[4/5] max-w-xs rounded-md overflow-hidden relative border border-rule-strong bg-gradient-to-br from-[#1a1a18] to-[#3A6B95]">
+                <img
+                  src="/arthur-souleil.png"
+                  alt="Arthur Souleil"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-0">
+                  <span className="font-serif text-[8rem] text-white/15">AS</span>
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
+                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/90">Paris · FR</span>
+                  <span className="font-serif text-white text-lg drop-shadow-md">Directeur de studio</span>
+                </div>
+              </div>
+            </FadeUpSection>
+            <div className="space-y-8">
+              <FadeUpSection delay={0.1}>
+                <p className="text-secondary leading-relaxed text-[15px]">
+                  Arthur combine un parcours atypique : droit, développement, direction artistique. Cette triangulation se retrouve dans chaque projet — la rigueur d'un juriste, l'exigence d'un designer, la précision d'un ingénieur.
+                </p>
+              </FadeUpSection>
+              <FadeUpSection delay={0.15}>
+                <p className="text-secondary leading-relaxed text-[15px]">
+                  Il intervient personnellement sur toutes les phases des projets Nérée : cadrage stratégique, direction artistique, architecture technique. Aucune délégation sur les décisions structurantes.
+                </p>
+              </FadeUpSection>
+              <FadeUpSection delay={0.2}>
+                <div className="grid grid-cols-2 gap-6 border-t border-rule pt-8">
+                  {[
+                    { k: 'Formation', v: 'Master de droit\nAutodidacte en design & code' },
+                    { k: 'Spécialités', v: 'Direction artistique\nArchitecture produit' },
+                    { k: 'Conférences', v: 'EFB Paris, Awwwards\nMeetups DA' },
+                    { k: 'Langues', v: 'Français, Anglais,\nItalien' },
+                  ].map((row) => (
+                    <div key={row.k}>
+                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted mb-2">{row.k}</div>
+                      <div className="text-sm text-primary whitespace-pre-line leading-relaxed">{row.v}</div>
+                    </div>
+                  ))}
+                </div>
+              </FadeUpSection>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA */}
       <section className="py-28 px-6 lg:px-8 bg-surface relative overflow-hidden">

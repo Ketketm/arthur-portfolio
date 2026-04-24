@@ -130,6 +130,111 @@ export default function Process() {
         </div>
       </section>
 
+      {/* ═══ DELIVERABLES ═══ */}
+      <section className="py-28 px-6 lg:px-8 bg-surface border-b border-rule">
+        <div className="max-w-content mx-auto">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20">
+            <FadeUpSection>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Ce que vous recevez</span>
+              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1]">
+                Tout est livré, rien n'est en location.
+              </h2>
+            </FadeUpSection>
+            <div className="border-t border-rule">
+              {[
+                { cat: 'Stratégie', items: ['Brief stratégique', 'Audit concurrentiel'] },
+                { cat: 'Design', items: ['Prototype interactif', 'Charte éditoriale + ton', 'Librairie d\'icônes et d\'assets'] },
+                { cat: 'Code & mise en ligne', items: ['Code source (Git complet)', 'Déploiement & configuration CDN', 'Documentation technique', 'Session de formation de 2h'] },
+                { cat: 'Après livraison', items: ['Garantie sans bug', 'Session de suivi', 'Analytics & recommandations'] },
+              ].map((block, i) => (
+                <ClipReveal key={block.cat} direction="left" delay={i * 0.06}>
+                  <div className="py-6 border-b border-rule">
+                    <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted mb-4">{block.cat}</div>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-8">
+                      {block.items.map((it) => (
+                        <li key={it} className="flex items-start gap-3 text-sm text-primary">
+                          <svg className="w-3.5 h-3.5 text-accent mt-[0.3em] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{it}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </ClipReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ TOOLS & STACK ═══ */}
+      <section className="py-24 px-6 lg:px-8 border-b border-rule">
+        <div className="max-w-content mx-auto">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20 mb-10">
+            <FadeUpSection>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Stack</span>
+              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1]">
+                Les outils qui servent le résultat.
+              </h2>
+            </FadeUpSection>
+            <FadeUpSection delay={0.1}>
+              <p className="text-secondary leading-relaxed max-w-xl md:mt-3">
+                Pas de techno pour la techno. Chaque choix de stack répond à un besoin métier : performance, maintenabilité, vitesse de mise à jour. On ajuste selon le projet.
+              </p>
+            </FadeUpSection>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 border-t border-rule pt-10">
+            {[
+              'Figma', 'Next.js', 'Astro', 'Vite',
+              'TypeScript', 'Tailwind CSS', 'Framer Motion', 'GSAP',
+              'Sanity', 'Payload CMS', 'Shopify', 'Stripe',
+              'Vercel', 'Cloudflare', 'Plausible', 'Sentry',
+            ].map((tool, i) => (
+              <FadeUpSection key={tool} delay={i * 0.02}>
+                <div className="flex items-center gap-3 py-3 border-b border-rule">
+                  <span className="w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0" />
+                  <span className="font-serif text-[clamp(1rem,1.5vw,1.25rem)] text-primary">{tool}</span>
+                </div>
+              </FadeUpSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ FAQ ═══ */}
+      <section className="py-28 px-6 lg:px-8 bg-surface border-b border-rule">
+        <div className="max-w-content mx-auto">
+          <div className="grid md:grid-cols-[1fr_2fr] gap-10 md:gap-20">
+            <FadeUpSection>
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Questions fréquentes</span>
+              <h2 className="font-serif text-[clamp(1.8rem,4vw,3rem)] text-primary leading-[1.1]">
+                Ce que les clients demandent avant de signer.
+              </h2>
+            </FadeUpSection>
+            <div className="border-t border-rule">
+              {[
+                { q: 'À partir de quel budget travaillez-vous ?', a: 'Ça dépend des projets.' },
+                { q: 'Combien de projets gérez-vous en parallèle ?', a: 'Deux. Maximum. Chaque client a un seul interlocuteur référent pendant toute la durée du projet — pas de chef de projet qui relaie, pas de perte d\'information.' },
+                { q: 'Travaillez-vous avec des agences ou uniquement en direct ?', a: 'Les deux. Nous collaborons régulièrement en marque blanche avec des studios de branding ou des agences de communication qui n\'ont pas d\'équipe digitale interne.' },
+                { q: 'Et si je veux faire évoluer le site après la livraison ?', a: 'Vous êtes propriétaire du code et du design system. Vous pouvez faire intervenir n\'importe quel développeur. Nous proposons aussi un forfait de maintenance mensuelle sur-mesure.' },
+                { q: 'Travaillez-vous à l\'international ?', a: 'Oui. Nous avons des clients en France, en Belgique et en Suisse, et nous livrons régulièrement des sites multilingues (FR / EN / DE). Tous les échanges peuvent se faire en anglais.' },
+              ].map((item, i) => (
+                <ClipReveal key={item.q} direction="left" delay={i * 0.05}>
+                  <details className="border-b border-rule group">
+                    <summary className="py-6 flex items-center justify-between cursor-pointer list-none">
+                      <h3 className="font-serif text-lg md:text-xl text-primary pr-6">{item.q}</h3>
+                      <span className="font-mono text-xl text-accent flex-shrink-0 group-open:rotate-45 transition-transform duration-300">+</span>
+                    </summary>
+                    <p className="text-sm text-secondary leading-relaxed pb-6 max-w-2xl">{item.a}</p>
+                  </details>
+                </ClipReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-32 px-6 lg:px-8 bg-surface relative overflow-hidden">
         <div className="max-w-content mx-auto text-center relative z-10">
