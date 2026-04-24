@@ -6,6 +6,7 @@ import {
 } from '../components/SuperEffects'
 import HoverPreview from '../components/HoverPreview'
 import { previewUrl } from '../utils/preview'
+import { useIntroPhase } from '../hooks/useIntro'
 import { useEffect, useRef, useState } from 'react'
 
 const ticker = [
@@ -39,6 +40,8 @@ const work: Item[] = [
 
 export default function Home() {
   const heroRef = useRef(null)
+  const phase = useIntroPhase()
+  const ringsActive = phase === 'done'
   const { scrollYProgress: heroScroll } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start'],
@@ -84,14 +87,15 @@ export default function Home() {
             feel like a detail, not the focal point. */}
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute top-[-10%] right-[-18%] w-[70vw] max-w-[900px] aspect-square z-0"
+          className={`pointer-events-none absolute top-[-10%] right-[-18%] w-[70vw] max-w-[900px] aspect-square z-0 ${ringsActive ? 'electrons-live' : ''}`}
           initial={{ opacity: 0, scale: 0.82, rotate: -6 }}
-          animate={{ opacity: 0.7, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.6, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+          animate={ringsActive
+            ? { opacity: 0.7, scale: 1, rotate: 0 }
+            : { opacity: 0, scale: 0.82, rotate: -6 }}
+          transition={{ duration: 1.6, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
         >
           <svg viewBox="0 0 600 600" className="w-full h-full text-accent">
-            {/* Concentric orbits — drawn with a trailing dash so the ring
-                itself also hints at motion without rotating visibly. */}
+            {/* Concentric orbits */}
             <g fill="none" stroke="currentColor" strokeWidth="0.6">
               <circle cx="300" cy="300" r="295" opacity="0.25" />
               <circle cx="300" cy="300" r="240" opacity="0.20" />
@@ -100,22 +104,23 @@ export default function Home() {
               <circle cx="300" cy="300" r="60"  opacity="0.08" />
             </g>
 
-            {/* One electron per orbit — each rotates around (300, 300) at a
-                different speed, alternating direction, like electron shells.
-                Appearance animated via staggered opacity. */}
-            <g className="electron electron--r295" style={{ animationDelay: '0.4s' }}>
+            {/* One electron per orbit — each rotates around (300, 300) at
+                its own speed, alternating direction. CSS animations are
+                paused until the parent gains .electrons-live (phase === 'done'),
+                so they only start once the navbar has settled. */}
+            <g className="electron electron--r295" style={{ animationDelay: '0.5s' }}>
               <circle cx="300" cy="5" r="2.6" fill="currentColor" opacity="0.55" />
             </g>
-            <g className="electron electron--r240" style={{ animationDelay: '0.55s' }}>
+            <g className="electron electron--r240" style={{ animationDelay: '0.65s' }}>
               <circle cx="300" cy="60" r="2.3" fill="currentColor" opacity="0.5" />
             </g>
-            <g className="electron electron--r180" style={{ animationDelay: '0.7s' }}>
+            <g className="electron electron--r180" style={{ animationDelay: '0.8s' }}>
               <circle cx="300" cy="120" r="2" fill="currentColor" opacity="0.45" />
             </g>
-            <g className="electron electron--r120" style={{ animationDelay: '0.85s' }}>
+            <g className="electron electron--r120" style={{ animationDelay: '0.95s' }}>
               <circle cx="300" cy="180" r="1.7" fill="currentColor" opacity="0.4" />
             </g>
-            <g className="electron electron--r60" style={{ animationDelay: '1.0s' }}>
+            <g className="electron electron--r60" style={{ animationDelay: '1.1s' }}>
               <circle cx="300" cy="240" r="1.4" fill="currentColor" opacity="0.35" />
             </g>
           </svg>
