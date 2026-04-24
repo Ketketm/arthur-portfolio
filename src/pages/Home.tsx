@@ -82,12 +82,16 @@ export default function Home() {
         {/* Subtle oceanic rings in the background — thematic to Nérée,
             positioned far to the right and extending off-screen so they
             feel like a detail, not the focal point. */}
-        <div
+        <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute top-[-10%] right-[-18%] w-[70vw] max-w-[900px] aspect-square z-0 opacity-60"
-          style={{ animation: 'hero-ring-drift 40s linear infinite' }}
+          className="pointer-events-none absolute top-[-10%] right-[-18%] w-[70vw] max-w-[900px] aspect-square z-0"
+          initial={{ opacity: 0, scale: 0.82, rotate: -6 }}
+          animate={{ opacity: 0.7, scale: 1, rotate: 0 }}
+          transition={{ duration: 1.6, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
         >
           <svg viewBox="0 0 600 600" className="w-full h-full text-accent">
+            {/* Concentric orbits — drawn with a trailing dash so the ring
+                itself also hints at motion without rotating visibly. */}
             <g fill="none" stroke="currentColor" strokeWidth="0.6">
               <circle cx="300" cy="300" r="295" opacity="0.25" />
               <circle cx="300" cy="300" r="240" opacity="0.20" />
@@ -95,11 +99,27 @@ export default function Home() {
               <circle cx="300" cy="300" r="120" opacity="0.12" />
               <circle cx="300" cy="300" r="60"  opacity="0.08" />
             </g>
-            {/* Two small orbiting dots to hint at motion */}
-            <circle cx="300" cy="5"   r="2" fill="currentColor" opacity="0.35" />
-            <circle cx="595" cy="300" r="1.5" fill="currentColor" opacity="0.25" />
+
+            {/* One electron per orbit — each rotates around (300, 300) at a
+                different speed, alternating direction, like electron shells.
+                Appearance animated via staggered opacity. */}
+            <g className="electron electron--r295" style={{ animationDelay: '0.4s' }}>
+              <circle cx="300" cy="5" r="2.6" fill="currentColor" opacity="0.55" />
+            </g>
+            <g className="electron electron--r240" style={{ animationDelay: '0.55s' }}>
+              <circle cx="300" cy="60" r="2.3" fill="currentColor" opacity="0.5" />
+            </g>
+            <g className="electron electron--r180" style={{ animationDelay: '0.7s' }}>
+              <circle cx="300" cy="120" r="2" fill="currentColor" opacity="0.45" />
+            </g>
+            <g className="electron electron--r120" style={{ animationDelay: '0.85s' }}>
+              <circle cx="300" cy="180" r="1.7" fill="currentColor" opacity="0.4" />
+            </g>
+            <g className="electron electron--r60" style={{ animationDelay: '1.0s' }}>
+              <circle cx="300" cy="240" r="1.4" fill="currentColor" opacity="0.35" />
+            </g>
           </svg>
-        </div>
+        </motion.div>
 
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="relative z-10">
           <div className="max-w-content mx-auto px-6 lg:px-8">
@@ -185,54 +205,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ HORIZONTAL SHOWCASE — title + cards cluster vertically in a 100dvh pin ═══ */}
-      <section
-        ref={showcaseRef}
-        className="bg-page relative"
-        style={{ height: `calc(${trackOffset}px + 100dvh)` }}
-      >
-        <div className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col justify-center gap-8 md:gap-10">
-          <div className="px-6 lg:px-8 max-w-content mx-auto w-full">
-            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-2">Showcase</span>
-            <h2 className="font-serif text-[clamp(1.4rem,3.2vw,2.1rem)] text-primary leading-[1.1] max-w-2xl">
-              Les projets qui nous obsèdent.
-            </h2>
-          </div>
-
-          <div className="overflow-hidden">
-            <motion.div
-              ref={trackRef}
-              style={{ x: showcaseX }}
-              className="flex gap-5 pl-6 lg:pl-8"
-            >
-              {showcase.map((p) => (
-                <a
-                  key={p.name}
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex-shrink-0 w-[68vw] sm:w-[44vw] md:w-[32vw] lg:w-[25vw] aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
-                  style={{ background: p.gradient }}
-                >
-                  <img
-                    src={previewUrl(p.url, 800)}
-                    alt={p.name}
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/75" />
-                  <div className="relative h-full p-5 flex flex-col justify-between text-white">
-                    <span className="font-mono text-[9px] tracking-[0.25em] uppercase opacity-90">{p.year}</span>
-                    <div>
-                      <h3 className="font-serif text-xl md:text-2xl leading-tight mb-1">{p.name}</h3>
-                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase opacity-90">{p.type}</span>
+      {/* ═══ WORK LIST with hover preview (moved up — was below) ═══ */}
+      <section className="pt-20 pb-20 px-6 lg:px-8">
+        <div className="max-w-content mx-auto">
+          <FadeUpSection>
+            <div className="flex items-end justify-between mb-4">
+              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Sélection récente</span>
+              <Link to="/inspirations" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted hover:text-primary transition-colors">
+                Tout voir →
+              </Link>
+            </div>
+          </FadeUpSection>
+          <div className="border-t border-rule">
+            {work.map((p, i) => (
+              <ClipReveal key={p.name} direction="left" delay={i * 0.06}>
+                <HoverPreview src={previewUrl(p.url, 700)} gradient={p.gradient} label={p.name}>
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between py-7 border-b border-rule"
+                  >
+                    <h3 className="font-serif text-[clamp(1.4rem,3.5vw,2.4rem)] text-primary group-hover:text-accent group-hover:translate-x-3 transition-all duration-500">
+                      {p.name}
+                    </h3>
+                    <div className="flex items-center gap-8">
+                      <span className="hidden md:block font-mono text-[9px] tracking-[0.2em] uppercase text-muted">{p.type}</span>
+                      <span className="font-mono text-[11px] text-muted">{p.year}</span>
                     </div>
-                  </div>
-                </a>
-              ))}
-              <div className="w-[6vw] flex-shrink-0" />
-            </motion.div>
+                  </a>
+                </HoverPreview>
+              </ClipReveal>
+            ))}
           </div>
         </div>
       </section>
@@ -368,38 +372,54 @@ export default function Home() {
         </Marquee>
       </section>
 
-      {/* ═══ WORK LIST with hover preview ═══ */}
-      <section className="pt-20 pb-20 px-6 lg:px-8">
-        <div className="max-w-content mx-auto">
-          <FadeUpSection>
-            <div className="flex items-end justify-between mb-4">
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent">Sélection récente</span>
-              <Link to="/inspirations" className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted hover:text-primary transition-colors">
-                Tout voir →
-              </Link>
-            </div>
-          </FadeUpSection>
-          <div className="border-t border-rule">
-            {work.map((p, i) => (
-              <ClipReveal key={p.name} direction="left" delay={i * 0.06}>
-                <HoverPreview src={previewUrl(p.url, 700)} gradient={p.gradient} label={p.name}>
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-between py-7 border-b border-rule"
-                  >
-                    <h3 className="font-serif text-[clamp(1.4rem,3.5vw,2.4rem)] text-primary group-hover:text-accent group-hover:translate-x-3 transition-all duration-500">
-                      {p.name}
-                    </h3>
-                    <div className="flex items-center gap-8">
-                      <span className="hidden md:block font-mono text-[9px] tracking-[0.2em] uppercase text-muted">{p.type}</span>
-                      <span className="font-mono text-[11px] text-muted">{p.year}</span>
+      {/* ═══ HORIZONTAL SHOWCASE (moved down — was above) ═══ */}
+      <section
+        ref={showcaseRef}
+        className="bg-page relative"
+        style={{ height: `calc(${trackOffset}px + 100dvh)` }}
+      >
+        <div className="sticky top-0 h-[100dvh] overflow-hidden flex flex-col justify-center gap-8 md:gap-10">
+          <div className="px-6 lg:px-8 max-w-content mx-auto w-full">
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-2">Showcase</span>
+            <h2 className="font-serif text-[clamp(1.4rem,3.2vw,2.1rem)] text-primary leading-[1.1] max-w-2xl">
+              Les projets qui nous obsèdent.
+            </h2>
+          </div>
+
+          <div className="overflow-hidden">
+            <motion.div
+              ref={trackRef}
+              style={{ x: showcaseX }}
+              className="flex gap-5 pl-6 lg:pl-8"
+            >
+              {showcase.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex-shrink-0 w-[68vw] sm:w-[44vw] md:w-[32vw] lg:w-[25vw] aspect-[16/10] rounded-md overflow-hidden border border-rule-strong relative transition-transform duration-300 hover:-translate-y-1"
+                  style={{ background: p.gradient }}
+                >
+                  <img
+                    src={previewUrl(p.url, 800)}
+                    alt={p.name}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/75" />
+                  <div className="relative h-full p-5 flex flex-col justify-between text-white">
+                    <span className="font-mono text-[9px] tracking-[0.25em] uppercase opacity-90">{p.year}</span>
+                    <div>
+                      <h3 className="font-serif text-xl md:text-2xl leading-tight mb-1">{p.name}</h3>
+                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase opacity-90">{p.type}</span>
                     </div>
-                  </a>
-                </HoverPreview>
-              </ClipReveal>
-            ))}
+                  </div>
+                </a>
+              ))}
+              <div className="w-[6vw] flex-shrink-0" />
+            </motion.div>
           </div>
         </div>
       </section>
