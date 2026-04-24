@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import StarField from './components/StarField'
 import LoadingScreen from './components/LoadingScreen'
 import ContactWidget from './components/ContactWidget'
+import ScrollCTA from './components/ScrollCTA'
 import { useTheme } from './hooks/useTheme'
 import { IntroProvider, useIntroPhase } from './hooks/useIntro'
 import Home from './pages/Home'
@@ -81,6 +82,7 @@ function AppShell() {
           <Footer />
         </motion.div>
         <ContactWidget />
+        <ScrollCTA />
       </div>
     </div>
   )
