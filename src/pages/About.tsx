@@ -63,11 +63,12 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Nérée est un studio digital indépendant basé à Paris, fondé par
-            Arthur Souleil. Une trajectoire singulière — études de droit,
-            bascule vers le développement, spécialisation cabinets d'avocats
-            puis ouverture à toutes les marques exigeantes. Aucun projet ne
-            ressemble à un autre, le détail est un produit en soi.
+            Nérée est un studio digital indépendant basé à Paris, co-fondé
+            par Arthur Souleil et Margaux Kettner. Une trajectoire singulière
+            — études de droit, bascule vers le développement, spécialisation
+            cabinets d'avocats puis ouverture à toutes les marques exigeantes.
+            Aucun projet ne ressemble à un autre, le détail est un produit
+            en soi.
           </motion.p>
         </div>
       </div>
@@ -133,60 +134,94 @@ export default function About() {
         </div>
       </section>
 
-      {/* ═══ FOUNDER ═══ */}
+      {/* ═══ CO-FONDATEURS ═══ */}
       <section className="py-28 px-6 lg:px-8 bg-surface border-t border-rule">
         <div className="max-w-content mx-auto">
-          <div className="grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 items-start">
-            <FadeUpSection>
-              <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Fondateur</span>
-              <h2 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] mb-8">
-                Arthur Souleil
-              </h2>
-              <div className="aspect-[4/5] max-w-xs rounded-md overflow-hidden relative border border-rule-strong bg-gradient-to-br from-[#1a1a18] to-[#3A6B95]">
-                <img
-                  src="/arthur-souleil.png"
-                  alt="Arthur Souleil"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-0">
-                  <span className="font-serif text-[8rem] text-white/15">AS</span>
+          <FadeUpSection className="mb-20">
+            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-accent block mb-4">Co-fondateurs</span>
+            <h2 className="font-serif text-h2 md:text-[2.8rem] text-primary leading-[1.15]">À la tête du studio</h2>
+          </FadeUpSection>
+
+          {[
+            {
+              name: 'Arthur Souleil',
+              initials: 'AS',
+              photo: '/arthur-souleil.png',
+              location: 'Paris · FR',
+              role: 'Direction artistique & produit',
+              bio: [
+                "Arthur combine un parcours atypique : droit, développement, direction artistique. Cette triangulation se retrouve dans chaque projet — la rigueur d'un juriste, l'exigence d'un designer, la précision d'un ingénieur.",
+                "Il intervient personnellement sur toutes les phases des projets Nérée : cadrage stratégique, direction artistique, architecture technique. Aucune délégation sur les décisions structurantes.",
+              ],
+              details: [
+                { k: 'Formation', v: 'Master de droit\nAutodidacte en design & code' },
+                { k: 'Spécialités', v: 'Direction artistique\nArchitecture produit' },
+                { k: 'Conférences', v: 'EFB Paris, Awwwards\nMeetups DA' },
+                { k: 'Langues', v: 'Français, Anglais,\nItalien' },
+              ],
+            },
+            {
+              name: 'Margaux Kettner',
+              initials: 'MK',
+              photo: '/margaux-kettner.jpg',
+              location: 'Paris · FR',
+              role: 'Direction stratégique & relations clients',
+              bio: [
+                "Margaux structure la relation client et la stratégie du studio. Elle traduit les ambitions des marques en cahiers des charges précis, et veille à ce que chaque projet livré tienne la promesse posée au brief.",
+                "Elle pilote les opérations, la coordination des phases de production et le suivi long terme des clients. Son exigence sur le cadre permet à la direction artistique de pousser le détail sans compromis.",
+              ],
+              details: [
+                { k: 'Formation', v: 'École de commerce\nStratégie & marque' },
+                { k: 'Spécialités', v: 'Direction stratégique\nRelations clients' },
+                { k: 'Conférences', v: 'Rencontres marques\nMeetups studios indé' },
+                { k: 'Langues', v: 'Français, Anglais,\nAllemand' },
+              ],
+            },
+          ].map((person, idx) => (
+            <div
+              key={person.name}
+              className={`grid md:grid-cols-[1fr_1.5fr] gap-10 md:gap-20 items-start ${idx > 0 ? 'mt-24 pt-24 border-t border-rule' : ''}`}
+            >
+              <FadeUpSection>
+                <h3 className="font-serif text-[clamp(2rem,5vw,3.5rem)] text-primary leading-[1.1] mb-8">
+                  {person.name}
+                </h3>
+                <div className="aspect-[4/5] max-w-xs rounded-md overflow-hidden relative border border-rule-strong bg-gradient-to-br from-[#1a1a18] to-[#3A6B95]">
+                  <img
+                    src={person.photo}
+                    alt={person.name}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none' }}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-0">
+                    <span className="font-serif text-[8rem] text-white/15">{person.initials}</span>
+                  </div>
+                  <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
+                    <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/90">{person.location}</span>
+                    <span className="font-serif text-white text-lg drop-shadow-md">{person.role}</span>
+                  </div>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1">
-                  <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-white/90">Paris · FR</span>
-                  <span className="font-serif text-white text-lg drop-shadow-md">Directeur de studio</span>
-                </div>
+              </FadeUpSection>
+              <div className="space-y-8">
+                {person.bio.map((paragraph, i) => (
+                  <FadeUpSection key={i} delay={0.1 + i * 0.05}>
+                    <p className="text-secondary leading-relaxed text-[15px]">{paragraph}</p>
+                  </FadeUpSection>
+                ))}
+                <FadeUpSection delay={0.2}>
+                  <div className="grid grid-cols-2 gap-6 border-t border-rule pt-8">
+                    {person.details.map((row) => (
+                      <div key={row.k}>
+                        <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted mb-2">{row.k}</div>
+                        <div className="text-sm text-primary whitespace-pre-line leading-relaxed">{row.v}</div>
+                      </div>
+                    ))}
+                  </div>
+                </FadeUpSection>
               </div>
-            </FadeUpSection>
-            <div className="space-y-8">
-              <FadeUpSection delay={0.1}>
-                <p className="text-secondary leading-relaxed text-[15px]">
-                  Arthur combine un parcours atypique : droit, développement, direction artistique. Cette triangulation se retrouve dans chaque projet — la rigueur d'un juriste, l'exigence d'un designer, la précision d'un ingénieur.
-                </p>
-              </FadeUpSection>
-              <FadeUpSection delay={0.15}>
-                <p className="text-secondary leading-relaxed text-[15px]">
-                  Il intervient personnellement sur toutes les phases des projets Nérée : cadrage stratégique, direction artistique, architecture technique. Aucune délégation sur les décisions structurantes.
-                </p>
-              </FadeUpSection>
-              <FadeUpSection delay={0.2}>
-                <div className="grid grid-cols-2 gap-6 border-t border-rule pt-8">
-                  {[
-                    { k: 'Formation', v: 'Master de droit\nAutodidacte en design & code' },
-                    { k: 'Spécialités', v: 'Direction artistique\nArchitecture produit' },
-                    { k: 'Conférences', v: 'EFB Paris, Awwwards\nMeetups DA' },
-                    { k: 'Langues', v: 'Français, Anglais,\nItalien' },
-                  ].map((row) => (
-                    <div key={row.k}>
-                      <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-muted mb-2">{row.k}</div>
-                      <div className="text-sm text-primary whitespace-pre-line leading-relaxed">{row.v}</div>
-                    </div>
-                  ))}
-                </div>
-              </FadeUpSection>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
